@@ -3,4 +3,3 @@ aiohttp
 websockets
 chardet
 asyncio
-logging==15.7
