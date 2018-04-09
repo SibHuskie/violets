@@ -623,4 +623,9 @@ attacks = ["Punches the opponent :punch: ", "Kicks the opponent :boot: ", "Throw
            "Drives over the opponent :red_car: ", "Chops off the opponent's leg :crossed_swords: ", "Drains some of the opponent's life :broken_heart: ", "Steals the opponent's soul :black_heart: ", "Stuns the opponent :octagonal_sign: ",
            "Uses nuclear energy to attack the opponent :radioactive: ", "Blinds the opponent :eye: ", "Deafens the opponent :ear: ", "Uses mind control on the opponent :alien: ", "Summons minions to attack the opponent :busts_in_silhouette: ",
            "Traps the opponent :spider_web: "] 
+
+@client.command(pass_context=True)
+async def dice(ctx):
+    r=random.randint(1,6)
+    await client.send_message(ctx.message.channel, "You rolled a " + str(r) + "!")
 client.run(os.environ['BOT_TOKEN'])
