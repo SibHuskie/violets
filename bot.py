@@ -741,5 +741,4 @@ async def punish(ctx, userName: discord.Member = None, time: int = None, *, args
                 await client.say("```diff\n- Removed {}'s punishment! ({} minute(s) are up.)\n```".format(userName.display_name, time))
     else:
         msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
-        await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
