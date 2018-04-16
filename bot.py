@@ -199,13 +199,21 @@ async def serverinfo(ctx):
     msg.add_field(name="REGION", value=(ctx.message.server.region), inline=True)
     msg.add_field(name="ROLES", value=(len(ctx.message.server.roles)), inline=True)
     msg.add_field(name="OWNER", value=(ctx.message.server.owner), inline=True)
-    msg.add_field(name="CREATED AT", value=(ctx.message.server.created_at), inline=True)
     msg.add_field(name="RELEASE DATE:", value="23th of March 2018", inline=True)
     await client.say(embed=msg)
     print("============================================================")
     print("<serverinfo")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+
+# serverinfo
+@client.command(pass_context=True)
+async def mc(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ":closed_book: Member Count :closed_book:"
+    msg.add_field(name="MEMBERS", value=(len(ctx.message.server.members)), inline=True)
+    await client.say(embed=msg)
 
 # }userinfo <user>
 @client.command(pass_context=True)
