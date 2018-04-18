@@ -705,6 +705,7 @@ async def kick(ctx, userName: discord.Member = None, *, args = None):
 # }punish <user> <time> [reason]
 @client.command(pass_context=True)
 async def punish(ctx, userName: discord.Member = None, time: int = None, *, args = None):
+    member_role = discord.utils.get(ctx.message.server.roles, name ='Members')
     punished_role = discord.utils.get(ctx.message.server.roles, name='Punished')
     helper_role = discord.utils.get(ctx.message.server.roles, name='Helpers')
     mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
@@ -729,6 +730,7 @@ async def punish(ctx, userName: discord.Member = None, time: int = None, *, args
             time2 = time * 60
             if args == None:
                 await client.add_roles(userName, punished_role)
+                await client.remove_roles(userName, member_role)
                 msg.add_field(name=":no_entry_sign: ", value="`{} has been punished by {}! for {} minute(s)!`\n`Reason: ?`".format(userName.display_name, author.display_name, time))
                 await client.say(embed=msg)
                 await asyncio.sleep(float(time2))
@@ -742,6 +744,6 @@ async def punish(ctx, userName: discord.Member = None, time: int = None, *, args
                 await client.remove_roles(userName, punished_role)
                 await client.say("```diff\n- Removed {}'s punishment! ({} minute(s) are up.)\n```".format(userName.display_name, time))
     else:
-        msg.add_field(name=":octagonal_sign: ", value="`This command can only be used by staff!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
         await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
