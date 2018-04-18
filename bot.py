@@ -64,32 +64,6 @@ async def cookie(ctx, *, member : discord.Member = None):
     else:
         await client.say(member.mention + " was given a cookie by " + ctx.message.author.mention + "! :cookie:")
 
-#KICK
-@client.command(pass_context=True)
-async def kick(ctx, userName: discord.Member = None, *, args = None):
-    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
-    author = ctx.message.author
-    msg = discord.Embed(colour=0x871485, description= "")
-    msg.title = ""
-    if staff_role in author.roles or staff_role in author.roles or staff_role in author.roles or staff_role in author.roles:
-        if userName == None:
-            msg.add_field(name=":octagonal_sign: ", value="`<kick <user> [reason]`")
-        elif staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles:
-            msg.add_field(name=":octagonal_sign: ", value="`You can't kick other staff!`")
-        elif args == None:
-            msg.add_field(name=":boot: Kicker", value="`{} kicked {}!`\n`Reason: ?`".format(author.display_name, userName.display_name))
-            await client.kick(userName)
-        else:
-            msg.add_field(name=":boot: Kicker", value="`{} kicked {}!`\n`Reason: {}`".format(author.display_name, userName.display_name, args))
-            await client.kick(userName)
-    else:
-        msg.add_field(name=":octagonal_sign: ", value="`This command can only be used by Staff!`")
-    await client.say(embed=msg)
-    print("============================================================")
-    print("}kick <user> [reason]")
-    print("{} ### {}".format(author, author.id))
-    print("============================================================")
-
 # }ban <user> [reason]
 @client.command(pass_context=True)
 async def ban(ctx, userName: discord.Member = None, *, args = None):
@@ -693,11 +667,38 @@ async def warn(ctx, userName: discord.Member = None, *, args = None):
                 msg.add_field(name=":warning: ", value="`You cannot warn other staff!`")
                 await client.say(embed=msg)
             else:
-                msg2.add_field(name=":pencil: ", value="`You have been warned by {} in The Realm Of Darkness!`\n`Reason: {}`".format(author.display_name, args))
+                msg2.add_field(name=":pencil: ", value="`You have been warned by {} in Violets!`\n`Reason: {}`".format(author.display_name, args))
                 msg.add_field(name=":pencil: ", value="`{} warned {}!`\n`Reason: {}`".format(author.display_name, userName.display_name, args))
                 await client.say(embed=msg)
                 await client.send_message(userName, embed=msg2)
     else:
         msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
         await client.say(embed=msg)
+        
+# <kick <user> [reason]
+@client.command(pass_context=True)
+async def kick(ctx, userName: discord.Member = None, *, args = None):
+    helper_role = discord.utils.get(ctx.message.server.roles, name='Helpers')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Dark Lords (Owners)')
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
+        if userName == None:
+            msg.add_field(name=":warning: ", value="`<kick (user) (reason)`")
+        elif helper_role in userName.roles or mod_role in userName.roles or admin_role in userName.roles or manager_role in userName.roles or owner_role in userName.roles:
+            msg.add_field(name=":warning: ", value="`You can't kick other staff!`")
+        elif args == None:
+            msg.add_field(name=":boot: Kicker", value="`{} kicked {}!`\n`Reason: ?`".format(author.display_name, userName.display_name))
+            await client.kick(userName)
+        else:
+            msg.add_field(name=":boot: Kicker", value="`{} kicked {}!`\n`Reason: {}`".format(author.display_name, userName.display_name, args))
+            await client.kick(userName)
+    else:
+        msg.add_field(name=":octagonal_sign: ", value="`This command can only be used by Moderators, Administrators, Managers and Owners!`")
+    await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
