@@ -6,7 +6,7 @@ import random
 import time
 import os
 
-client = commands.Bot(command_prefix="<")
+client = commands.Bot(command_prefix="v ")
 footer_text = "Violets™"
 
 @client.event
@@ -15,7 +15,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print("---------------")
-    await client.change_presence(game=discord.Game(name='with Huskie'))
+    await client.change_presence(game=discord.Game(name='wit a God (Huskie)'))
 
 @client.command()
 async def test():
