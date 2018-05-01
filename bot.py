@@ -6,6 +6,7 @@ import random
 import time
 import os
 
+client = commands.Bot(command_prefix="")
 footer_text = "Violets™"
 
 @client.event
