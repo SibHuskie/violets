@@ -18,11 +18,11 @@ async def on_ready():
     await client.change_presence(game=discord.Game(name='wit a God (Huskie)'))
 
 @client.command()
-async def test():
+async def testing():
     await client.say("Testing? Testing...")
 
 @client.command(pass_context = True)
-async def kill(ctx, *, member : discord.Member = None):
+async def v!kill(ctx, *, member : discord.Member = None):
     if member is None:
         await client.say(ctx.message.author.mention + ", I can't kill someone unless you tell me who you want to kill! :dagger:")
         return
@@ -50,7 +50,7 @@ killResponses = ["%s 'accidentaly' fell into a ditch, rip...",
 
 #RAPE
 @client.command(pass_context = True)
-async def rape(ctx, *, member : discord.Member = None):
+async def v!rape(ctx, *, member : discord.Member = None):
     if member is None:
         await client.say(ctx.message.author.mention + ", you need to find someone to rape.")
     else:
@@ -58,7 +58,7 @@ async def rape(ctx, *, member : discord.Member = None):
 
 #COOKIE
 @client.command(pass_context = True)
-async def cookie(ctx, *, member : discord.Member = None):
+async def v!cookie(ctx, *, member : discord.Member = None):
     if member is None:
         await client.say(ctx.message.author.mention + ", give cookies to other members! :laughing:")
     else:
@@ -66,7 +66,7 @@ async def cookie(ctx, *, member : discord.Member = None):
 
 # }ban <user> [reason]
 @client.command(pass_context=True)
-async def ban(ctx, userName: discord.Member = None, *, args = None):
+async def v!ban(ctx, userName: discord.Member = None, *, args = None):
     staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
@@ -92,7 +92,7 @@ async def ban(ctx, userName: discord.Member = None, *, args = None):
 
 # }tempban <user> <time> [reason]
 @client.command(pass_context=True)
-async def tempban(ctx, userName: discord.Member = None, time: int = None, *, args = None):
+async def v!tempban(ctx, userName: discord.Member = None, time: int = None, *, args = None):
     staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
@@ -136,7 +136,7 @@ async def tempban(ctx, userName: discord.Member = None, time: int = None, *, arg
 
 # }unban <user id>
 @client.command(pass_context=True)
-async def unban(ctx, userID = None):
+async def v!unban(ctx, userID = None):
     staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
@@ -191,7 +191,7 @@ async def mc(ctx):
 
 # }userinfo <user>
 @client.command(pass_context=True)
-async def userinfo(ctx, userName: discord.Member = None):
+async def v!userinfo(ctx, userName: discord.Member = None):
     member_role = discord.utils.get(ctx.message.server.roles, name='Member')
     staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
     author = ctx.message.author
@@ -224,7 +224,7 @@ async def userinfo(ctx, userName: discord.Member = None):
 
 # <lick <user>
 @client.command(pass_context=True)
-async def lick(ctx, userName: discord.Member = None):
+async def v!lick(ctx, userName: discord.Member = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -250,7 +250,7 @@ licklinks = ["https://i.imgur.com/QkRz1GJ.gif",
 
 # <takerole <user> <role name>
 @client.command(pass_context=True)
-async def takerole(ctx, userName: discord.Member = None, *, args = None):
+async def v!takerole(ctx, userName: discord.Member = None, *, args = None):
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     coowner_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
@@ -281,7 +281,7 @@ async def takerole(ctx, userName: discord.Member = None, *, args = None):
 
 # <giverole <user> <role name>
 @client.command(pass_context=True)
-async def giverole(ctx, userName: discord.Member = None, *, args = None):
+async def v!giverole(ctx, userName: discord.Member = None, *, args = None):
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     coowner_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
@@ -313,7 +313,7 @@ async def giverole(ctx, userName: discord.Member = None, *, args = None):
 
 # <echo <text>
 @client.command(pass_context=True)
-async def echo(ctx, *, args=None): 
+async def v!echo(ctx, *, args=None): 
     staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
@@ -332,7 +332,7 @@ async def echo(ctx, *, args=None):
 
 # <hug <user>
 @client.command(pass_context=True)
-async def hug(ctx, userName: discord.Member = None):
+async def v!hug(ctx, userName: discord.Member = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -366,7 +366,7 @@ huglinks = ["https://i.imgur.com/yE2RnXK.gif",
 
 # <cuddle <user>
 @client.command(pass_context=True)
-async def cuddle(ctx, userName: discord.Member = None):
+async def v!cuddle(ctx, userName: discord.Member = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -391,7 +391,7 @@ cuddlelinks = ["https://i.imgur.com/GWNWcLH.gif",
 
 # <pat <user>
 @client.command(pass_context=True)
-async def pat(ctx, userName: discord.Member = None):
+async def v!pat(ctx, userName: discord.Member = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -421,7 +421,7 @@ patlinks = ["https://i.imgur.com/8eApUKG.gif",
 
 # <kiss <user>
 @client.command(pass_context=True)
-async def kiss(ctx, userName: discord.Member = None):
+async def v!kiss(ctx, userName: discord.Member = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -474,7 +474,7 @@ async def on_member_remove(userName: discord.User):
 
 # <eightball <yes or no question>
 @client.command(pass_context=True)
-async def eightball(ctx, *, args=None):
+async def v!eightball(ctx, *, args=None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -503,7 +503,7 @@ eightballmsgs = ["Yes!",
 
 # <poke <user>
 @client.command(pass_context=True)
-async def poke(ctx, userName: discord.Member = None):
+async def v!poke(ctx, userName: discord.Member = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -529,7 +529,7 @@ pokelinks = ["https://i.imgur.com/HAAktbl.gif",
 
 # <spank <user>
 @client.command(pass_context=True)
-async def spank(ctx, userName: discord.Member = None):
+async def v!spank(ctx, userName: discord.Member = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -554,7 +554,7 @@ spanklinks = ["https://i.imgur.com/dt1TTQu.gif",
 
 # }calculator <math problem>
 @client.command(pass_context=True)
-async def calculator(ctx, *, args=None):
+async def v!calculator(ctx, *, args=None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -572,7 +572,7 @@ async def calculator(ctx, *, args=None):
 
 # <battle <user>
 @client.command(pass_context=True)
-async def battle(ctx, userName: discord.Member = None):
+async def v!battle(ctx, userName: discord.Member = None):
     attacker = random.randint(0, 301)
     attacked = random.randint(0, 301)
     attackerhealth = 300 - attacked
@@ -607,13 +607,13 @@ attacks = ["Punches the opponent :punch: ", "Kicks the opponent :boot: ", "Throw
            "Traps the opponent :spider_web: "] 
 
 @client.command(pass_context=True)
-async def dice(ctx):
+async def v!dice(ctx):
     r=random.randint(1,6)
     await client.send_message(ctx.message.channel, "You rolled a " + str(r) + "!")
     
 # <matchmake <user1> <user2>
 @client.command(pass_context=True)
-async def ship(ctx, userName1: discord.Member = None, userName2: discord.Member = None):
+async def v!ship(ctx, userName1: discord.Member = None, userName2: discord.Member = None):
     percent = random.randint(0, 101)
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
@@ -645,7 +645,7 @@ async def ship(ctx, userName1: discord.Member = None, userName2: discord.Member 
     await client.say(embed=msg)
     
 @client.command(pass_context=True)
-async def warn(ctx, userName: discord.Member = None, *, args = None):
+async def v!warn(ctx, userName: discord.Member = None, *, args = None):
     helper_role = discord.utils.get(ctx.message.server.roles, name='Helper')
     mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
@@ -677,7 +677,7 @@ async def warn(ctx, userName: discord.Member = None, *, args = None):
         
 # <kick <user> [reason]
 @client.command(pass_context=True)
-async def kick(ctx, userName: discord.Member = None, *, args = None):
+async def v!kick(ctx, userName: discord.Member = None, *, args = None):
     helper_role = discord.utils.get(ctx.message.server.roles, name='Helpers')
     mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
@@ -704,7 +704,7 @@ async def kick(ctx, userName: discord.Member = None, *, args = None):
     
 # }punish <user> <time> [reason]
 @client.command(pass_context=True)
-async def punish(ctx, userName: discord.Member = None, time: int = None, *, args = None):
+async def v!punish(ctx, userName: discord.Member = None, time: int = None, *, args = None):
     member_role = discord.utils.get(ctx.message.server.roles, name ='Members')
     punished_role = discord.utils.get(ctx.message.server.roles, name='Punished')
     helper_role = discord.utils.get(ctx.message.server.roles, name='Helpers')
