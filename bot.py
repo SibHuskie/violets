@@ -751,6 +751,7 @@ async def punish(ctx, userName: discord.Member = None, time: int = None, *, args
 @client.command(pass_context=True)
 async def partner(ctx, userName: discord.Member = None):
     partner_role = discord.utils.get(ctx.message.server.roles, name='Partners')
+    pm_role = discord.utils.get(ctx.message.server.roles, name ='Partnership Manager')
     mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
@@ -759,7 +760,7 @@ async def partner(ctx, userName: discord.Member = None):
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    if mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
+    if pm_role in author.roles or mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
         if userName == None:
             msg.add_field(name=":warning: ", value="`v!partner <user>`")
         else:
