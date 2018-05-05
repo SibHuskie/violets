@@ -777,4 +777,33 @@ async def partner(ctx, userName: discord.Member = None):
     print("}partner <user>")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+    
+# }purge <number>
+@client.command(pass_context=True)
+async def purge(ctx, number: int = None):
+    helper_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if helper_role in author.roles or mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
+        if number == None:
+            msg.add_field(name=":warning: ", value="`v!purge <number>`")
+        else:
+            deleted = await client.purge_from(ctx.message.channel, limit=number)
+            if len(deleted) < number:
+                msg.add_field(name=":wastebasket: ", value="`{} tried to delete {} messages!`\n`Deleted {} message(s)!`".format(author.display_name, number, len(deleted)))
+            else:
+                msg.add_field(name=":wastebasket: ", value="`{} deleted {} message(s)!`".format(author.display_name, len(deleted)))
+    else:
+        msg.add_field(name=":octagonal_sign: ", value="`This command can only be used by staff!`")
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}purge <number>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
 client.run(os.environ['BOT_TOKEN'])
