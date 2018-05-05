@@ -746,4 +746,34 @@ async def punish(ctx, userName: discord.Member = None, time: int = None, *, args
     else:
         msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
         await client.say(embed=msg)
+        
+# }partner <user>
+@client.command(pass_context=True)
+async def partner(ctx, userName: discord.Member = None):
+    partner_role = discord.utils.get(ctx.message.server.roles, name='Partners')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x210150, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
+        if userName == None:
+            msg.add_field(name=":warning: ", value="`v!partner <user>`")
+        else:
+            if partner_role in userName.roles:
+                await client.remove_roles(userName, partner_role)
+                msg.add_field(name=":credit_card: ", value="`{} removed the partnership with {}!`".format(author.display_name, userName.display_name))
+            else:
+                await client.add_roles(userName, partner_role)
+                msg.add_field(name=":credit_card: ", value="`{} partnered with {}!`".format(author.display_name, userName.display_name))
+    else:
+        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Co-Owners and Owners!`")
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}partner <user>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
 client.run(os.environ['BOT_TOKEN'])
