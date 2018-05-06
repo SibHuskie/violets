@@ -800,10 +800,26 @@ async def purge(ctx, number: int = None):
             else:
                 msg.add_field(name=":wastebasket: ", value="`{} deleted {} message(s)!`".format(author.display_name, len(deleted)))
     else:
-        msg.add_field(name=":octagonal_sign: ", value="`This command can only be used by staff!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
     await client.say(embed=msg)
     print("============================================================")
     print("}purge <number>")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+    
+# }help
+client.remove_command('help')
+@client.command(pass_context=True)
+async def help(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.add_field(name=":incoming_envelope: ", value="`You can see all commands in the #violet-commands channel!`")
+    msg.set_footer(text=footer_text)
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}help")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+
 client.run(os.environ['BOT_TOKEN'])
