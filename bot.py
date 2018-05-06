@@ -832,7 +832,7 @@ async def on_message(message):
         if word.upper() in husk_filter:
             if not message.author.id in bypass_list:
                 await client.send_message(message.channel, ":wolf: ")
-                
+              
 word_filter = ["NIGGA", "NIGGER", "NIGG"]
 
 @client.event
