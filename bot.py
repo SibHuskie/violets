@@ -833,8 +833,7 @@ async def on_message(message):
             if not message.author.id in bypass_list:
                 await client.send_message(message.channel, ":wolf: ")
                 
-word_filter = ["NIGGER", "NIGGA"]
-bypass_list = []
+word_filter = ["NIGGER", "NIGGA", "NIGG"]
 
 @client.event
 async def on_message(message):
