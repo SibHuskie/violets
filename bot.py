@@ -9,19 +9,6 @@ import os
 client = commands.Bot(command_prefix="v!")
 footer_text = "Violets™"
 
-husk_filter = ["HUSKIE", "HUSKY"]
-bypass_list = []
-
-@client.event
-async def on_message(message):
-    contents = message.content.split(" ")
-    for word in contents:
-        if word.upper() in husk_filter:
-            if not message.author.id in bypass_list:
-                await client.send_message(message.channel, ":wolf: ")
-            except discord.errors.NotFounds:
-                return
-
 @client.event
 async def on_ready():
     print("Logged in as:")
