@@ -822,9 +822,8 @@ async def help(ctx):
     print("{} ### {}".format(author, author.id))
     print("============================================================")
 
-chat_filter = ["NIGGER", "NIGGA", "NIGG", "NIG"]
+chat_filter = ["HUSKY", "HUSKIE"]
 bypass_list = []
-huskie = ["HUSKY", "HUSKIE"]
     
 @client.event
 async def on_message(message):
@@ -833,18 +832,5 @@ async def on_message(message):
         if word.upper() in chat_filter:
             if not message.author.id in bypass_list:
                 try:
-                    await client.delete_message(message)
-                    await client.send_message(message.channel, "**Nope**")
-                
-@client.event
-async def on_message(message):
-    contents = message.content.split(" ")
-    for word in contents:
-        if word.upper() in huskie:
-            if not message.author.id in bypass_list:
-                try:
-                    await client.delete_message(message)
-                    await client.send_message(message.channel, ":wolf ")
-                except discord.errors.NotFound:
-                    return
+                    await client.send_message(message.channel, ":wolf: ")
 client.run(os.environ['BOT_TOKEN'])
