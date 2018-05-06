@@ -821,8 +821,7 @@ async def help(ctx):
     print("}help")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
-    
-    
+   
 husk_filter = ["HUSKIE", "HUSKY"]
 bypass_list = []
 
