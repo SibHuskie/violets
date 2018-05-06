@@ -831,5 +831,5 @@ async def on_message(message):
     for word in contents:
         if word.upper() in husk_filter:
             if not message.author.id in bypass_list:
-                await client.send_message(message.channel, ":Doggo_what:")
+                await client.send_message(message.channel, ":wolf: ")
 client.run(os.environ['BOT_TOKEN'])
