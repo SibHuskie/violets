@@ -829,7 +829,7 @@ bypass_list = []
 async def on_message(message):
     contents = message.content.split(" ")
     for word in contents:
-        if word.upper)_ in husk_filter:
+        if word.upper() in husk_filter:
             if not message.author.id in bypass_list:
                 await client.send_message(message.channel, ":Doggo_what:")
 client.run(os.environ['BOT_TOKEN'])
