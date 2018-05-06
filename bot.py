@@ -840,7 +840,6 @@ async def on_message(message):
     contents = message.content.split(" ")
     for word in contents:
         if word.upper() in word_filter:
-            if not message.author.id in bypass_list:
                 await client.delete_message(message)
                 await client.send_message(message.channel, ":wolf: ")
 client.run(os.environ['BOT_TOKEN'])
