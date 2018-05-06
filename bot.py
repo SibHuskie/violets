@@ -821,4 +821,17 @@ async def help(ctx):
     print("}help")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+    
+husk_filter = ["HUSKIE", "HUSKY"]
+bypass_list = []
+
+@client.event
+async def on_message(message):
+    contents = message.content.split(" ")
+    for word in contents:
+        if word.upper() in husk_filter:
+            if not message.author.id in bypass_list:
+                await client.send_message(message.channel, ":wolf: ")
+            except discord.errors.NotFounds:
+                return
 client.run(os.environ['BOT_TOKEN'])
