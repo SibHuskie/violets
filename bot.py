@@ -835,8 +835,6 @@ async def on_message(message):
                 try:
                     await client.delete_message(message)
                     await client.send_message(message.channel, "**Nope**")
-                except discord.errors.NotFound:
-                    return
                 
 @client.event
 async def on_message(message):
