@@ -834,6 +834,5 @@ async def on_message(message):
             try:
                 await client.delete_message(message)
                 await client.send_message(message.channel, ":wolf: ")
-            except discord.errors.NotFound:
-                return
+
 client.run(os.environ['BOT_TOKEN'])
