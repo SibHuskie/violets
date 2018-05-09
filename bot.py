@@ -417,7 +417,8 @@ patlinks = ["https://i.imgur.com/8eApUKG.gif",
             "https://i.imgur.com/mFFr4e0.gif",
             "https://i.imgur.com/3F7kmCd.gif",
             "https://i.imgur.com/7yFvJ6m.gif",
-            "https://i.imgur.com/y3La9yP.gif"]
+            "https://i.imgur.com/y3La9yP.gif",
+           "https://i.imgur.com/u7kxk2Y.mp4"]
 
 # <kiss <user>
 @client.command(pass_context=True)
