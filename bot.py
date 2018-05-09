@@ -821,4 +821,66 @@ async def help(ctx):
     print("}help")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+    
+# <sorry <user>
+@client.command(pass_context=True)
+async def sorry(ctx, userName: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if userName == None:
+        msg.add_field(name=":warning: ", value="`v!sorry (user)`")
+    else:
+        msg.set_image(url="{}".format(random.choice(sorrylinks)))
+        msg.add_field(name=":tongue: Emotes :tongue:", value="`{}, {} is saying sorry!`".format(userName.display_name, author.display_name), inline=True)
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}hug <user>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+
+sorrylinks = ["https://i.imgur.com/9f2FsAQ.gif",
+            "https://i.imgur.com/9f2FsAQ.gif",
+            "https://i.imgur.com/9f2FsAQ.gif"]
+
+# %annoy <user> [text]
+@client.command(pass_context=True)
+async def annoy(ctx, userName: discord.Member = None, *, args = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if userName == None:
+        msg.add_field(name=":warning: ", value="`v!annoy (user) (text)`")
+        await client.say(embed=msg)
+    else:
+        if args == None:
+            msg.add_field(name=":drooling_face: ", value="`Sending a beautiful video to {}...`".format(userName.display_name))
+            await client.say(embed=msg)
+            await client.send_message(userName, "{}".format(random.choice(rickrolls)))
+        else:
+            msg.add_field(name=":drooling_face: ", value="`Sliding in {}'s DMs...`".format(userName.display_name))
+            await client.say(embed=msg)
+            await client.send_message(userName, "{}".format(args))
+    print("============================================================")
+    print("}rickroll <user>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+    
+rickrolls = ["https://www.youtube.com/watch?v=V-_O7nl0Ii0",
+             "https://www.youtube.com/watch?v=ID_L0aGI9bg",
+             "https://www.youtube.com/watch?v=yBLdQ1a4-JI",
+             "https://www.youtube.com/watch?v=6-HUgzYPm9g",
+             "https://www.youtube.com/watch?v=Gc2u6AFImn8",
+             "https://www.youtube.com/watch?v=4n7_Il1dft0",
+             "https://www.youtube.com/watch?v=OL7B2z56ziQ",
+             "https://www.youtube.com/watch?v=li7qFeHI5KM",
+             "https://www.youtube.com/watch?v=wvWX-jWhLBI",
+             "https://youtu.be/ByC8sRdL-Ro",
+             "https://www.youtube.com/watch?v=HoWcnTsc5s8",
+             "hi lol",
+             "https://www.youtube.com/watch?v=E9DlT_DS0wA",
+             "https://youtu.be/rp8hvyjZWHs",
+             "https://www.youtube.com/watch?v=3HfnLwopb58"]
 client.run(os.environ['BOT_TOKEN'])
