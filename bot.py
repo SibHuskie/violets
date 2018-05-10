@@ -937,3 +937,4 @@ async def report(ctx, userName: discord.Member = None, *, args = None):
     print("}report <user> <reason>")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+client.run(os.environ['BOT_TOKEN'])
