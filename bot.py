@@ -924,7 +924,7 @@ async def rps(ctx, args=None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
-        msg.add_field(name=":warning: ", value="`v!rps (rock/paper/scissors)`")
+        msg.add_field(name=":warning: ", value="`v!rps <rock/paper/scissors>`")
     elif args == "rock" or args == "paper" or args == "scissors":
         msg.add_field(name=":fist: :raised_hand: :v: ROCK PAPER SCISSORS :v: :raised_hand: :fist: ", value="**~~=================================~~**\n:arrow_forward: `{}`: {}\n:arrow_forward: `BOT`: {}\n**~~=================================~~**".format(author.display_name, args, choice), inline=True)
         if args == "rock" and choice == "scissors":
@@ -946,7 +946,7 @@ async def rps(ctx, args=None):
         else:
             msg.add_field(name=":diamonds: W I N N E R :diamonds: ", value="It's a tie!\n**~~=================================~~**", inline=True)
     else:
-        msg.add_field(name=":warning: ", value="`v!rps (rock/paper/scissors)`")
+        msg.add_field(name=":warning: ", value="`v!rps <rock/paper/scissors>`")
     await client.say(embed=msg)
     print("============================================================")
     print("}rps <rock/paper/scissors>")
