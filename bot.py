@@ -937,4 +937,33 @@ async def report(ctx, userName: discord.Member = None, *, args = None):
     print("}report <user> <reason>")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+    
+# }pardon <user>
+@client.command(pass_context=True)
+async def unmute(ctx, userName: discord.Member = None):
+    punished_role = discord.utils.get(ctx.message.server.roles, name='Muted')
+    helper_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if helper_role in author.roles or mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
+        if userName == None:
+            msg.add_field(name=":warning: ", value="`v!unmute (user)`")
+        elif punished_role in userName.roles:
+            await client.remove_roles(userName, punished_role)
+            msg.add_field(name=":speak_no_evil: ", value="`{} unmuted {}!`".format(author.display_name, userName.display_name))
+        else:
+            msg.add_field(name=":warning: ", value="`{} is not muted!`".format(userName.display_name))
+    else:
+        msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}pardon <user>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
 client.run(os.environ['BOT_TOKEN'])
