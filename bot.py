@@ -937,4 +937,21 @@ async def report(ctx, userName: discord.Member = None, *, args = None):
     print("}report <user> <reason>")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+    
+# }rate <text>
+@client.command(pass_context=True)
+async def rate(ctx, *, args = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=":warning: ", value="`v!rate <text>`")
+    else:
+        msg.add_field(name=":scales:", value="`I'd rate {} a {}/10`".format(args, random.randint(0, 11)))
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}rate <text>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
 client.run(os.environ['BOT_TOKEN'])
