@@ -5,8 +5,6 @@ import asyncio
 import random
 import time
 import os
-from gtts import gTTS
-import pickle
 
 client = commands.Bot(command_prefix="v!")
 footer_text = "Violets™"
