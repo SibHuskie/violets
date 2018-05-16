@@ -972,11 +972,11 @@ async def mute(ctx, userName: discord.Member = None):
         if userName == None:
             msg.add_field(name=":warning: ", value="`v!mute <user>`")
         else:
-            if partner_role in userName.roles:
-                await client.remove_roles(userName, partner_role)
+            if muted_role in userName.roles:
+                await client.remove_roles(userName, muted_role)
                 msg.add_field(name=":speak_no_evil: ", value="`{} unmuted {}!`".format(author.display_name, userName.display_name))
             else:
-                await client.add_roles(userName, partner_role)
+                await client.add_roles(userName, muted_role)
                 msg.add_field(name=":speak_no_evil: ", value="`{} muted {}!`".format(author.display_name, userName.display_name))
     else:
         msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Co-Owners and Owners!`")
