@@ -1076,4 +1076,30 @@ crylinks = ["https://media1.giphy.com/media/ROF8OQvDmxytW/giphy-downsized.gif",
             "https://i.pinimg.com/originals/73/3d/59/733d5948098702b0d6f156819143b581.gif",
             "https://67.media.tumblr.com/aa7766807df523677bb9c73da94ee049/tumblr_npwxeb2dPp1u7ltf6o1_500.gif",
             "https://static2.fjcdn.com/thumbnails/comments/I+actually+dont+remember+i+think+because+of+the+horns+_78025db895d293c2765eaace345742f0.gif"]
+
+# }slap <user>
+@client.command(pass_context=True)
+async def slap(ctx, userName: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if userName == None:
+        msg.add_field(name=":warning: ", value="`v!slap (user)`")
+    else:
+        msg.set_image(url="{}".format(random.choice(slaplinks)))
+        msg.add_field(name=":tongue: Emotes :tongue: ", value="`{}, you got slapped by {}! Ouch...`".format(userName.display_name, author.display_name), inline=True)
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}slap <user>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+    
+slaplinks = ["https://i.imgur.com/EAF42MG.gif",
+             "https://i.imgur.com/tLTT9Q4.gif",
+             "https://i.imgur.com/tEWjg7v.gif",
+             "https://i.imgur.com/MlkLTjv.gif",
+             "https://i.imgur.com/hoTYJZP.gif",
+             "https://i.imgur.com/Pthhs3Y.gif"]
+
 client.run(os.environ['BOT_TOKEN'])
