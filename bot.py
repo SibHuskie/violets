@@ -56,13 +56,45 @@ async def rape(ctx, *, member : discord.Member = None):
     else:
         await client.say(member.mention + " has been raped by " + ctx.message.author.mention + "! :fearful: ")
 
-#COOKIE
-@client.command(pass_context = True)
-async def cookie(ctx, *, member : discord.Member = None):
-    if member is None:
-        await client.say(ctx.message.author.mention + ", give cookies to other members! :laughing:")
+# }chocolate <user> <number>
+@client.command(pass_context=True)
+async def chocolate(ctx, userName: discord.Member = None, number: int = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if userName == None or number == None:
+        msg.add_field(name=":warning: ", value="`v!chocolate (user) (amount)`")
     else:
-        await client.say(member.mention + " was given a cookie by " + ctx.message.author.mention + "! :cookie:")
+        if number > 100:
+            msg.add_field(name=":warning: ", value="`You can't give over 100 chocolates to someone! They gon get real fat...`")
+        else:
+            msg.add_field(name=":smiley: ", value="`{} gave {}` :chocolate_bar: `to {}!`\n`Be like {}!`".format(author.display_name, number, userName.display_name, author.display_name))
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}chocolate <user> <number>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+
+# }cookie <user> <number>
+@client.command(pass_context=True)
+async def cookie(ctx, userName: discord.Member = None, number: int = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if userName == None or number == None:
+        msg.add_field(name=":warning: ", value="`v!cookie (user) (amount)`")
+    else:
+        if number > 100:
+            msg.add_field(name=":warning: ", value="`You can't give over 100 cookie to someone! Tryna give them diabetes?!`")
+        else:
+            msg.add_field(name=":smiley: ", value="`{} gave {}` :chocolate_bar: `to {}!`\n`Be like {}!`".format(author.display_name, number, userName.display_name, author.display_name))
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}chocolate <user> <number>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
 
 # }ban <user> [reason]
 @client.command(pass_context=True)
