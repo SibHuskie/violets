@@ -1048,4 +1048,27 @@ async def nick(ctx, userName: discord.Member = None, *, args = None):
     print("}nick <user> <nickname>")
     print("{} ### {}".format(author, author.id))
     print("============================================================")
+    
+# }cry
+@client.command(pass_context=True)
+async def cry(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg.set_image(url="{}".format(random.choice(crylinks)))
+    msg.add_field(name=":tongue: Emotes :tongue:", value="`{} is crying! *Pat pat pat*`".format(author.display_name), inline=True)
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}cry")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+    
+crylinks = ["https://media1.giphy.com/media/ROF8OQvDmxytW/giphy-downsized.gif",
+            "https://media1.tenor.com/images/06ae6bbe852471939cf61a81e5a9eb23/tenor.gif?itemid=5370823",
+            "https://78.media.tumblr.com/e9fb46144efc579746e57bcaebd3350a/tumblr_olrmy4djBG1tydz8to1_500.gif",
+            "http://i.imgur.com/k5B1CBd.jpg",
+            "https://media.giphy.com/media/hyU0RHvlS3iQU/giphy.gif",
+            "https://media1.tenor.com/images/5912cbe4bc0dec511b5e0996a2ad9b6f/tenor.gif?itemid=8620704",
+            "https://s9.favim.com/orig/131225/an-anime-anime-gif-anime-guy-Favim.com-1182388.gif"]
 client.run(os.environ['BOT_TOKEN'])
