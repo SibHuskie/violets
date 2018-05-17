@@ -89,7 +89,7 @@ async def cookie(ctx, userName: discord.Member = None, number: int = None):
         if number > 100:
             msg.add_field(name=":warning: ", value="`You can't give over 100 cookie to someone! Tryna give them diabetes?!`")
         else:
-            msg.add_field(name=":smiley: ", value="`{} gave {}` :chocolate_bar: `to {}!`\n`Be like {}!`".format(author.display_name, number, userName.display_name, author.display_name))
+            msg.add_field(name=":smiley: ", value="`{} gave {}` :cookie: `to {}!`\n`Be like {}!`".format(author.display_name, number, userName.display_name, author.display_name))
     await client.say(embed=msg)
     print("============================================================")
     print("}chocolate <user> <number>")
