@@ -105,7 +105,7 @@ async def ban(ctx, userName: discord.Member = None, *, args = None):
     msg.title = ""
     if staff_role in author.roles or staff_role in author.roles or staff_role.role in author.roles or staff_role in author.roles or staff_role in author.roles:
         if userName == None:
-            msg.add_field(name=":octagonal_sign: ", value="`<ban <user> [reason]`")
+            msg.add_field(name=":octagonal_sign: ", value="`v!ban <user> [reason]`")
         elif staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles or staff_role.role in userName.roles or staff_role in userName.roles or staff_role in userName.roles:
             msg.add_field(name=":warning: ", value="`You can't ban other staff!`")
         elif args == None:
@@ -131,7 +131,7 @@ async def tempban(ctx, userName: discord.Member = None, time: int = None, *, arg
     msg.title = ""
     if staff_role in author.roles or staff_role in author.roles or staff_role in author.roles or staff_role in author.roles:
         if userName == None or time == None:
-            msg.add_field(name=":octagonal_sign: ", value="`<tempban <user> <time> [reason]`")
+            msg.add_field(name=":octagonal_sign: ", value="`v!tempban (user) (time) (reason)`")
             await client.say(embed=msg)
         else:
             if staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles:
@@ -175,7 +175,7 @@ async def unban(ctx, userID = None):
     msg.title = ""
     if staff_role in author.roles or staff_role in author.roles or staff_role in author.roles or staff_role in author.roles:
         if userID == None:
-            msg.add_field(name=":octagonal_sign: ", value="`<unban (user id)`")
+            msg.add_field(name=":octagonal_sign: ", value="`v!unban (user id)`")
         else:
             banned_users = await client.get_bans(ctx.message.server)
             user = discord.utils.get(banned_users,id=userID)
@@ -233,7 +233,7 @@ async def userinfo(ctx, userName: discord.Member = None):
     if member_role in author.roles or staff_role in author.roles:
         if userName == None:
             msg.title = ""
-            msg.add_field(name="       :warning: ", value="`<userinfo <user>`")
+            msg.add_field(name="       :warning: ", value="`v!userinfo <user>`")
         else:
             imageurl = userName.avatar_url
             msg.title = ":closed_book: USER INFORMATION"
@@ -262,7 +262,7 @@ async def lick(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`<lick <user>`")
+        msg.add_field(name=":warning: ", value="`v!lick <user>`")
     else:
         msg.set_image(url="{}".format(random.choice(licklinks)))
         msg.add_field(name=":tongue: Emotes :tongue:", value="`{} licked {}!`".format(author.display_name, userName.display_name), inline=True)
@@ -293,7 +293,7 @@ async def takerole(ctx, userName: discord.Member = None, *, args = None):
     serverroles = [ctx.message.server.roles]
     if admin_role in author.roles or coowner_role in author.roles or owner_role in author.roles:
         if userName == None or args == None:
-            msg.add_field(name=":warning: ", value="`<takerole <user> <role name>`")
+            msg.add_field(name=":warning: ", value="`v!takerole <user> <role name>`")
         else:
             rolename2 = discord.utils.get(ctx.message.server.roles, name='{}'.format(args))
             if rolename2 == None:
@@ -324,7 +324,7 @@ async def giverole(ctx, userName: discord.Member = None, *, args = None):
     serverroles = [ctx.message.server.roles]
     if admin_role in author.roles or coowner_role in author.roles or owner_role in author.roles:
         if userName == None or args == None:
-            msg.add_field(name=":warning: ", value="`<giverole <user> <role name>`")
+            msg.add_field(name=":warning: ", value="`v!giverole <user> <role name>`")
         else:
             rolename2 = discord.utils.get(ctx.message.server.roles, name='{}'.format(args))
             if rolename2 == None:
@@ -353,7 +353,7 @@ async def echo(ctx, *, args=None):
     msg.set_footer(text=footer_text)
     if staff_role in author.roles or staff_role in author.roles:
         if args == None:
-            msg.add_field(name=":warning: ", value="<say <text>")
+            msg.add_field(name=":warning: ", value="v!say <text>")
             await client.say(embed=msg)
         else:
             await client.say("{}".format(args))
@@ -370,7 +370,7 @@ async def hug(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`<hug (user)`")
+        msg.add_field(name=":warning: ", value="`v!hug (user)`")
     else:
         msg.set_image(url="{}".format(random.choice(huglinks)))
         msg.add_field(name=":tongue: Emotes:tongue:", value="`{}, you got a hug from {}!`".format(userName.display_name, author.display_name), inline=True)
@@ -404,7 +404,7 @@ async def cuddle(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`<cuddle (user)`")
+        msg.add_field(name=":warning: ", value="`v!cuddle (user)`")
     else:
         msg.set_image(url="{}".format(random.choice(cuddlelinks)))
         msg.add_field(name=":tongue: Emotes :tongue:", value="`{}, you got a cuddle from {}!`".format(userName.display_name, author.display_name), inline=True)
@@ -429,7 +429,7 @@ async def pat(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`<pat (user)`")
+        msg.add_field(name=":warning: ", value="`v!pat (user)`")
     else:
         msg.set_image(url="{}".format(random.choice(patlinks)))
         msg.add_field(name=":tongue: Emotes :tongue:", value="`{}, you got a pat from {}!`".format(userName.display_name, author.display_name), inline=True)
@@ -460,7 +460,7 @@ async def kiss(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`<kiss (user)`")
+        msg.add_field(name=":warning: ", value="`v!kiss (user)`")
     else:
         msg.set_image(url="{}".format(random.choice(kisslinks)))
         msg.add_field(name=":tongue: Emotes :tongue:", value="`{}, you got kissed by {}!`".format(userName.display_name, author.display_name), inline=True)
@@ -513,7 +513,7 @@ async def eightball(ctx, *, args=None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
-        msg.add_field(name="warning: ", value="`<eightball (yes or no question)`")
+        msg.add_field(name="warning: ", value="`v!eightball (yes or no question)`")
     else:
         msg.add_field(name="Magic Eight Ball", value=":question: **Question:**\n`{}`\n \n:8ball: **Answer:**\n`{}`".format(args, random.choice(eightballmsgs)))
     await client.say(embed=msg)
@@ -542,7 +542,7 @@ async def poke(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`<poke (user)`")
+        msg.add_field(name=":warning: ", value="`v!poke (user)`")
     else:
         msg.set_image(url="{}".format(random.choice(pokelinks)))
         msg.add_field(name=":tongue: Emotes :tongue:", value="`{}, you got poked by {}!`".format(userName.display_name, author.display_name), inline=True)
@@ -568,7 +568,7 @@ async def spank(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`<spank (user)`")
+        msg.add_field(name=":warning: ", value="`v!spank (user)`")
     else:
         msg.set_image(url="{}".format(random.choice(spanklinks)))
         msg.add_field(name=":tongue: Emotes :tongue:", value="`{} spanked {}!`".format(author.display_name, userName.display_name), inline=True)
@@ -593,7 +593,7 @@ async def calculator(ctx, *, args=None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
-        msg.add_field(name=":warning: ", value="`<calculator (math problem)`")
+        msg.add_field(name=":warning: ", value="`v!calculator (math problem)`")
     else:
         answer = str(eval(args))
         msg.add_field(name=":fax: Calculator", value= "`Problem: {}`\n \n`Answer: {}`".format(args, answer), inline=True)
@@ -615,7 +615,7 @@ async def battle(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`<battle (user)`")
+        msg.add_field(name=":warning: ", value="`v!battle (user)`")
     else:
         msg.add_field(name= ":crossed_swords: B A T T LE :crossed_swords: ", value= "**~~=================================~~**\n`{}` :vs: `{}`\n**~~=================================~~**\n:small_orange_diamond: `{}`\n \n:arrow_forward: {}\n \n:fast_forward: {} DMG\n**~~=================================~~**\n:small_orange_diamond: `{}`\n \n:arrow_forward: {}\n \n:fast_forward: {} DMG\n**~~=================================~~**\n:small_orange_diamond: `{}`\n:hearts: {} HP\n \n:small_orange_diamond: `{}`\n:hearts: {} HP\n**~~=================================~~**".format(author.display_name, userName.display_name, author.display_name, random.choice(attacks), attacker, userName.display_name, random.choice(attacks), attacked, author.display_name, attackerhealth, userName.display_name, attackedhealth), inline=True)
         if attacker == attacked:
@@ -653,7 +653,7 @@ async def ship(ctx, userName1: discord.Member = None, userName2: discord.Member 
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName1 == None or userName2 == None:
-        msg.add_field(name=":warning: ",value="`<ship (user1) (user2)`")
+        msg.add_field(name=":warning: ",value="`v!ship (user1) (user2)`")
     else:
         if percent >= 1 and percent <= 10:
             msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - No point\n```\n:sob: ".format(userName1.display_name, userName2.display_name, percent))
@@ -679,8 +679,8 @@ async def ship(ctx, userName1: discord.Member = None, userName2: discord.Member 
     
 @client.command(pass_context=True)
 async def warn(ctx, userName: discord.Member = None, *, args = None):
-    helper_role = discord.utils.get(ctx.message.server.roles, name='Helper')
-    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
+    helper_role = discord.utils.get(ctx.message.server.roles, name='Partnership Manager')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owners')
@@ -693,7 +693,7 @@ async def warn(ctx, userName: discord.Member = None, *, args = None):
     msg2.set_footer(text=footer_text)
     if helper_role in author.roles or mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
         if userName == None or args == None:
-            msg.add_field(name=":warning: ", value="`<warn (user) (reason)`")
+            msg.add_field(name=":warning: ", value="`v!warn (user) (reason)`")
             await client.say(embed=msg)
         else:
             if helper_role in userName.roles or mod_role in userName.roles or admin_role in userName.roles or manager_role in userName.roles or owner_role in userName.roles:
@@ -711,18 +711,18 @@ async def warn(ctx, userName: discord.Member = None, *, args = None):
 # <kick <user> [reason]
 @client.command(pass_context=True)
 async def kick(ctx, userName: discord.Member = None, *, args = None):
-    helper_role = discord.utils.get(ctx.message.server.roles, name='Helpers')
+    helper_role = discord.utils.get(ctx.message.server.roles, name='Partnership Manager')
     mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
-    owner_role = discord.utils.get(ctx.message.server.roles, name='Dark Lords (Owners)')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
         if userName == None:
-            msg.add_field(name=":warning: ", value="`<kick (user) (reason)`")
+            msg.add_field(name=":warning: ", value="`v!kick (user) (reason)`")
         elif helper_role in userName.roles or mod_role in userName.roles or admin_role in userName.roles or manager_role in userName.roles or owner_role in userName.roles:
             msg.add_field(name=":warning: ", value="`You can't kick other staff!`")
         elif args == None:
@@ -785,7 +785,7 @@ async def tempmute(ctx, userName: discord.Member = None, time: int = None, *, ar
 async def partner(ctx, userName: discord.Member = None):
     partner_role = discord.utils.get(ctx.message.server.roles, name='Partners')
     pm_role = discord.utils.get(ctx.message.server.roles, name ='Partnership Manager')
-    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
@@ -814,8 +814,8 @@ async def partner(ctx, userName: discord.Member = None):
 # }purge <number>
 @client.command(pass_context=True)
 async def purge(ctx, number: int = None):
-    helper_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
-    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderators')
+    helper_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
@@ -1042,7 +1042,7 @@ async def nick(ctx, userName: discord.Member = None, *, args = None):
             msg.add_field(name=":label: ", value="`{} changed {}'s nickname to {}!`".format(author.display_name, userName.display_name, args))
             await client.change_nickname(userName, nickname)
     else:
-        msg.add_field(name=":octagonal_sign: ", value="`This command can only be used by staff!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
     await client.say(embed=msg)
     print("============================================================")
     print("}nick <user> <nickname>")
