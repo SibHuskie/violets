@@ -847,7 +847,7 @@ async def help(ctx):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
-    msg.add_field(name=":incoming_envelope: ", value="`You can see all commands in the #violet-commands channel!`")
+    msg.add_field(name=":incoming_envelope: ", value="`You can see all commands in the #viola-commands channel!`")
     msg.set_footer(text=footer_text)
     await client.say(embed=msg)
     print("============================================================")
