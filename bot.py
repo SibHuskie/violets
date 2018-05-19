@@ -1101,21 +1101,4 @@ slaplinks = ["https://i.imgur.com/EAF42MG.gif",
              "https://i.imgur.com/MlkLTjv.gif",
              "https://i.imgur.com/hoTYJZP.gif",
              "https://i.imgur.com/Pthhs3Y.gif"]
-
-chat_filter = ["NIGGA", "NIGGER"]
-bypass_list = []
-
-@client.event
-async def on_message(message):
-    contents = message.content.split(" ")
-    for word in contents:
-        if word.upper() in chat_filter:
-            try:
-                await client.delete_message(message)
-                await client.send_message(message.channel, "**Nope!**")
-            except discord.errors.NotFound:
-                return
-            
-            
-            
 client.run(os.environ['BOT_TOKEN'])
