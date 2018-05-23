@@ -1101,4 +1101,11 @@ slaplinks = ["https://i.imgur.com/EAF42MG.gif",
              "https://i.imgur.com/MlkLTjv.gif",
              "https://i.imgur.com/hoTYJZP.gif",
              "https://i.imgur.com/Pthhs3Y.gif"]
+
+@client.event
+async def on_message(message):
+    if message.content.startswith('v!greet'):
+        await client.send_message(message.channel, 'Say hello')
+        msg = await client.wait_for_message(author=message.author, content='hello')
+        await client.send_message(message.channel, 'Hello.')
 client.run(os.environ['BOT_TOKEN'])
