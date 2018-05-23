@@ -1111,4 +1111,7 @@ async def on_message(message):
 
     if message.content.startswith('gay'):
         await client.send_message(message.channel, 'no u')
+        
+    if message.content.startswith('who is huskie'):
+        await client.send_message(message.channel, 'The best')
 client.run(os.environ['BOT_TOKEN'])
