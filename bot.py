@@ -20,7 +20,7 @@ async def on_ready():
 @client.command()
 async def testing():
     await client.say("Testing? Testing...")
-
+a-d9f-9a-d9f9a-d0f9adf9adf-0
 @client.command(pass_context = True)
 async def kill(ctx, *, member : discord.Member = None):
     if member is None:
