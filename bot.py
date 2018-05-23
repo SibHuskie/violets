@@ -1109,4 +1109,9 @@ async def on_message(message):
         await client.send_message(message.channel, 'Say hello')
         msg = await client.wait_for_message(author=message.author, content='hello')
         await client.send_message(message.channel, 'Hello.')
+        
+@client.event
+async def on_message(message):
+    if message.content.startswith('gay'):
+        await client.send_message(message.channel, 'no u')
 client.run(os.environ['BOT_TOKEN'])
