@@ -1112,6 +1112,7 @@ async def on_message(message):
         
 @client.event
 async def on_message(message):
+    await client.process_commands(message)
     if message.content.startswith('gay'):
         await client.send_message(message.channel, 'no u')
 client.run(os.environ['BOT_TOKEN'])
