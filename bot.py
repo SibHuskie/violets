@@ -1101,18 +1101,4 @@ slaplinks = ["https://i.imgur.com/EAF42MG.gif",
              "https://i.imgur.com/MlkLTjv.gif",
              "https://i.imgur.com/hoTYJZP.gif",
              "https://i.imgur.com/Pthhs3Y.gif"]
-
-@client.event
-async def on_message(message):
-    await bot.process_commands(message)
-    if message.content.startswith('v!greet'):
-        await client.send_message(message.channel, 'Say hello')
-        msg = await client.wait_for_message(author=message.author, content='hello')
-        await client.send_message(message.channel, 'Hello.')
-
-    if message.content.startswith('gay'):
-        await client.send_message(message.channel, 'no u')
-        
-    if message.content.startswith('who is huskie'):
-        await client.send_message(message.channel, 'The best')
 client.run(os.environ['BOT_TOKEN'])
