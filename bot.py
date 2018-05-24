@@ -1108,7 +1108,7 @@ slaplinks = ["https://i.imgur.com/EAF42MG.gif",
 
 @client.event
 async def on_message(message):
-    await bot.process_commands(message)
+    await client.process_commands(message)
     if message.content.lower().startswith('Test'):
         await client.send_message(message.channel, "Test")
 client.run(os.environ['BOT_TOKEN'])
