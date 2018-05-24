@@ -1103,17 +1103,4 @@ slaplinks = ["https://i.imgur.com/EAF42MG.gif",
              "https://i.imgur.com/MlkLTjv.gif",
              "https://i.imgur.com/hoTYJZP.gif",
              "https://i.imgur.com/Pthhs3Y.gif"]
-
-@client.event
-async def on_message(message):
-    await bot.process_commands(message)
-    if message.content.lower().startswith('?test'):
-        await client.send_message(message.channel, "Test bestanden")
-
-    if message.content.lower().startswith('?coin'): #Coinflip 50/50% chance kopf oder zahl
-        choice = random.randint(1,2)
-        if choice == 1:
-            await client.add_reaction(message, '🌑')
-        if choice == 2:
-            await client.add_reaction(message, '🌕')
 client.run(os.environ['BOT_TOKEN'])
