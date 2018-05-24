@@ -27,7 +27,7 @@ async def kill(ctx, *, member : discord.Member = None):
         await client.say(ctx.message.author.mention + ", I can't kill someone unless you tell me who you want to kill! :dagger:")
         return
 
-    if member.id == "429932831314280448":
+    if member.id == "440770699259281408":
         await client.say(ctx.message.author.mention + ", you can't kill me if I kill you first! :smiling_imp:")
     elif member.id == "424838833633361921":
         await client.say(ctx.message.author.mention + ", I have been told under strict instructions not to kill her... that's master's sister")
