@@ -17,4 +17,3 @@ async def on_message(message):
             await client.add_reaction(message, '🌑')
         if choice == 2:
             await client.add_reaction(message, '🌕')
-client.run(os.environ['BOT_TOKEN'])
