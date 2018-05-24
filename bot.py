@@ -1111,4 +1111,11 @@ async def on_message(message):
     await client.process_commands(message)
     if message.content.lower().startswith('who is huskie'):
         await client.send_message(message.channel, "Da best")
+        
+    if message.content.lower().startswith('v!coin'): #Coinflip 50/50% chance kopf oder zahl
+        choice = random.randint(1,2)
+        if choice == 1:
+            await client.add_reaction(message, '🌑')
+        if choice == 2:
+            await client.add_reaction(message, '🌕')
 client.run(os.environ['BOT_TOKEN'])
