@@ -1116,7 +1116,7 @@ async def on_message(message):
         await client.send_message(message.channel, "Claimed by Huskie, he do the protec")
         
     if message.content.lower().startswith('oof'):
-        await client.send_message(message.channel, ":oof:")
+        await client.send_message(message.channel, ":OOF:")
         
     if message.content.lower().startswith('vwelc'):
         await client.send_message(message.channel, "Welcome to Violets! \n To assign your self colors go to #✧⟫color-roles \n and to assign yourself other Roles go to #✧⟫self-roles \n Enjoy your stay, Thanks :)")
