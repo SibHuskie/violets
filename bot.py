@@ -1115,8 +1115,8 @@ async def on_message(message):
     if message.content.lower().startswith('who is stacey'):
         await client.send_message(message.channel, "Claimed by Huskie, he do the protec")
         
-    if message.content.lower().startswith('welc'):
-        await client.send_message(message.chanel, "Welcome to Violets! \n To assign your self colors go to #✧⟫color-roles \n and to assign yourself other Roles go to #✧⟫self-roles \n Enjoy your stay, Thanks :)")
+    if message.content.lower().startswith('.welc'):
+        await client.send_message(message.channel, "Welcome to Violets! \n To assign your self colors go to #✧⟫color-roles \n and to assign yourself other Roles go to #✧⟫self-roles \n Enjoy your stay, Thanks :)")
 
     if message.content.lower().startswith('v!coin'): #Coinflip 50/50% chance kopf oder zahl
         choice = random.randint(1,2)
