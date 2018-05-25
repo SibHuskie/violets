@@ -1122,7 +1122,7 @@ async def on_message(message):
         await client.send_message(message.channel, "Aww, no us <3")
         
     if message.content.lower().startswith('vwelc'):
-        await client.send_message(message.channel, "Welcome to Violets! \n To assign your self colors go to #✧⟫color-roles \n and to assign yourself other Roles go to #✧⟫self-roles \n Enjoy your stay, Thanks :)")
+        await client.send_message(message.channel, "Welcome to Violets! \n To assign your self colors go to <#427124007377305611> \n and to assign yourself other Roles go to <#440562714989821982> \n Enjoy your stay, Thanks :)")
 
     if message.content.lower().startswith('v!coin'): #Coinflip 50/50% chance kopf oder zahl
         choice = random.randint(1,2)
