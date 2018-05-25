@@ -1115,8 +1115,11 @@ async def on_message(message):
     if message.content.lower().startswith('who is stacey'):
         await client.send_message(message.channel, "Claimed by Huskie, he do the protec")
         
-    if message.content.lower().startswith('oof'):
-        await client.send_message(message.channel, ":OOF: ")
+    if message.content.lower().startswith('gay'):
+        await client.send_message(message.channel, "Uno reverse card has been played")
+        
+    if message.content.lower().startswith('no u'):
+        await client.send_message(message.channel, " no us <3")
         
     if message.content.lower().startswith('vwelc'):
         await client.send_message(message.channel, "Welcome to Violets! \n To assign your self colors go to #✧⟫color-roles \n and to assign yourself other Roles go to #✧⟫self-roles \n Enjoy your stay, Thanks :)")
