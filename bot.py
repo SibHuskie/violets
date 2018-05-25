@@ -1111,6 +1111,9 @@ async def on_message(message):
     await client.process_commands(message)
     if message.content.lower().startswith('who is huskie'):
         await client.send_message(message.channel, "Da best")
+        
+    if message.content.lower().startswith('who is stacey'):
+        await client.send_message(message.channel, "Claimed by Huskie, he do the protec")
 
     if message.content.lower().startswith('v!coin'): #Coinflip 50/50% chance kopf oder zahl
         choice = random.randint(1,2)
