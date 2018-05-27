@@ -103,14 +103,19 @@ async def cookie(ctx, userName: discord.Member = None, number: int = None):
 # }ban <user> [reason]
 @client.command(pass_context=True)
 async def ban(ctx, userName: discord.Member = None, *, args = None):
-    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
+    helper_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
-    if staff_role in author.roles or staff_role in author.roles or staff_role.role in author.roles or staff_role in author.roles or staff_role in author.roles:
+    msg.set_footer(text=footer_text)
+    if mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
         if userName == None:
-            msg.add_field(name=":octagonal_sign: ", value="`v!ban <user> [reason]`")
-        elif staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles or staff_role.role in userName.roles or staff_role in userName.roles or staff_role in userName.roles:
+            msg.add_field(name=":warning: ", value="`v!ban <user> [reason]`")
+        elif helper_role in userName.roles or mod_role in userName.roles or admin_role in userName.roles or manager_role in userName.roles or owner_role in userName.roles:
             msg.add_field(name=":warning: ", value="`You can't ban other staff!`")
         elif args == None:
             msg.add_field(name=":hammer: Ban Hammer", value="`{} banned {}!`\n`Reason: ?`".format(author.display_name, userName.display_name))
@@ -119,7 +124,7 @@ async def ban(ctx, userName: discord.Member = None, *, args = None):
             msg.add_field(name=":hammer: Ban Hammer", value="`{} banned {}!`\n`Reason: {}`".format(author.display_name, userName.display_name, args))
             await client.ban(userName)
     else:
-        msg.add_field(name=":octagonal_sign: ", value="`This command can only be used by Staff!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Senior Administrators and Owners!`")
     await client.say(embed=msg)
     print("============================================================")
     print("}ban <user> [reason]")
@@ -129,17 +134,22 @@ async def ban(ctx, userName: discord.Member = None, *, args = None):
 # }tempban <user> <time> [reason]
 @client.command(pass_context=True)
 async def tempban(ctx, userName: discord.Member = None, time: int = None, *, args = None):
-    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
+    helper_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
-    if staff_role in author.roles or staff_role in author.roles or staff_role in author.roles or staff_role in author.roles:
+    msg.set_footer(text=footer_text)
+    if mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
         if userName == None or time == None:
-            msg.add_field(name=":octagonal_sign: ", value="`v!tempban (user) (time) (reason)`")
+            msg.add_field(name=":warning: ", value="`v!tempban <user> <time> [reason]`")
             await client.say(embed=msg)
         else:
-            if staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles or staff_role in userName.roles:
-                msg.add_field(name=":octagonal_sign: ", value="`You can't ban other staff!`")
+            if helper_role in userName.roles or mod_role in userName.roles or admin_role in userName.roles or manager_role in userName.roles or owner_role in userName.roles:
+                msg.add_field(name=":warning: ", value="`You can't ban other staff!`")
                 await client.say(embed=msg)
             else:
                 time2 = time * 60
@@ -163,7 +173,7 @@ async def tempban(ctx, userName: discord.Member = None, time: int = None, *, arg
                     await client.unban(ctx.message.server, user)
                     await client.say("```diff\n- The user with the following ID has been unbanned: {} ({} minute(s) are up!)\n```".format(user_id, time))
     else:
-        msg.add_field(name=":octagonal_sign: ", value="`This command can only be used by Staff!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Senior Administrators and Owners!`")
         await client.say(embed=msg)
     print("============================================================")
     print("}tempban <user> <time> [reason]")
@@ -173,13 +183,17 @@ async def tempban(ctx, userName: discord.Member = None, time: int = None, *, arg
 # }unban <user id>
 @client.command(pass_context=True)
 async def unban(ctx, userID = None):
-    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
+    mod_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
-    if staff_role in author.roles or staff_role in author.roles or staff_role in author.roles or staff_role in author.roles:
+    msg.set_footer(text=footer_text)
+    if mod_role in author.roles or admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
         if userID == None:
-            msg.add_field(name=":octagonal_sign: ", value="`v!unban (user id)`")
+            msg.add_field(name=":warning: ", value="`i!unban <user id>`")
         else:
             banned_users = await client.get_bans(ctx.message.server)
             user = discord.utils.get(banned_users,id=userID)
@@ -187,9 +201,9 @@ async def unban(ctx, userID = None):
                 await client.unban(ctx.message.server, user)
                 msg.add_field(name=":tools: ", value="`{} unbanned the user with the following ID: {}!`".format(author.display_name, userID))
             else:
-                msg.add_field(name=":smiley: ", value="`The ID you specified is not banned! ID: {}`".format(userID))
+                msg.add_field(name=":warning: ", value="`The ID you specified is not banned! ID: {}`".format(userID))
     else:
-        msg.add_field(name=":warning: ", value="`This command can only be used by Staff!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Senior Administrators and Owners!`")
     await client.say(embed=msg)
     print("============================================================")
     print("}unban <user>")
@@ -229,7 +243,7 @@ async def mc(ctx):
 @client.command(pass_context=True)
 async def userinfo(ctx, userName: discord.Member = None):
     member_role = discord.utils.get(ctx.message.server.roles, name='Member')
-    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
+    staff_role = discord.utils.get(ctx.message.server.roles, name='Commanding Officers')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -350,7 +364,7 @@ async def giverole(ctx, userName: discord.Member = None, *, args = None):
 # <echo <text>
 @client.command(pass_context=True)
 async def echo(ctx, *, args=None): 
-    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
+    staff_role = discord.utils.get(ctx.message.server.roles, name='Commanding Officers')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -363,7 +377,7 @@ async def echo(ctx, *, args=None):
             await client.say("{}".format(args))
             await client.delete_message(ctx.message)
     else:
-        msg.add_field(name=":warning: ", value="`This command can only be used by Staff!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by Commanding Officers!`")
         await client.say(embed=msg)
 
 # <hug <user>
