@@ -209,7 +209,7 @@ async def serverinfo(ctx):
     msg.add_field(name="REGION", value=(ctx.message.server.region), inline=True)
     msg.add_field(name="ROLES", value=(len(ctx.message.server.roles)), inline=True)
     msg.add_field(name="OWNER", value=(ctx.message.server.owner), inline=True)
-    msg.add_field(name="RELEASE DATE:", value="23th of March 2018", inline=True)
+    msg.add_field(name="RELEASE DATE:", value="23rd of March 2018", inline=True)
     await client.say(embed=msg)
     print("============================================================")
     print("<serverinfo")
