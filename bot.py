@@ -1121,6 +1121,12 @@ async def on_message(message):
     if message.content.lower().startswith('who is stacey'):
         await client.send_message(message.channel, "Claimed by Huskie, he do the protec")
         
+    if message.content.lower().startswith('who is yami'):
+        await client.send_message(message.channel, "Claimed by Hikari.")
+        
+    if message.content.lower().startswith('who is hikari'):
+        await client.send_message(message.channel, "Claimed by Yami.")
+        
     if message.content.lower().startswith('gay'):
         await client.send_message(message.channel, "Uno reverse card has been played")
         
