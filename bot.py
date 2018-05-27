@@ -1112,6 +1112,9 @@ async def on_message(message):
     if message.content.lower().startswith('who is huskie'):
         await client.send_message(message.channel, "Da best")
         
+    if message.content.lower().startswith('who is zemm'):
+        await client.send_message(message.channel, "Satan's wife")
+        
     if message.content.lower().startswith('who is stacey'):
         await client.send_message(message.channel, "Claimed by Huskie, he do the protec")
         
