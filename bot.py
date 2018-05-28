@@ -506,8 +506,8 @@ kisslinks = ["https://i.imgur.com/0Ri9sfq.gif",
 
 # EVENT - JOIN / LEAVE
 @client.async_event
-async def on_member_join(userName: discord.User):
-    joins = [" **Welcome to Violets™ {}! :sparkles: \n Please make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\n Also don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \n Enjoy your stay :sparkling_heart:**".format(userName)]
+async def on_member_join(member):
+    joins = [" **Welcome to Violets™ {}! :sparkles: \n Please make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\n Also don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \n Enjoy your stay :sparkling_heart:**".format(member.mention)]
     await client.send_message(client.get_channel("426680388585521163"), "{}".format(random.choice(joins)))
     print("============================================================")
     print("JOIN EVENT")
