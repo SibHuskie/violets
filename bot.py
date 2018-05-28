@@ -1082,6 +1082,20 @@ async def cry(ctx):
     print("{} ### {}".format(author, author.id))
     print("============================================================")
     
+# }fart
+@client.command(pass_context=True)
+async def fart(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg.add_field(name=":tongue: Emotes :tongue:", value="{} Just farted, clear out the area... :dancer: :dash:".format(author.display_name), inline=True)
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}cry")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+    
 crylinks = ["https://media1.giphy.com/media/ROF8OQvDmxytW/giphy-downsized.gif",
             "https://media1.tenor.com/images/06ae6bbe852471939cf61a81e5a9eb23/tenor.gif?itemid=5370823",
             "https://78.media.tumblr.com/e9fb46144efc579746e57bcaebd3350a/tumblr_olrmy4djBG1tydz8to1_500.gif",
