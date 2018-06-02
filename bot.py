@@ -1150,7 +1150,12 @@ async def hide(ctx):
     print("============================================================")
 
 hidelinks = ["http://www.gifbin.com/bin/012011/1295259460_cat-hides-in-box.gif",
-             "https://www.cat-gifs.com/w3/Funny-Cat-GIF-Weird-Black-Cat-with-big-round-eyes-tries-to-hide-in-his-small-green-box.gif"]
+             "https://www.cat-gifs.com/w3/Funny-Cat-GIF-Weird-Black-Cat-with-big-round-eyes-tries-to-hide-in-his-small-green-box.gif",
+             "http://www.letssmiletoday.com/uploads/images/9642-Quick_hide_in_the_box_20.04.2012.gif",
+             "https://i.gifer.com/VfBm.gif",
+             "https://i.imgur.com/gFMNHyA.gif",
+             "https://i.imgur.com/UXSe4sQ.gif",
+             "https://i.chzbgr.com/full/7074625536/hD0F6F5CE/"]
     
 @client.event
 async def on_message(message):
