@@ -1239,10 +1239,4 @@ async def rps(ctx, args=None):
     print("============================================================")
     
 choices = ["rock", "paper", "scissors"]
-
-@client.event
-async def on_message(message):
-    if 'HUSKIE' in message.content:
-        print('Keyword found in message')
-        
 client.run(os.environ['BOT_TOKEN'])
