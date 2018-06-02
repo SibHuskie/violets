@@ -1258,7 +1258,7 @@ async def tts(ctx, *, args=None):
             msg.add_field(name=":warning: ", value="v!say <text>")
             await client.say(embed=msg)
         else:
-            await client.say("{}".format(args), tts=True)
+            await client.send_message(message.channel, "{}".format(args), tts=True)
             await client.delete_message(ctx.message)
     else:
         msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
