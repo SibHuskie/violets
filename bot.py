@@ -364,7 +364,7 @@ async def giverole(ctx, userName: discord.Member = None, *, args = None):
 # <echo <text>
 @client.command(pass_context=True)
 async def echo(ctx, *, args=None): 
-    staff_role = discord.utils.get(ctx.message.server.roles, name='Commanding Officers')
+    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
@@ -377,7 +377,7 @@ async def echo(ctx, *, args=None):
             await client.say("{}".format(args))
             await client.delete_message(ctx.message)
     else:
-        msg.add_field(name=":warning: ", value="`This command can only be used by Commanding Officers!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
         await client.say(embed=msg)
 
 # <hug <user>
