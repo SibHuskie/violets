@@ -1188,12 +1188,12 @@ async def on_message(message):
         await client.send_message(message.channel, "She is a moist slut, and tsundere for pala")
         
     if message.content.startswith('hey viola'):
-        await client.send_message(message.channel, 'Hey, how is it going? (Reply "Good")', tts=True)
+        await client.send_message(message.channel, 'Hey, how is it going? (Reply "Good"))
         msg = await client.wait_for_message(author=message.author, content='Good')
         await client.send_message(message.channel, 'Woo that is good to hear!')
         
     if message.content.lower().startswith('huskie'):
-        await client.send_message(message.channel, 'Husky wake the hell up you dumb dog', tts=True)
+        await client.send_message(message.channel, 'Husky wake the hell up you dumb dog')
         
     if message.content.lower().startswith('vwelc'):
         await client.send_message(message.channel, "Welcome to Violets! \n To assign your self colors go to <#427124007377305611> \n and to assign yourself other Roles go to <#440562714989821982> \n Enjoy your stay, Thanks :)")
@@ -1244,4 +1244,24 @@ async def rps(ctx, args=None):
     print("============================================================")
     
 choices = ["rock", "paper", "scissors"]
+
+# <echo <text>
+@client.command(pass_context=True)
+async def tts(ctx, *, args=None): 
+    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if staff_role in author.roles or staff_role in author.roles:
+        if args == None:
+            msg.add_field(name=":warning: ", value="v!say <text>")
+            await client.say(embed=msg)
+        else:
+            await client.say("{}".format(args), tts=True)
+            await client.delete_message(ctx.message)
+    else:
+        msg.add_field(name=":warning: ", value="`This command can only be used by staff!`")
+        await client.say(embed=msg)
+
 client.run(os.environ['BOT_TOKEN'])
