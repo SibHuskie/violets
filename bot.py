@@ -432,12 +432,12 @@ async def cuddle(ctx, userName: discord.Member = None):
     print("{} ### {}".format(author, author.id))
     print("============================================================")
 
-cuddlelinks = ["https://i.imgur.com/GWNWcLH.gif",
-               "https://i.imgur.com/i3Eqqgz.gif",
-               "https://i.imgur.com/GpFk6fE.gif",
-               "https://i.imgur.com/mc3Z7wf.gif",
-               "https://i.imgur.com/N5JYB5r.gif",
-               "https://i.imgur.com/PGp8JYq.gif"]
+cuddlelinks = ["https://media1.tenor.com/images/b7cf0d7ff5c2bb274e8cdc6d5a87d91d/tenor.gif?itemid=5636758",
+               "https://media.giphy.com/media/MRdtc4yAr3gBO/giphy.gif",
+               "https://thumbs.gfycat.com/WarmFlippantKilldeer-size_restricted.gif",
+               "https://media.giphy.com/media/mp62wLBo9c04o/giphy.gif",
+               "https://media.giphy.com/media/o5LfImOrM728w/giphy.gif",
+               "https://i.gifer.com/TSO2.gif"]
 
 # <pat <user>
 @client.command(pass_context=True)
@@ -1239,4 +1239,10 @@ async def rps(ctx, args=None):
     print("============================================================")
     
 choices = ["rock", "paper", "scissors"]
+
+@client.event
+async def on_message(message):
+    if 'HUSKIE' in message.content:
+        print('Keyword found in message')
+        
 client.run(os.environ['BOT_TOKEN'])
