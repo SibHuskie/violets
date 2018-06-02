@@ -1161,6 +1161,9 @@ async def on_message(message):
     if message.content.lower().startswith('no u'):
         await client.send_message(message.channel, "Aww, no us <3")
         
+    if message.content.lower().startswith('who is zebro'):
+        await client.send_message(message.channel, "She is a moist slut, and tsundere for pala")
+        
     if message.content.lower().startswith('vwelc'):
         await client.send_message(message.channel, "Welcome to Violets! \n To assign your self colors go to <#427124007377305611> \n and to assign yourself other Roles go to <#440562714989821982> \n Enjoy your stay, Thanks :)")
 
