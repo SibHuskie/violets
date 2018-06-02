@@ -1188,7 +1188,7 @@ async def on_message(message):
         await client.send_message(message.channel, "She is a moist slut, and tsundere for pala")
         
     if message.content.startswith('hey viola'):
-        await client.send_message(message.channel, 'Hey, how is it going? (Reply "Good"))
+        await client.send_message(message.channel, 'Hey, how is it going? (Reply "Good")
         msg = await client.wait_for_message(author=message.author, content='Good')
         await client.send_message(message.channel, 'Woo that is good to hear!')
         
