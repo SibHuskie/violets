@@ -1222,4 +1222,27 @@ async def rps(ctx, args=None):
     print("============================================================")
     
 choices = ["rock", "paper", "scissors"]
+
+# <punch <user>
+@client.command(pass_context=True)
+async def punch(ctx, userName: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if userName == None:
+        msg.add_field(name=":warning: ", value="`v!punch (user)`")
+    else:
+        msg.set_image(url="{}".format(random.choice(punchlinks)))
+        msg.add_field(name=":tongue: Emotes :tongue:", value="`{}, you got a punch from by {}! Ouch...`".format(userName.display_name, author.display_name), inline=True)
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}kiss <user>")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+    
+punchlinks = ["http://www.reactiongifs.com/wp-content/uploads/2013/11/punch.gif",
+              "https://media.giphy.com/media/7Nsu3HCWLRVgQ/giphy.gif",
+              "https://media1.tenor.com/images/3aa0da04ef714f758c9ed215e629c161/tenor.gif?itemid=4902916",
+              "https://i.pinimg.com/originals/f6/d9/1c/f6d91c1f8a29b0131d448bad244dbeba.gif"]
 client.run(os.environ['BOT_TOKEN'])
