@@ -398,21 +398,13 @@ async def hug(ctx, userName: discord.Member = None):
     print("{} ### {}".format(author, author.id))
     print("============================================================")
 
-huglinks = ["https://i.imgur.com/yE2RnXK.gif",
-            "https://i.imgur.com/R9sYxk8.gif",
-            "https://i.imgur.com/iLBEoKv.gif",
-            "https://i.imgur.com/cc554e8.gif",
-            "https://i.imgur.com/1dqkjHe.gif",
-            "https://i.imgur.com/Ph8GTqg.gif",
-            "https://i.imgur.com/G6EnOxd.gif",
-            "https://i.imgur.com/ZxwHn5Y.gif",
-            "https://i.imgur.com/movPIsP.gif",
-            "https://i.imgur.com/tKlfSgo.gif",
-            "https://i.imgur.com/ICg9nCr.gif",
-            "https://i.imgur.com/yC95DC2.gif",
-            "https://i.imgur.com/hRYXNKX.gif",
-            "https://i.imgur.com/br3bGQc.gif",
-            "https://i.imgur.com/IcNGAQD.gif"]
+huglinks = ["https://media1.tenor.com/images/7a72691a20eaefe593007f592544bbf1/tenor.gif?itemid=7931494",
+            "https://media1.tenor.com/images/5cd23c906465474946375ad0414f94e5/tenor.gif?itemid=8739843",
+            "http://68.media.tumblr.com/cb06ea17e532d49f71130dc47d26f971/tumblr_oku2wjbegP1vvvk86o1_500.gif",
+            "https://media1.tenor.com/images/6f52c38f13fc5bc4ea671e14f6762f5a/tenor.gif?itemid=7768372",
+            "http://gifimage.net/wp-content/uploads/2017/10/couple-hug-gif-8.gif",
+            "https://78.media.tumblr.com/6610fb5c0d4a081556d4d758c372617f/tumblr_nj3i4byjfr1r7eta3o1_500.gif",
+            "https://vignette.wikia.nocookie.net/riverdalearchie/images/3/38/Bughead_Hug.gif/revision/latest?cb=20170410021955"]
 
 # <cuddle <user>
 @client.command(pass_context=True)
@@ -488,21 +480,12 @@ async def kiss(ctx, userName: discord.Member = None):
     print("{} ### {}".format(author, author.id))
     print("============================================================")
 
-kisslinks = ["https://i.imgur.com/0Ri9sfq.gif",
-             "https://i.imgur.com/EMdpmXW.gif",
-             "https://i.imgur.com/Y9iLoiv.gif",
-             "https://i.imgur.com/ZlqZy8S.gif",
-             "https://i.imgur.com/ySav1IQ.gif",
-             "https://i.imgur.com/ZGfrn2d.gif",
-             "https://i.imgur.com/glwWeUl.gif",
-             "https://i.imgur.com/j5hDl7V.gif",
-             "https://i.imgur.com/w7mVYty.gif",
-             "https://i.imgur.com/FJ5bckO.gif",
-             "https://i.imgur.com/KqVmVU7.gif",
-             "https://i.imgur.com/EM1C9a6.gif",
-             "https://i.imgur.com/TACVpH9.gif",
-             "https://i.imgur.com/opiHLtc.gif",
-             "https://i.imgur.com/LylJAea.gif"]
+kisslinks = ["https://media1.tenor.com/images/9c92434bdeea2df04d67710f338b212d/tenor.gif?itemid=5223535",
+             "https://media1.tenor.com/images/e88bcd916c0da114a8dcac8d9babc77c/tenor.gif?itemid=5052769",
+             "https://m.popkey.co/96c6ee/4QVgR_s-200x150.gif",
+             "https://i.gifer.com/9NC8.gif",
+             "http://gifimage.net/wp-content/uploads/2017/10/morning-kiss-gif-11.gif",
+             "https://thumbs.gfycat.com/LateAchingHoatzin-max-1mb.gif"]
 
 # EVENT - JOIN / LEAVE
 @client.async_event
