@@ -1192,6 +1192,9 @@ async def on_message(message):
         msg = await client.wait_for_message(author=message.author, content='Good')
         await client.send_message(message.channel, 'Woo that is good to hear!')
         
+    if message.content.lower().startswith('huskie'):
+        await client.send_message(message.channel, 'Husky wake the hell up you dumb dog', tts=True)
+        
     if message.content.lower().startswith('vwelc'):
         await client.send_message(message.channel, "Welcome to Violets! \n To assign your self colors go to <#427124007377305611> \n and to assign yourself other Roles go to <#440562714989821982> \n Enjoy your stay, Thanks :)")
 
