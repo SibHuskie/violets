@@ -1134,6 +1134,24 @@ slaplinks = ["https://i.imgur.com/EAF42MG.gif",
              "https://i.imgur.com/hoTYJZP.gif",
              "https://i.imgur.com/Pthhs3Y.gif"]
 
+# }hide
+@client.command(pass_context=True)
+async def hide(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg.set_image(url="{}".format(random.choice(hidelinks)))
+    msg.add_field(name=":tongue: Emotes :tongue:", value="`{} is hiding!`".format(author.display_name), inline=True)
+    await client.say(embed=msg)
+    print("============================================================")
+    print("}cry")
+    print("{} ### {}".format(author, author.id))
+    print("============================================================")
+
+hidelinks = ["http://www.gifbin.com/bin/012011/1295259460_cat-hides-in-box.gif",
+             "https://www.cat-gifs.com/w3/Funny-Cat-GIF-Weird-Black-Cat-with-big-round-eyes-tries-to-hide-in-his-small-green-box.gif"]
+    
 @client.event
 async def on_message(message):
     await client.process_commands(message)
