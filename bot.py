@@ -1167,8 +1167,8 @@ async def on_message(message):
     if message.content.lower().startswith('no u'):
         await client.send_message(message.channel, "Aww, no us <3")
         
-    if message.content.lower()message.content('huskie'):
-        await client.send_message(message.channel, "<@299761993382887425>")
+    if "huskie" in message:
+        await client.send_message(message.channel, "Would you like spam with your Spam, Spam, Eggs, Bacon and Spam?")
         
         
     if message.content.lower().startswith('who is zebro'):
