@@ -173,7 +173,7 @@ async def tempban(ctx, userName: discord.Member = None, time: int = None, *, arg
                     await client.unban(ctx.message.server, user)
                     await client.say("```diff\n- The user with the following ID has been unbanned: {} ({} minute(s) are up!)\n```".format(user_id, time))
     else:
-        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Senior Administrators and Owners!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators and Owners!`")
         await client.say(embed=msg)
     print("============================================================")
     print("}tempban <user> <time> [reason]")
@@ -203,7 +203,7 @@ async def unban(ctx, userID = None):
             else:
                 msg.add_field(name=":warning: ", value="`The ID you specified is not banned! ID: {}`".format(userID))
     else:
-        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Senior Administrators and Owners!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators and Owners!`")
     await client.say(embed=msg)
     print("============================================================")
     print("}unban <user>")
@@ -1167,6 +1167,10 @@ async def on_message(message):
     if message.content.lower().startswith('no u'):
         await client.send_message(message.channel, "Aww, no us <3")
         
+    if message.content.lower()message.content('huskie'):
+        await client.send_message(message.channel, "<@299761993382887425>")
+        
+        
     if message.content.lower().startswith('who is zebro'):
         await client.send_message(message.channel, "She is a moist slut, and tsundere for pala")
         
@@ -1244,5 +1248,5 @@ async def punch(ctx, userName: discord.Member = None):
 punchlinks = ["http://www.reactiongifs.com/wp-content/uploads/2013/11/punch.gif",
               "https://media.giphy.com/media/7Nsu3HCWLRVgQ/giphy.gif",
               "https://media1.tenor.com/images/3aa0da04ef714f758c9ed215e629c161/tenor.gif?itemid=4902916",
-              "https://i.pinimg.com/originals/f6/d9/1c/f6d91c1f8a29b0131d448bad244dbeba.gif"]
+              "https://i.pinimg.com/originals/f6/d9/1c/f6d91c1f8a29b0131d448bad244dbeba.gif"]        
 client.run(os.environ['BOT_TOKEN'])
