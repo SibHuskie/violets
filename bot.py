@@ -426,7 +426,6 @@ async def cuddle(ctx, userName: discord.Member = None):
 
 cuddlelinks = ["https://media.giphy.com/media/MRdtc4yAr3gBO/giphy.gif",
                "https://thumbs.gfycat.com/WarmFlippantKilldeer-size_restricted.gif",
-               "https://media.giphy.com/media/mp62wLBo9c04o/giphy.gif",
                "https://media.giphy.com/media/o5LfImOrM728w/giphy.gif",
                "https://i.gifer.com/TSO2.gif"]
 
