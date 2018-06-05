@@ -424,8 +424,7 @@ async def cuddle(ctx, userName: discord.Member = None):
     print("{} ### {}".format(author, author.id))
     print("============================================================")
 
-cuddlelinks = ["https://media1.tenor.com/images/b7cf0d7ff5c2bb274e8cdc6d5a87d91d/tenor.gif?itemid=5636758",
-               "https://media.giphy.com/media/MRdtc4yAr3gBO/giphy.gif",
+cuddlelinks = ["https://media.giphy.com/media/MRdtc4yAr3gBO/giphy.gif",
                "https://thumbs.gfycat.com/WarmFlippantKilldeer-size_restricted.gif",
                "https://media.giphy.com/media/mp62wLBo9c04o/giphy.gif",
                "https://media.giphy.com/media/o5LfImOrM728w/giphy.gif",
@@ -485,7 +484,8 @@ kisslinks = ["https://media1.tenor.com/images/9c92434bdeea2df04d67710f338b212d/t
              "https://m.popkey.co/96c6ee/4QVgR_s-200x150.gif",
              "https://i.gifer.com/9NC8.gif",
              "http://gifimage.net/wp-content/uploads/2017/10/morning-kiss-gif-11.gif",
-             "https://thumbs.gfycat.com/LateAchingHoatzin-max-1mb.gif"]
+             "https://thumbs.gfycat.com/LateAchingHoatzin-max-1mb.gif",
+             "https://media1.tenor.com/images/b7cf0d7ff5c2bb274e8cdc6d5a87d91d/tenor.gif?itemid=5636758"]
 
 # EVENT - JOIN / LEAVE
 @client.async_event
