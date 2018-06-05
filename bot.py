@@ -105,8 +105,8 @@ async def cookie(ctx, userName: discord.Member = None, number: int = None):
 async def ban(ctx, userName: discord.Member = None, *, args = None):
     helper_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
     mod_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
-    admin_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
-    manager_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
@@ -124,7 +124,7 @@ async def ban(ctx, userName: discord.Member = None, *, args = None):
             msg.add_field(name=":hammer: Ban Hammer", value="`{} banned {}!`\n`Reason: {}`".format(author.display_name, userName.display_name, args))
             await client.ban(userName)
     else:
-        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Senior Administrators and Owners!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by Moderators, Administrators, Co Owners and Owners!`")
     await client.say(embed=msg)
     print("============================================================")
     print("}ban <user> [reason]")
@@ -137,7 +137,7 @@ async def tempban(ctx, userName: discord.Member = None, time: int = None, *, arg
     helper_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
     mod_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
-    manager_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
@@ -185,7 +185,7 @@ async def tempban(ctx, userName: discord.Member = None, time: int = None, *, arg
 async def unban(ctx, userID = None):
     mod_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     admin_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
-    manager_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
@@ -922,7 +922,7 @@ rickrolls = ["https://www.youtube.com/watch?v=V-_O7nl0Ii0",
 @client.command(pass_context=True)
 async def idban(ctx, userID: int = None, *, args = None):
     manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
-    owner_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     author = ctx.message.author
     guild = ctx.message.server
     user = guild.get_member(userID)
@@ -941,7 +941,7 @@ async def idban(ctx, userID: int = None, *, args = None):
         else:
             msg.add_field(name=":warning: ", value="`Unknown error!`")
     else:
-        msg.add_field(name=":warning: ", value="`This command can only be used by Senior Administrators+!`")
+        msg.add_field(name=":warning: ", value="`This command can only be used by Administrators+!`")
     await client.say(embed=msg)
     print("============================================================")
     print("}idban <user id> [reason]")
@@ -1024,7 +1024,7 @@ async def mute(ctx, userName: discord.Member = None):
 async def nick(ctx, userName: discord.Member = None, *, args = None):
     helper_role = discord.utils.get(ctx.message.server.roles, name='Moderator')
     mod_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
-    admin_role = discord.utils.get(ctx.message.server.roles, name='Senior Administrator')
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
     manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
     owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     author = ctx.message.author
