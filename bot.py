@@ -1140,7 +1140,7 @@ hidelinks = ["http://www.gifbin.com/bin/012011/1295259460_cat-hides-in-box.gif",
              "https://i.chzbgr.com/full/7074625536/hD0F6F5CE/"]
     
 @client.event
-async def on_message(message):
+async def on_message(message, timeout=10,):
     await client.process_commands(message)
     if message.content.lower().startswith('who is huskie'):
         await client.send_message(message.channel, "Da best")
@@ -1184,6 +1184,11 @@ async def on_message(message):
             
     if message.content.lower().startswith('can i'):
         await client.send_message(message.channel, "Would you like fries with that?")
+        
+    if message.content.lower().startswith('Hey viola'):
+        await client.send_message(message.channel, 'Say hello, again, I dare you...')
+        msg = await client.wait_for_message(author=message.author, content='hello')
+        await client.send_message(message.channel, 'WOAH HECCIN FRICC WHY')
             
 # }rps <rock/paper/scissors>
 @client.command(pass_context=True)
