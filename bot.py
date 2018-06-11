@@ -1163,7 +1163,7 @@ async def on_message(message):
     if message.content.lower().startswith('gay'):
         await client.send_message(message.channel, "Uno reverse card has been played")
         
-    if message.content.lower().startswith('no u'):
+    if message.content.lower().startswith('no u '):
         await client.send_message(message.channel, "Aww, no us <3")
               
     if message.content.lower().startswith('who is zebro'):
@@ -1181,6 +1181,9 @@ async def on_message(message):
             await client.add_reaction(message, '🌑')
         if choice == 2:
             await client.add_reaction(message, '🌕')
+            
+    if "spammity spam" in message:
+            self.send("Would you like spam with your Spam, Spam, Eggs, Bacon and Spam?")
             
 # }rps <rock/paper/scissors>
 @client.command(pass_context=True)
