@@ -1182,7 +1182,7 @@ async def on_message(message):
         if choice == 2:
             await client.add_reaction(message, '🌕')
             
-     if message.content.lower().startswith('can i'):
+    if message.content.lower().startswith('can i'):
         await client.send_message(message.channel, "Would you like fries with that?")
             
 # }rps <rock/paper/scissors>
