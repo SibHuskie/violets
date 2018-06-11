@@ -1182,8 +1182,8 @@ async def on_message(message):
         if choice == 2:
             await client.add_reaction(message, '🌕')
             
-    if "spammity spam" in message:
-            await client.send_message(message.channel, "Would you like spam with your Spam, Spam, Eggs, Bacon and Spam?")
+     if message.content.lower().startswith('can i'):
+        await client.send_message(message.channel, "Would you like fries with that?")
             
 # }rps <rock/paper/scissors>
 @client.command(pass_context=True)
