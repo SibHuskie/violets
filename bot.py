@@ -1183,7 +1183,7 @@ async def on_message(message):
             await client.add_reaction(message, '🌕')
             
     if "spammity spam" in message:
-            self.send("Would you like spam with your Spam, Spam, Eggs, Bacon and Spam?")
+            await client.send_message(message.channel, "Would you like spam with your Spam, Spam, Eggs, Bacon and Spam?")
             
 # }rps <rock/paper/scissors>
 @client.command(pass_context=True)
