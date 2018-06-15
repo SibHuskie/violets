@@ -1185,10 +1185,10 @@ async def on_message(message, timeout=10,):
     if message.content.lower().startswith('can i'):
         await client.send_message(message.channel, "Would you like fries with that?")
         
-    if message.content.lower().startswith('hey viola'):
-        await client.send_message(message.channel, 'Say hello, again, I dare you...')
-        msg = await client.wait_for_message(author=message.author, content='hello')
-        await client.send_message(message.channel, 'WOAH HECCIN FRICC WHY')
+    if message.content.startswith('can i "):
+        await client.send_message(message.channel, 'Would you like fries with that?')
+        msg = await client.wait_for_message(author=message.author, content='No')
+        await client.send_message(message.channel, 'Too bad')
             
 # }rps <rock/paper/scissors>
 @client.command(pass_context=True)
