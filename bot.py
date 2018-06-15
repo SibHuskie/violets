@@ -1184,11 +1184,12 @@ async def on_message(message, timeout=10,):
             
     if message.content.lower().startswith('can i'):
         await client.send_message(message.channel, "Would you like fries with that?")
-        
-    if message.content.startswith('can i "):
-        await client.send_message(message.channel, 'Would you like fries with that?')
-        msg = await client.wait_for_message(author=message.author, content='No')
-        await client.send_message(message.channel, 'Too bad')
+                                  
+    if message.content.lower().startswith('goodnight '):
+        await client.send_message(message.channel, "꒰´ ु-௰ू-॰`꒱⋆｡˚✩ɢ∞פ ɴⅈɢhт ༘*ೄ˚")
+                                  
+    if message.content.lower().startswith('good night '):
+        await client.send_message(message.channel, "꒰´ ु-௰ू-॰`꒱⋆｡˚✩ɢ∞פ ɴⅈɢhт ༘*ೄ˚")
             
 # }rps <rock/paper/scissors>
 @client.command(pass_context=True)
