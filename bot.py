@@ -1163,7 +1163,7 @@ async def on_message(message, timeout=10,):
     if message.content.lower().startswith('gay'):
         await client.send_message(message.channel, "Uno reverse card has been played")
         
-    if message.content.lower().startswith('no u '):
+    if message.content.lower().startswith('no u'):
         await client.send_message(message.channel, "Aww, no us <3")
               
     if message.content.lower().startswith('who is zebro'):
@@ -1185,10 +1185,10 @@ async def on_message(message, timeout=10,):
     if message.content.lower().startswith('can i'):
         await client.send_message(message.channel, "Would you like fries with that?")
                                   
-    if message.content.lower().startswith('goodnight '):
+    if message.content.lower().startswith('goodnight'):
         await client.send_message(message.channel, "꒰´ ु-௰ू-॰`꒱⋆｡˚✩ɢ∞פ ɴⅈɢhт ༘*ೄ˚")
                                   
-    if message.content.lower().startswith('good night '):
+    if message.content.lower().startswith('good night'):
         await client.send_message(message.channel, "꒰´ ु-௰ू-॰`꒱⋆｡˚✩ɢ∞פ ɴⅈɢhт ༘*ೄ˚")
             
 # }rps <rock/paper/scissors>
