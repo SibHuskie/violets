@@ -11,6 +11,8 @@ import json
 
 client = commands.Bot(command_prefix="v!")
 footer_text = "Violets™"
+error_img = ':warning:'
+default_invite = 'https://discord.gg/GnkADTA'
 
 @client.event
 async def on_ready():
@@ -54,7 +56,6 @@ killResponses = ["%s 'accidentaly' fell into a ditch, rip...",
                "Somehow a toaster fell into %s's bath...",
                "%s's remains can still be seen to this day",
                "%s has ebola, they will be gone soon"]
-default_invite = 'https://discord.gg/GnkADTA'
 
 #RAPE
 @client.command(pass_context = True)
