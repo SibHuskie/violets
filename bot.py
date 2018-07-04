@@ -1306,7 +1306,7 @@ async def apply(ctx, option = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if option == None:
-        msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `partnership manager`.\n \nExample: `v!apply mod`.")
+        msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `pm`.\n \nExample: `v!apply mod`.")
     else:
         if option == "mod":
             try:
@@ -1337,7 +1337,7 @@ async def apply(ctx, option = None):
                 msg.add_field(name=":pencil: ", value="The `mod` template has been sent to your DMs!")
             except:
                 msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
-        elif option == "partnership manager":
+        elif option == "pm":
             try:
                 mg = "***__PARTNER MANAGER APPLICATION TEMPLATE__***"
                 mg += "\n```"
@@ -1368,6 +1368,6 @@ async def apply(ctx, option = None):
             except:
                 msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
         else:
-            msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `partnership manager`.\n \nExample: `v!apply mod`.")
+            msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `pm`.\n \nExample: `v!apply mod`.")
     await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
