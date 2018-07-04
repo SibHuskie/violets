@@ -1266,4 +1266,34 @@ async def invite(ctx):
     msg.set_footer(text=footer_text)
     msg.add_field(name=":link: ", value="Here is the default server invite:\n{}".format(default_invite))
     await client.say(embed=msg)
+    
+# }suggest <suggestion>
+@client.command(pass_context=True)
+async def suggest(ctx, *, args = None):
+    author = ctx.message.author
+    channel = client.get_channel('457604410344865814')
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=error_img, value="Please give a suggestion.\nExample: `}suggest Create a new role called 'Huskie's Servant'.`.")
+    else:
+        if len(str(args)) > 500:
+            msg.add_field(name=error_img, value="The suggestion cannot be longer than 500 characters.")
+        else:
+            m = discord.Embed(colour=0x04FF00, description= "")
+            m.title = ""
+            m.set_footer(text=footer_text)
+            m.add_field(name=":speech_balloon: ", value="{}".format(args))
+            m.add_field(name="===============", value="Suggested by: `{}` ### `{}`\nIf you like this suggestion, react with :white_check_mark: and if you don't like it, react with :x:.".format(author, author.id))
+            await client.send_message(channel, embed=m)
+            async for message in client.logs_from(channel):
+                if len(message.reactions) == 0:
+                    await client.add_reaction(message, '\u2705')
+                    await client.add_reaction(message, '\u274C')
+                    break
+                else:
+                    print("")
+            msg.add_field(name=":speech_balloon: ", value="Suggestion sent!\nYou can see it in <#457604410344865814>.")
+    await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
