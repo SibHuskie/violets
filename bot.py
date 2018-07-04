@@ -1311,9 +1311,10 @@ async def apply(ctx, option = None):
         if option == "mod":
             try:
                 mg = "***__MODERATOR APPLICATION TEMPLATE__***"
+                mg += "\n```"
                 mg += "\n===================================="
                 mg += "\n```"
-                mg += "\n:grey_question: How to apply:"
+                mg += "\n: grey_question: How to apply:"
                 mg += "\n`-` Once you meet the requirements, copy the template below and answer all the questions."
                 mg += "\n`-` When you finish answering the questions DM the message to an Admin+."
                 mg += "\n```fix"
