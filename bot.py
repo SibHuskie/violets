@@ -1314,12 +1314,13 @@ async def apply(ctx, option = None):
                 mg += "\n```"
                 mg += "\n===================================="
                 mg += "\n```"
-                mg += "\n: grey_question: How to apply:"
+                mg += "\n **HOW TO APPLY**"
                 mg += "\n`-` Once you meet the requirements, copy the template below and answer all the questions."
                 mg += "\n`-` When you finish answering the questions DM the message to an Admin+."
-                mg += "\n```fix"
+                mg += "\n```"
                 mg += "\n===================================="
                 mg += "\n```"
+                mg += "\n **QUESTIONS**"
                 mg += "\n`-` What is your discord username? Example: Huskie#3006"
                 mg += "\n`-` How old are you?"
                 mg += "\n`-` For how long have you been in this server?"
@@ -1336,7 +1337,7 @@ async def apply(ctx, option = None):
                 msg.add_field(name=":pencil: ", value="The `mod` template has been sent to your DMs!")
             except:
                 msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
-        elif option == "partner manager":
+        elif option == "partnership manager":
             try:
                 mg = "***__PARTNER MANAGER APPLICATION TEMPLATE__***"
                 mg += "\n```"
@@ -1367,6 +1368,6 @@ async def apply(ctx, option = None):
             except:
                 msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
         else:
-            msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `partner manager`.\n \nExample: `v!apply mod`.")
+            msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `partnership manager`.\n \nExample: `v!apply mod`.")
     await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
