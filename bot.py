@@ -1297,4 +1297,74 @@ async def suggest(ctx, *, args = None):
                     print("")
             msg.add_field(name=":speech_balloon: ", value="Suggestion sent!\nYou can see it in <#457604410344865814>.")
     await client.say(embed=msg)
+    
+# }apply <mod/pm/>
+@client.command(pass_context=True)
+async def apply(ctx, option = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x210150, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if option == None:
+        msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `partner manager`.\n \nExample: `v!apply mod`.")
+    else:
+        if option == "mod":
+            try:
+                mg = "***__MODERATOR APPLICATION TEMPLATE__***"
+                mg += "\n===================================="
+                mg += "\n```"
+                mg += "\n:grey_question: How to apply:"
+                mg += "\n`-` Once you meet the requirements, copy the template below and answer all the questions."
+                mg += "\n`-` When you finish answering the questions DM the message to an Admin+."
+                mg += "\n```fix"
+                mg += "\n===================================="
+                mg += "\n```"
+                mg += "\n``` What is your discord username? Example: Huskie#3006"
+                mg += "\n`-` How old are you?"
+                mg += "\n`-` For how long have you been in this server?"
+                mg += "\n`-` Why do you want to become a moderator?"
+                mg += "\n`-` Rate your knowledge of discord (1-10)."
+                mg += "\n`-` How active can you be (example: 1 hour a day, 3 times a week per 2 hours, etc.)?"
+                mg += "\n`-` What would you do if the server is being raided?"
+                mg += "\n`-` What would you do if a staff member is abusing their powers?"
+                mg += "\n`-` What would you do if someone is being rude towards you?"
+                mg += "\n`-` Have you ever been muted/punished, banned or kicked and why?"
+                mg += "\n`-` Do you know any of the staff members? If yes, please tag them."
+                mg += "\n`-` Have you been or are you a staff member on another server?"
+                await client.send_message(author, mg)
+                msg.add_field(name=":pencil: ", value="The `mod` template has been sent to your DMs!")
+            except:
+                msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
+        elif option == "partner manager":
+            try:
+                mg = "***__PARTNER MANAGER APPLICATION TEMPLATE__***"
+                mg += "\n```"
+                mg += "\n===================================="
+                mg += "\n```"
+                mg += "\n:grey_question: How to apply:"
+                mg += "\n`-` Once you meet the requirements, copy the template below and answer all the questions."
+                mg += "\n`-` When you finish answering the questions DM the message to an Admin+."
+                mg += "\n```fix"
+                mg += "\n===================================="
+                mg += "\n```"
+                mg += "\n``` What is your discord username? Example: Huskie#3006"
+                mg += "\n`-` How old are you?"
+                mg += "\n`-` For how long have you been in this server?"
+                mg += "\n`-` Why do you want to become a partnership manager?"
+                mg += "\n`-` How many partnerships can you do a day?"
+                mg += "\n`-` How active can you be (example: 1 hour a day, 3 times a week per 2 hours, etc)?"
+                mg += "\n`-` What would you do if the server is being raided?"
+                mg += "\n`-` What would you do if a staff member is abusing their powers?"
+                mg += "\n`-` What would you do if someone is being rude towards you?"
+                mg += "\n`-` Do you know any of the staff members? If yes, please tag them."
+                mg += "\n`-` Have you been or are you a partnership manager on another server? If yes, what servers are these and can you supply a link?"
+                mg += "\n`-` Do you know how partnerships work on this server?"
+                mg += "\n`-` Rate your knowlage of partnering discord servers (from 1-10)."
+                await client.send_message(author, mg)
+                msg.add_field(name=":pencil: ", value="The `partnership manager` template has been sent to your DMs!")
+            except:
+                msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
+        else:
+            msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `partner manager`.\n \nExample: `v!apply mod`.")
+    await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
