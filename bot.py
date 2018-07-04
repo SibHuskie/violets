@@ -1252,5 +1252,14 @@ async def punch(ctx, userName: discord.Member = None):
 punchlinks = ["http://www.reactiongifs.com/wp-content/uploads/2013/11/punch.gif",
               "https://media.giphy.com/media/7Nsu3HCWLRVgQ/giphy.gif",
               "https://media1.tenor.com/images/3aa0da04ef714f758c9ed215e629c161/tenor.gif?itemid=4902916",
-              "https://i.pinimg.com/originals/f6/d9/1c/f6d91c1f8a29b0131d448bad244dbeba.gif"]        
+              "https://i.pinimg.com/originals/f6/d9/1c/f6d91c1f8a29b0131d448bad244dbeba.gif"]
+
+# }invite
+@client.command(pass_context=True)
+async def invite(ctx):
+    msg = discord.Embed(colour=0x871485, url=default_invite, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg.add_field(name=":link: ", value="Here is the default server invite:\n{}".format(default_invite))
+    await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
