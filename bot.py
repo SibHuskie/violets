@@ -54,6 +54,7 @@ killResponses = ["%s 'accidentaly' fell into a ditch, rip...",
                "Somehow a toaster fell into %s's bath...",
                "%s's remains can still be seen to this day",
                "%s has ebola, they will be gone soon"]
+default_invite = 'https://discord.gg/GnkADTA'
 
 #RAPE
 @client.command(pass_context = True)
