@@ -1277,7 +1277,7 @@ async def suggest(ctx, *, args = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
-        msg.add_field(name=error_img, value="Please give a suggestion.\nExample: `}suggest Create a new role called 'Huskie's Servant'.`.")
+        msg.add_field(name=error_img, value="Please give a suggestion.\nExample: `v!suggest Create a new role called Huskie's Servant.`.")
     else:
         if len(str(args)) > 500:
             msg.add_field(name=error_img, value="The suggestion cannot be longer than 500 characters.")
