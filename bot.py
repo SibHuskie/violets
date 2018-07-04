@@ -1302,11 +1302,11 @@ async def suggest(ctx, *, args = None):
 @client.command(pass_context=True)
 async def apply(ctx, option = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x210150, description= "")
+    msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if option == None:
-        msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `partner manager`.\n \nExample: `v!apply mod`.")
+        msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `partnership manager`.\n \nExample: `v!apply mod`.")
     else:
         if option == "mod":
             try:
