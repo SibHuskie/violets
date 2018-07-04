@@ -495,7 +495,7 @@ kisslinks = ["https://media1.tenor.com/images/9c92434bdeea2df04d67710f338b212d/t
 @client.async_event
 async def on_member_join(member):
     joins = [" **Welcome to Violets™ {}! :sparkles: \n Please make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\n Also don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \n Enjoy your stay :sparkling_heart:**".format(member.mention)]
-    await client.send_message(client.get_channel("426680388585521163"), "{}".format(random.choice(joins)))
+    await client.send_message(client.get_channel("464040692642217994"), "{}".format(random.choice(joins)))
     print("============================================================")
     print("JOIN EVENT")
     print("{} ### {}".format(userName, userName.id))
@@ -504,7 +504,7 @@ async def on_member_join(member):
 @client.async_event
 async def on_member_remove(userName: discord.User):
     leaves = ["Cya `{}` :wave:".format(userName)]
-    await client.send_message(client.get_channel("426680388585521163"), "{}".format(random.choice(leaves)))
+    await client.send_message(client.get_channel("464040692642217994"), "{}".format(random.choice(leaves)))
     print("============================================================")
     print("LEAVE EVENT")
     print("{} ### {}".format(userName, userName.id))
