@@ -1514,4 +1514,24 @@ async def urban(ctx, *, args = None):
             except:
                 msg.add_field(name=":bookmark_tabs: Urban Dictionary", value="<@{}>: What is {}?\n \nNo definition found.".format(author.id))
     await client.say(embed=msg)
+    
+# }howgay <user>
+@client.command(pass_context=True)
+async def howgay(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please tag someone.")
+    else:
+        p = random.randint(0, 101)
+        c = random.randint(0, 10)
+        if c > 4:
+            msg.add_field(name=":thinking: :gay_pride_flag: ", value="<@{}>: How gay is <@{}>?\n \n<@{}>: <@{}> is {}% gay.".format(author.id, user.id, client.user.id, user.id, p))
+        elif c == 1 or c == 0:
+            msg.add_field(name=":thinking: :gay_pride_flag: ", value="<@{}>: How gay is <@{}>?\n \n<@{}>: <@{}> is hella fucking gay.".format(author.id, user.id, client.user.id, user.id))
+        else:
+            msg.add_field(name=":thinking: :gay_pride_flag: ", value="<@{}>: How gay is <@{}>?\n \n<@{}>: <@{}> is not gay at all.".format(author.id, user.id, client.user.id, user.id))
+    await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
