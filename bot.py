@@ -14,6 +14,9 @@ client = commands.Bot(command_prefix="v!")
 footer_text = "Violets™"
 error_img = ':warning:'
 default_invite = 'https://discord.gg/GnkADTA'
+owner_role = '
+admin_role = '
+co_owner_role = '
 
 @client.event
 async def on_ready():
@@ -335,36 +338,35 @@ async def takerole(ctx, userName: discord.Member = None, *, args = None):
     print("{} ### {}".format(author, author.id))
     print("============================================================")
 
-# <giverole <user> <role name>
+# }giverole <user> <role>
 @client.command(pass_context=True)
-async def giverole(ctx, userName: discord.Member = None, *, args = None):
-    admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
-    coowner_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
-    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
+async def giverole(ctx, user: discord.Member = None, *, args = None):
     author = ctx.message.author
+    admin_role = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    manager_role = discord.utils.get(ctx.message.server.roles, name='Co Owner')
+    owner_role = discord.utils.get(ctx.message.server.roles, name='Owner')
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    serverroles = [ctx.message.server.roles]
-    if admin_role in author.roles or coowner_role in author.roles or owner_role in author.roles:
-        if userName == None or args == None:
-            msg.add_field(name=":warning: ", value="`v!giverole <user> <role name>`")
+    if admin in author.roles or manager in author.roles or owner in author.roles:
+        if user == None or args == None:
+            msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!giverole @Huskie Family`.")
         else:
-            rolename2 = discord.utils.get(ctx.message.server.roles, name='{}'.format(args))
-            if rolename2 == None:
-                msg.add_field(name=":warning: ", value="`That role has not been found!`")
-            elif author.top_role == rolename2 or author.top_role < rolename2:
-                msg.add_field(name=":warning: ", value="`You cannot give a role that is the same or higher than your top role!`")
-            else:
-                await client.add_roles(userName, rolename2)
-                msg.add_field(name=":inbox_tray: ", value="`{} gave {} to {}!`".format(author.display_name, args, userName.display_name))
+            try:
+                rolename2 = discord.utils.get(ctx.message.server.roles, name='{}'.format(args))
+                if author.top_role == rolename2 or author.top_role < rolename2:
+                    msg.add_field(name=error_img, value="You cannot add a role that is the same or higher than your top role.")
+                else:
+                    try:
+                        await client.add_roles(user, rolename2)
+                        msg.add_field(name=":inbox_tray: ", value="<@{}> added `{}` to <@{}>.".format(author.id, args, user.id))
+                    except:
+                        msg.add_field(name=error_img, value="Either I can't edit that user's role or the role you specified is higher than Manager.")
+            except:
+                msg.add_field(name=error_img, value="The specified role was not found.")
     else:
-        msg.add_field(name=":warning: ", value="`This command can only be used by Administrators, Co Owners and Owners!`")
+        msg.add_field(name=error_img, value="This command can only be used by Administrators, Co Owners and Owners.")
     await client.say(embed=msg)
-    print("============================================================")
-    print("<giverole <user> <role name>")
-    print("{} ### {}".format(author, author.id))
-    print("============================================================")
 
 
 # <echo <text>
