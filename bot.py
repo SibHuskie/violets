@@ -494,16 +494,6 @@ kisslinks = ["https://media1.tenor.com/images/9c92434bdeea2df04d67710f338b212d/t
 
 # EVENT - JOIN / LEAVE
 @client.async_event
-async def on_member_join(member):
-    joins = ["**Welcome to Violets™ {}! You are our {} user! :sparkles: \nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**".format(member.mention, len(server.members))]
-    await client.send_message(client.get_channel("464040692642217994"), "{}".format(random.choice(joins)))
-    print("============================================================")
-    print("JOIN EVENT")
-    print("{} ### {}".format(userName, userName.id))
-    print("============================================================")
-
-# EVENT - JOIN / LEAVE
-@client.async_event
 async def on_member_join(userName: discord.User):
     joins = ["**{}** joined the game!".format(userName.name),
              "**{}**, we've been expecting you...".format(userName.name),
@@ -532,7 +522,7 @@ async def on_member_join(userName: discord.User):
              "**{}** joined the server! Seems legit.".format(userName.name)]
     await client.send_message(client.get_channel("426680388585521163"), ":chart_with_upwards_trend: {}".format(random.choice(joins)))
     server = client.get_server('426680388002250753')
-    await client.send_message(client.get_channel("464040692642217994"), "**Welcome to Violets™ {}! You are our {} user! :sparkles: \nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**".format(userName, len(server.members)))
+    await client.send_message(client.get_channel("464040692642217994"), "**Welcome to Violets™ {}! You are our {} user! :sparkles: \nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**\nhttps://gph.is/2lnKhvK".format(userName, len(server.members)))
     try:
         await client.send_message(userName, "https://gph.is/2lnKhvK\n \nWelcome to **{}**, {}! We hope you enjoy your stay and have fun.\n \nAll information is in the <#426683264682557440> channel, but feel free to ask the staff about anything you want to know.".format(server.name, userName.name))
     except:
