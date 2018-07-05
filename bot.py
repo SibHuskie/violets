@@ -14,9 +14,6 @@ client = commands.Bot(command_prefix="v!")
 footer_text = "Violets™"
 error_img = ':warning:'
 default_invite = 'https://discord.gg/GnkADTA'
-owner_role = '
-admin_role = '
-co_owner_role = '
 
 @client.event
 async def on_ready():
