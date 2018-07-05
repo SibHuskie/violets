@@ -345,7 +345,7 @@ async def giverole(ctx, user: discord.Member = None, *, args = None):
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    if admin in author.roles or manager in author.roles or owner in author.roles:
+    if admin_role in author.roles or manager_role in author.roles or owner_role in author.roles:
         if user == None or args == None:
             msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!giverole @Huskie Family`.")
         else:
