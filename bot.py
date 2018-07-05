@@ -494,7 +494,7 @@ kisslinks = ["https://media1.tenor.com/images/9c92434bdeea2df04d67710f338b212d/t
 # EVENT - JOIN / LEAVE
 @client.async_event
 async def on_member_join(member):
-    joins = [" **Welcome to Violets™ {}! :sparkles: \n Please make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\n Also don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \n Enjoy your stay :sparkling_heart:**".format(member.mention)]
+    joins = ["**Welcome to Violets™ {}! You are our {} user! :sparkles: \nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**".format(member.mention, len(server.members))]
     await client.send_message(client.get_channel("464040692642217994"), "{}".format(random.choice(joins)))
     print("============================================================")
     print("JOIN EVENT")
