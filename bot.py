@@ -736,37 +736,48 @@ async def dice(ctx):
     r=random.randint(1,6)
     await client.send_message(ctx.message.channel, "You rolled a " + str(r) + "!")
     
-# <matchmake <user1> <user2>
+# }ship <something> | <something else>
 @client.command(pass_context=True)
-async def ship(ctx, userName1: discord.Member = None, userName2: discord.Member = None):
-    percent = random.randint(0, 101)
+async def ship(ctx, *, args = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    if userName1 == None or userName2 == None:
-        msg.add_field(name=":warning: ",value="`v!ship (user1) (user2)`")
+    if args == None:
+        msg.add_field(name=error_img, value="Please give 2 things you want to ship.\nExample: `v!ship Uncle Jimbo and his son`.")
     else:
-        if percent >= 1 and percent <= 10:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - No point\n```\n:sob: ".format(userName1.display_name, userName2.display_name, percent))
-        elif percent >= 11 and percent <= 20:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Trash\n```\n:cry: ".format(userName1.display_name, userName2.display_name, percent))
-        elif percent >= 21 and percent <= 30:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Just don't\n```\n:frowning2: ".format(userName1.display_name, userName2.display_name, percent))
-        elif percent >= 31 and percent <= 40:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - The opposite to good\n```\n:slight_frown: ".format(userName1.display_name, userName2.display_name, percent))
-        elif percent >= 41 and percent <= 50:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - 50/50 ish\n```\n:neutral_face: ".format(userName1.display_name, userName2.display_name, percent))
-        elif percent >= 51 and percent <= 60:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Good\n```\n:slight_smile: ".format(userName1.display_name, userName2.display_name, percent))
-        elif percent >= 61 and percent <= 70:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Very Good\n```\n:smiley: ".format(userName1.display_name, userName2.display_name, percent))
-        elif percent >= 71 and percent <= 80:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Fantastic\n```\n:blush: ".format(userName1.display_name, userName2.display_name, percent))
-        elif percent >= 81 and percent <= 90:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Amazing\n```\n:heart_eyes: ".format(userName1.display_name, userName2.display_name, percent))
+        if len(str(args)) > 400:
+            msg.add_field(name=error_img, value="The ship cannot be longer than 400 characters.")
         else:
-            msg.add_field(name=":heartpulse: Matchmaking... :heartpulse: ", value=":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Get a room you two\n```\n:revolving_hearts: ".format(userName1.display_name, userName2.display_name, percent))
+            if " and " in str(args):
+                a = args.split('|')
+                if len(a) > 2:
+                    msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `}ship you | the toilet`.")
+                else:
+                    p = random.randint(0, 101)
+                    if p >= 0 and p <= 10:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Shit\n```\n:sob: ".format(a[0], a[1], p)
+                    elif p >= 11 and p <= 20:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Awful\n```\n:cry: ".format(a[0], a[1], p)
+                    elif p >= 21 and p <= 30:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Really Bad\n```\n:frowning2: ".format(a[0], a[1], p)
+                    elif p >= 31 and p <= 40:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Bad\n```\n:slight_frown: ".format(a[0], a[1], p)
+                    elif p >= 41 and p <= 50:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Okay\n```\n:neutral_face: ".format(a[0], a[1], p)
+                    elif p >= 51 and p <= 60:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Good\n```\n:slight_smile: ".format(a[0], a[1], p)
+                    elif p >= 61 and p <= 70:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Very Good\n```\n:smiley: ".format(a[0], a[1], p)
+                    elif p >= 71 and p <= 80:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Fantastic\n```\n:blush: ".format(a[0], a[1], p)
+                    elif p >= 81 and p <= 90:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Amazing\n```\n:heart_eyes: ".format(a[0], a[1], p)
+                    else:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Perfect\n```\n:revolving_hearts: ".format(a[0], a[1], p)
+                    msg.add_field(name=":heartpulse: **__S H I P   M A C H I N E__** :heartpulse: ", value=m)
+            else:
+                msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `}ship Jimmy | u mom`")
     await client.say(embed=msg)
     
 @client.command(pass_context=True)
