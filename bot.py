@@ -1469,4 +1469,24 @@ async def apply(ctx, option = None):
         else:
             msg.add_field(name=error_img, value="No option given.\nOptions: `mod` or `pm`.\n \nExample: `v!apply mod`.")
     await client.say(embed=msg)
+    
+# }urban <text>
+@client.command(pass_context=True)
+async def urban(ctx, *, args = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=error_img, value="Please give something you want to define.")
+    else:
+        if len(str(args)) > 150:
+            msg.add_field(name=error_img, value="The text cannot be longer than 150 characters.")
+        else:
+            try:
+                defs = ud.define('{}'.format(args))
+                msg.add_field(name=":bookmark_tabs: Urban Dictionary", value="<@{}>: What is {}?\n \n{}".format(author.id, args, random.choice(defs)))
+            except:
+                msg.add_field(name=":bookmark_tabs: Urban Dictionary", value="<@{}>: What is {}?\n \nNo definition found.".format(author.id))
+    await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
