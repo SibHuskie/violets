@@ -750,7 +750,7 @@ async def ship(ctx, *, args = None):
             msg.add_field(name=error_img, value="The ship cannot be longer than 400 characters.")
         else:
             if " and " in str(args):
-                a = args.split('|')
+                a = args.split(' and ')
                 if len(a) > 2:
                     msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `}ship you | the toilet`.")
                 else:
@@ -777,7 +777,7 @@ async def ship(ctx, *, args = None):
                         m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Perfect\n```\n:revolving_hearts: ".format(a[0], a[1], p)
                     msg.add_field(name=":heartpulse: **__S H I P   M A C H I N E__** :heartpulse: ", value=m)
             else:
-                msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `}ship Jimmy | u mom`")
+                msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `v!ship Uncle Jimbo and his son`")
     await client.say(embed=msg)
     
 @client.command(pass_context=True)
