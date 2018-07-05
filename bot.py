@@ -8,6 +8,7 @@ import os
 import os.path
 import requests
 import json
+import urbandictionary as ud
 
 client = commands.Bot(command_prefix="v!")
 footer_text = "Violets™"
