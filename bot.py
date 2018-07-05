@@ -608,41 +608,128 @@ async def calculator(ctx, *, args=None):
     print("{} ### {}".format(author, author.id))
     print("============================================================")
 
-# <battle <user>
+# }battle <user>
 @client.command(pass_context=True)
 async def battle(ctx, userName: discord.Member = None):
-    attacker = random.randint(0, 301)
-    attacked = random.randint(0, 301)
-    attackerhealth = 300 - attacked
-    attackedhealth = 300 - attacker
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=":warning: ", value="`v!battle (user)`")
+        msg.add_field(name=error_img, value="Please mention someone you want to battle.\nExample: `v!battle @Jimmy`.")
     else:
-        msg.add_field(name= ":crossed_swords: B A T T LE :crossed_swords: ", value= "**~~=================================~~**\n`{}` :vs: `{}`\n**~~=================================~~**\n:small_orange_diamond: `{}`\n \n:arrow_forward: {}\n \n:fast_forward: {} DMG\n**~~=================================~~**\n:small_orange_diamond: `{}`\n \n:arrow_forward: {}\n \n:fast_forward: {} DMG\n**~~=================================~~**\n:small_orange_diamond: `{}`\n:hearts: {} HP\n \n:small_orange_diamond: `{}`\n:hearts: {} HP\n**~~=================================~~**".format(author.display_name, userName.display_name, author.display_name, random.choice(attacks), attacker, userName.display_name, random.choice(attacks), attacked, author.display_name, attackerhealth, userName.display_name, attackedhealth), inline=True)
-        if attacker == attacked:
-            msg.add_field(name= ":diamonds: N O  W I N N E R :diamonds:", value= "**~~=================================~~**\n`{}`\n`{}`\n**~~=================================~~**".format(author.display_name, userName), inline=True)
-        elif attacker > attacked:
-            msg.add_field(name= ":diamonds: W I N N E R :diamonds:", value= "**~~=================================~~**\n`{}`\n**~~=================================~~**".format(author.display_name), inline=True)
-        else:
-            msg.add_field(name= ":diamonds: W I N N E R :diamonds:", value= "**~~=================================~~**\n`{}`\n**~~=================================~~**".format(userName.display_name), inline=True)
+        a_attacks = ["<@{}> punches <@{}> :punch: ".format(author.id, userName.id),
+                     "<@{}> kicks <@{}> :boot: ".format(author.id, userName.id),
+                     "<@{}> grabs and throws <@{}> :raised_hands: ".format(author.id, userName.id),
+                     "<@{}> stabs <@{}> :dagger: ".format(author.id, userName.id),
+                     "<@{}> shoots <@{}> :gun: ".format(author.id, userName.id),
+                     "<@{}> cuts <@{}> :knife: ".format(author.id, userName.id),
+                     "<@{}> hits <@{}> with a hammer :hammer: ".format(author.id, userName.id),
+                     "<@{}> uses dark magic on <@{}> :skull_crossbones: ".format(author.id, userName.id),
+                     "<@{}> uses chains to choke <@{}> :chains: ".format(author.id, userName.id),
+                     "<@{}> casts a spell on <@{}> :sparkles: ".format(author.id, userName.id),
+                     "<@{}> pukes on <@{}> :nauseated_face: ".format(author.id, userName.id),
+                     "<@{}> scares <@{}> :ghost: ".format(author.id, userName.id),
+                     "<@{}> summons a demon to attack <@{}> :smiling_imp: ".format(author.id, userName.id),
+                     "<@{}> calls a robot army to attack <@{}> :robot: ".format(author.id, userName.id),
+                     "<@{}> farts at <@{}> :dash: ".format(author.id, userName.id),
+                     "<@{}> creates a tornado behind <@{}> :cloud_tornado: ".format(author.id, userName.id),
+                     "<@{}> summons a meteor and the meteor falls on <@{}> :comet: ".format(author.id, userName.id),
+                     "<@{}> strikes <@{}> with lightning :zap: ".format(author.id, userName.id),
+                     "<@{}> freezes <@{}> :snowflake: ".format(author.id, userName.id),
+                     "<@{}> cripples <@{}> :boom: ".format(author.id, userName.id),
+                     "<@{}> shoots <@{}> with a bow and arrow :gun: ".format(author.id, userName.id),
+                     "<@{}> drives over <@{}> :red_car: ".format(author.id, userName.id),
+                     "<@{}> chops off <@{}>'s leg :crossed_swords: ".format(author.id, userName.id),
+                     "<@{}> drains some of <@{}>'s life :broken_heart: ".format(author.id, userName.id),
+                     "<@{}> steals <@{}>'s soul :black_heart: ".format(author.id, userName.id),
+                     "<@{}> stuns <@{}> :octagonal_sign: ".format(author.id, userName.id),
+                     "<@{}> uses nuclear energy to attack <@{}> :radioactive: ".format(author.id, userName.id),
+                     "<@{}> stabs <@{}> in the eyes and blinds them :eye: ".format(author.id, userName.id),
+                     "<@{}> uses ear-rape to deafen <@{}> :ear: ".format(author.id, userName.id),
+                     "<@{}> uses mind control on <@{}> :alien: ".format(author.id, userName.id),
+                     "<@{}> summons minions to attack <@{}> :busts_in_silhouette: ".format(author.id, userName.id),
+                     "<@{}> traps <@{}> :spider_web: ".format(author.id, userName.id)]
+        
+        u_attacks = ["<@{}> punches <@{}> :punch: ".format(userName.id, author.id),
+                     "<@{}> kicks <@{}> :boot: ".format(userName.id, author.id),
+                     "<@{}> grabs and throws <@{}> :raised_hands: ".format(userName.id, author.id),
+                     "<@{}> stabs <@{}> :dagger: ".format(userName.id, author.id),
+                     "<@{}> shoots <@{}> :gun: ".format(userName.id, author.id),
+                     "<@{}> cuts <@{}> :knife: ".format(userName.id, author.id),
+                     "<@{}> hits <@{}> with a hammer :hammer: ".format(userName.id, author.id),
+                     "<@{}> uses dark magic on <@{}> :skull_crossbones: ".format(userName.id, author.id),
+                     "<@{}> uses chains to choke <@{}> :chains: ".format(userName.id, author.id),
+                     "<@{}> casts a spell on <@{}> :sparkles: ".format(userName.id, author.id),
+                     "<@{}> pukes on <@{}> :nauseated_face: ".format(userName.id, author.id),
+                     "<@{}> scares <@{}> :ghost: ".format(userName.id, author.id),
+                     "<@{}> summons a demon to attack <@{}> :smiling_imp: ".format(userName.id, author.id),
+                     "<@{}> calls a robot army to attack <@{}> :robot: ".format(userName.id, author.id),
+                     "<@{}> farts at <@{}> :dash: ".format(userName.id, author.id),
+                     "<@{}> creates a tornado behind <@{}> :cloud_tornado: ".format(userName.id, author.id),
+                     "<@{}> summons a meteor and the meteor falls on <@{}> :comet: ".format(userName.id, author.id),
+                     "<@{}> strikes <@{}> with lightning :zap: ".format(userName.id, author.id),
+                     "<@{}> freezes <@{}> :snowflake: ".format(userName.id, author.id),
+                     "<@{}> cripples <@{}> :boom: ".format(userName.id, author.id),
+                     "<@{}> shoots <@{}> with a bow and arrow :gun: ".format(userName.id, author.id),
+                     "<@{}> drives over <@{}> :red_car: ".format(userName.id, author.id),
+                     "<@{}> chops off <@{}>'s leg :crossed_swords: ".format(userName.id, author.id),
+                     "<@{}> drains some of <@{}>'s life :broken_heart: ".format(userName.id, author.id),
+                     "<@{}> steals <@{}>'s soul :black_heart: ".format(userName.id, author.id),
+                     "<@{}> stuns <@{}> :octagonal_sign: ".format(userName.id, author.id),
+                     "<@{}> uses nuclear energy to attack <@{}> :radioactive: ".format(userName.id, author.id),
+                     "<@{}> stabs <@{}> in the eyes and blinds them :eye: ".format(userName.id, author.id),
+                     "<@{}> uses ear-rape to deafen <@{}> :ear: ".format(userName.id, author.id),
+                     "<@{}> uses mind control on <@{}> :alien: ".format(userName.id, author.id),
+                     "<@{}> summons minions to attack <@{}> :busts_in_silhouette: ".format(userName.id, author.id),
+                     "<@{}> traps <@{}> :spider_web: ".format(userName.id, author.id)]
+        a_health = []
+        u_health = []
+        r = []
+        for i in range(1000):
+            a_health.append(".")
+            u_health.append(".")
+        msg.add_field(name=":crossed_swords: **__D E A T H   B A T T L E__** :crossed_swords: ", value="***`>>>`*** <@{}> :vs: <@{}> ***`<<<`***\n**~~__==============================__~~**".format(author.id, userName.id))
+        for i in range(1000):
+            if len(a_health) == 0 or len(u_health) == 0:
+                if len(a_health) > len(u_health):
+                    m = ":crown: WINNER: <@{}>\n:heart: `{}` Health".format(author.id, len(a_health))
+                    m += "\n "
+                    m += "\n:thumbsdown: LOSER: <@{}>\n:heart: `{}` Health".format(userName.id, len(u_health))
+                elif len(a_health) < len(u_health):
+                    m = ":crown: WINNER: <@{}>\n:heart: `{}` Health".format(userName.id, len(u_health))
+                    m += "\n "
+                    m += "\n:thumbsdown: LOSER: <@{}>\n:heart: `{}` Health".format(author.id, len(a_health))
+                else:
+                    k = random.randint(0, 100)
+                    if k >= 50:
+                        m = ":crown: RANDOM WINNER: <@{}>\n:heart: `{}` Health".format(author.id, len(a_health))
+                        m += "\n "
+                        m += "\n:thumbsdown: LOSER: <@{}>\n:heart: `{}` Health".format(userName.id, len(u_health))
+                    else:
+                        m = ":crown: RANDOM WINNER: <@{}>\n:heart: `{}` Health".format(userName.id, len(u_health))
+                        m += "\n "
+                        m += "\n:thumbsdown: LOSER: <@{}>\n:heart: `{}` Health".format(author.id, len(a_health))
+                msg.add_field(name="**~~__==============================__~~**", value=m)
+                break
+            else:
+                r.append(".")
+                a_d = random.randint(100, 250)
+                u_d = random.randint(100, 250)
+                m = ":small_red_triangle_down: {}!\n`{}` DMG!".format(random.choice(a_attacks), a_d)
+                m += "\n:small_red_triangle_down: {}!\n`{}` DMG!".format(random.choice(u_attacks), u_d)
+                msg.add_field(name=":arrow_right: ROUND `{}`:".format(len(r)), value=m)
+                for i in range(a_d):
+                    if len(u_health) == 0:
+                        break
+                    else:
+                        u_health.remove(".")
+                for i in range(u_d):
+                    if len(a_health) == 0:
+                        break
+                    else:
+                        a_health.remove(".")
     await client.say(embed=msg)
-    print("============================================================")
-    print("}battle <user>")
-    print("{} ### {}".format(author, author.id))
-    print("============================================================")
-
-attacks = ["Punches the opponent :punch: ", "Kicks the opponent :boot: ", "Throws the opponent :raised_hands: ", "Stabs the opponent :dagger: ", "Shoots the opponent :gun: ",
-           "Sets the opponent on fire :fire: ", "Poisons the opponent :syringe: ", "Throws a bomb at the opponent :bomb: ", "Uses a shield to deal damage with the same attack as the opponent's :shield: ", "Chokes the opponent using chains :chains: ",
-           "Cuts the opponent :knife: ", "Hits the opponent's head with a hammer :hammer: ", "Uses dark magic to attack the opponent :skull_crossbones: ", "Casts a spell on the opponent :sparkles: ", "Pukes at the opponent :nauseated_face: ",
-           "Scares the opponent :ghost: ", "Summons a demon to attack the opponent :smiling_imp: ", "Transforms into a robot to attack the opponent :robot: ", "Farts at the opponent :dash: ", "Summons a tornado near the opponent :cloud_tornado: ",
-           "Summons a meteor and hits the opponent with it :comet: ", "Hits the opponent with lightning :zap: ", "Freezes the opponent :snowflake: ", "Cripples the opponent :boom: ", "Shoots the opponent using a bow and arrow :bow_and_arrow: ",
-           "Drives over the opponent :red_car: ", "Chops off the opponent's leg :crossed_swords: ", "Drains some of the opponent's life :broken_heart: ", "Steals the opponent's soul :black_heart: ", "Stuns the opponent :octagonal_sign: ",
-           "Uses nuclear energy to attack the opponent :radioactive: ", "Blinds the opponent :eye: ", "Deafens the opponent :ear: ", "Uses mind control on the opponent :alien: ", "Summons minions to attack the opponent :busts_in_silhouette: ",
-           "Traps the opponent :spider_web: "] 
 
 @client.command(pass_context=True)
 async def dice(ctx):
