@@ -504,34 +504,9 @@ kisslinks = ["https://media1.tenor.com/images/9c92434bdeea2df04d67710f338b212d/t
 # EVENT - JOIN / LEAVE
 @client.async_event
 async def on_member_join(userName: discord.User):
-    joins = ["**{}** joined the game!".format(userName.name),
-             "**{}**, we've been expecting you...".format(userName.name),
-             "**{}**, hey! We hope you brought pizza!".format(userName.name),
-             "**{}**, welcome!".format(userName.name),
-             "**{}** is here! Everyone, look busy!".format(userName.name),
-             "It's dangerous to go alone, take **{}** with you!".format(userName.name),
-             "Shut up! **{}** is here!".format(userName.name),
-             "A wild **{}** has appeared!".format(userName.name),
-             "**{}** has been summoned!".format(userName.name),
-             "Everyone, gather around. **{}** came to visit us!".format(userName.name),
-             "**{}** has joined your party!".format(userName.name),
-             "**{}** has spawned!".format(userName.name),
-             "Holy shit! **{}** is here!".format(userName.name),
-             "Roses are red, violets are blue, **{}** joined the server, you should invite your friends too!".format(userName.name),
-             "**{}** just slid into the server!".format(userName.name),
-             "**{}** is ready and waiting!".format(userName.name),
-             "Achievement earned: Find **{}**.".format(userName.name),
-             "**{}** joined your team! Can I get a heal?".format(userName.name),
-             "**{}** is here! Leave your weapons by the door.".format(userName.name),
-             "Brace yourselves, here comes **{}**!".format(userName.name),
-             "**{}** joined the server! Seems OP - please nerf.".format(userName.name),
-             "Hey, **{}**! About time you joined.".format(userName.name),
-             "Welcome **{}**. Make yourself at home.".format(userName.name),
-             "**{}** joined! Please no hacks!".format(userName.name),
-             "**{}** joined the server! Seems legit.".format(userName.name)]
-    await client.send_message(client.get_channel("426680388585521163"), ":chart_with_upwards_trend: {}".format(random.choice(joins)))
-    server = client.get_server('426680388002250753')
-    await client.send_message(client.get_channel("464040692642217994"), "**Welcome to Violets™ {}! You are our {} user! :sparkles: \nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**\nhttps://gph.is/2lnKhvK".format(userName, len(server.members)))
+    joins = ["** to Violets™ {}! You are our {} user! :sparkles: \nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**\nhttps://gph.is/2lnKhvK".format(userName, len(server.members))]
+    await client.send_message(client.get_channel("426680388585521163"), "**Welcome **{}".format(random.choice(joins)))
+    server = client.get_server('426680388585521163')
     try:
         await client.send_message(userName, "https://gph.is/2lnKhvK\n \nWelcome to **{}**, {}! We hope you enjoy your stay and have fun.\n \nAll information is in the <#426683264682557440> channel, but feel free to ask the staff about anything you want to know.".format(server.name, userName.name))
     except:
