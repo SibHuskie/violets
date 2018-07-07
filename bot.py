@@ -1291,6 +1291,9 @@ async def on_message(message, timeout=10,):
     if message.content.lower().startswith('who is zebro'):
         await client.send_message(message.channel, "She is a moist slut, and tsundere for pala")
         
+    if message.content.lower().startswith('who is vanessa'):
+        await.client.send_message(message.channel, "The only kittycat :stuck_out_tongue:")
+        
     if message.content.lower().startswith('huskie'):
         await client.send_message(message.channel, "<@299761993382887425>")
         
