@@ -1549,7 +1549,7 @@ async def howgay(ctx, user: discord.Member = None):
     
 # }cb
 @client.command(pass_context=True)
-async def cb(ctx):
+async def bc(ctx):
     staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
     chnl = ctx.message.channel
     author = ctx.message.author
