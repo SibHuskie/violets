@@ -501,21 +501,27 @@ kisslinks = ["https://media1.tenor.com/images/9c92434bdeea2df04d67710f338b212d/t
              "https://thumbs.gfycat.com/LateAchingHoatzin-max-1mb.gif",
              "https://media1.tenor.com/images/b7cf0d7ff5c2bb274e8cdc6d5a87d91d/tenor.gif?itemid=5636758"]
 
-# EVENT - JOIN / LEAVE
 @client.async_event
 async def on_member_join(userName: discord.User):
-    joins = ["** to Violets™ {}! You are our {} user! :sparkles: \nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**\nhttps://gph.is/2lnKhvK".format(userName, len(server.members))]
-    await client.send_message(client.get_channel("426680388585521163"), "**Welcome **{}".format(random.choice(joins)))
-    server = client.get_server('426680388585521163')
+    m2 = "Welcome to **Violets**, <@{}>! We hope you enjoy your stay and have fun.".format(userName.id)
+    m2 += "\nAll information is in the <#426683264682557440> channel, but feel free to ask the staff about anything you want to know."
+    m2 += "\https://gph.is/2lnKhvK"
+    m = "https://gph.is/2lnKhvK"
+    m += "\n**Welcome to Violets™ <@{}>! :sparkles:".format(userName.id)
+    m += "\nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:"
+    m += "\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:"
+    await client.send_message(client.get_channel("426680388585521163"), "{}".format(m))
+    server = client.get_server('426680388002250753')
+    await client.send_message(client.get_channel("429874952934785025"), ":large_blue_circle: `{}` joined the server! Now we have {} members.".format(userName, len(server.members)))
     try:
-        await client.send_message(userName, "https://gph.is/2lnKhvK\n \nWelcome to **{}**, {}! We hope you enjoy your stay and have fun.\n \nAll information is in the <#426683264682557440> channel, but feel free to ask the staff about anything you want to know.".format(server.name, userName.name))
+        await client.send_message(userName, "{}".format(m2))
     except:
         print("")
         
 @client.async_event
 async def on_member_remove(userName: discord.User):
-    leaves = ["Cya `{}` :wave:".format(userName)]
-    await client.send_message(client.get_channel("464040692642217994"), "{}".format(random.choice(leaves)))
+    leaves = ["Cya `@{}` :wave:".format(userName.id)]
+    await client.send_message(client.get_channel("426680388585521163"), "{}".format(random.choice(leaves)))
     print("============================================================")
     print("LEAVE EVENT")
     print("{} ### {}".format(userName, userName.id))
