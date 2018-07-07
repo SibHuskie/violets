@@ -15,6 +15,8 @@ footer_text = "Violets™"
 error_img = ':warning:'
 default_invite = 'https://discord.gg/GnkADTA'
 
+bot2_role = '440770699259281408'
+bot1_role = '453194562379186176'
 member_role = '464963766027812880'
 punished_role = '464963800043356160'
 helper_role = '464963841588199440'
