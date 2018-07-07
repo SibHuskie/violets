@@ -1556,6 +1556,7 @@ async def cb(ctx):
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
+    a = []
     if staff_role in author.roles or staff_role in author.roles:
         async for i in client.logs_from(chnl):
             if len(a) < 50:
