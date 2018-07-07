@@ -1551,6 +1551,7 @@ async def howgay(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def cb(ctx):
     staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
+    chnl = ctx.message.channel
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
