@@ -520,7 +520,7 @@ async def on_member_join(userName: discord.User):
         
 @client.async_event
 async def on_member_remove(userName: discord.User):
-    leaves = ["Cya `@{}` :wave:".format(userName.id)]
+    leaves = ["Cya `<@{}>` :wave:".format(userName.id)]
     await client.send_message(client.get_channel("426680388585521163"), "{}".format(random.choice(leaves)))
     print("============================================================")
     print("LEAVE EVENT")
