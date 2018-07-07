@@ -15,6 +15,14 @@ footer_text = "Violets™"
 error_img = ':warning:'
 default_invite = 'https://discord.gg/GnkADTA'
 
+member_role = '464963766027812880'
+punished_role = '464963800043356160'
+helper_role = '464963841588199440'
+mod_role = '464963897871564800'
+admin_role = '464963985889034250'
+manager_role = '464963985889034250'
+owner_role = '464964048065396746'
+
 @client.event
 async def on_ready():
     print("Logged in as:")
@@ -1078,26 +1086,28 @@ async def idban(ctx, userID: int = None, *, args = None):
     
 # }report <user> <reason>
 @client.command(pass_context=True)
-async def report(ctx, userName: discord.Member = None, *, args = None):
+async def report(ctx, user: discord.Member = None, *, args = None):
     author = ctx.message.author
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    msg2 = discord.Embed(colour=0x871485, description= "")
-    msg2.title = ""
-    msg2.set_footer(text=footer_text)
-    if userName == None or args == None:
-        msg.add_field(name=":warning: ", value="`v!report <user> <reason>`")
+    if user == None or args == None:
+        msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!report @Huskie Saying the D word, dog`.")
     else:
-        msg.add_field(name=":clipboard: REPORT", value="`{} has reported {}!`".format(author.display_name, userName.display_name))
-        msg2.add_field(name=":clipboard: REPORT", value="`Reporter:`\n`{} ### {}`\n`Reported:`\n`{} ### {}`\n`Reason:`\n`{}`".format(author, author.id, userName, userName.id, args))
-        channel = client.get_channel('444087235197927424')
-        await client.send_message(channel, embed=msg2)
+        if len(str(args)) > 1500:
+            msg,add_field(name=error_img, value="The reason cannot be longer than 1500 characters.")
+        else:
+            msg.add_field(name=":clipboard: ", value="<@{}> reported <@{}>.\nReason:\n{}".format(author.id, user.id, args))
+            chnl = client.get_channel('444087235197927424')
+            m = "```diff"
+            m += "\n- REPORT -"
+            m += "\n+ Author: {} # {}".format(author, author.id)
+            m += "\n+ Target: {} # {}".format(user, user.id)
+            m += "\n+ Reason:"
+            m += "\n```"
+            m += "\n{}".format(args)
+            await client.send_message(chnl, m)
     await client.say(embed=msg)
-    print("============================================================")
-    print("}report <user> <reason>")
-    print("{} ### {}".format(author, author.id))
-    print("============================================================")
     
 # }rate <text>
 @client.command(pass_context=True)
@@ -1533,5 +1543,34 @@ async def howgay(ctx, user: discord.Member = None):
             msg.add_field(name=":thinking: :gay_pride_flag: ", value="<@{}>: How gay is <@{}>?\n \n<@{}>: <@{}> is hella fucking gay.".format(author.id, user.id, client.user.id, user.id))
         else:
             msg.add_field(name=":thinking: :gay_pride_flag: ", value="<@{}>: How gay is <@{}>?\n \n<@{}>: <@{}> is not gay at all.".format(author.id, user.id, client.user.id, user.id))
+    await client.say(embed=msg)
+    
+# }cb
+@client.command(pass_context=True)
+async def cb(ctx):
+    author = ctx.message.author
+    chnl = ctx.message.channel
+    msg = discord.Embed(colour=0x871485, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    owner = discord.utils.get(ctx.message.server.roles, id=owner_role)
+    admin = discord.utils.get(ctx.message.server.roles, id=admin_role)
+    manager = discord.utils.get(ctx.message.server.roles, id=manager_role)
+    mod = discord.utils.get(ctx.message.server.roles, id=mod_role)
+    helper = discord.utils.get(ctx.message.server.roles, id=helper_role)
+    a = []
+    if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
+        async for i in client.logs_from(chnl):
+            if len(a) < 50:
+                if i.author.bot:
+                    await client.delete_message(i)
+                    a.append("+1")
+                else:
+                    print("")
+            else:
+                break
+        msg.add_field(name=":robot: :gun: Bot Message Removal", value="<@{}> removed the latest messages sent by bots.".format(author.id))
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
