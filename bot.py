@@ -1550,18 +1550,12 @@ async def howgay(ctx, user: discord.Member = None):
 # }cb
 @client.command(pass_context=True)
 async def cb(ctx):
+    staff_role = discord.utils.get(ctx.message.server.roles, name='Staff')
     author = ctx.message.author
-    chnl = ctx.message.channel
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    owner = discord.utils.get(ctx.message.server.roles, id=owner_role)
-    admin = discord.utils.get(ctx.message.server.roles, id=admin_role)
-    manager = discord.utils.get(ctx.message.server.roles, id=manager_role)
-    mod = discord.utils.get(ctx.message.server.roles, id=mod_role)
-    helper = discord.utils.get(ctx.message.server.roles, id=helper_role)
-    a = []
-    if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
+    if staff_role in author.roles or staff_role in author.roles:
         async for i in client.logs_from(chnl):
             if len(a) < 50:
                 if i.author.bot:
