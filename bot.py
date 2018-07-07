@@ -1569,7 +1569,7 @@ async def cb(ctx):
                     print("")
             else:
                 break
-        msg.add_field(name=":robot: :gun: Bot Message Removal", value="<@{}> removed the latest messages sent by bots.".format(author.id))
+        msg.add_field(name=":robot: :gun: Bot Killer", value="<@{}> removed the latest messages sent by bots.".format(author.id))
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
