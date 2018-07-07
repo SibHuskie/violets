@@ -509,7 +509,7 @@ async def on_member_join(userName: discord.User):
     m = "\n**Welcome to Violets™ <@{}>! :sparkles:".format(userName.id)
     m += "\nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:"
     m += "\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**"
-    m += "https://gph.is/2lnKhvK"
+    m += "\nhttps://gph.is/2lnKhvK"
     await client.send_message(client.get_channel("426680388585521163"), "{}".format(m))
     server = client.get_server('426680388002250753')
     await client.send_message(client.get_channel("429874952934785025"), ":large_blue_circle: `{}` joined the server! Now we have {} members.".format(userName, len(server.members)))
@@ -520,7 +520,7 @@ async def on_member_join(userName: discord.User):
         
 @client.async_event
 async def on_member_remove(userName: discord.User):
-    leaves = ["Cya `<@{}>` :wave:".format(userName.id)]
+    leaves = ["Cya `{}` :wave:".format(userName)]
     await client.send_message(client.get_channel("426680388585521163"), "{}".format(random.choice(leaves)))
     print("============================================================")
     print("LEAVE EVENT")
