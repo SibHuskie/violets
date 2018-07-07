@@ -262,7 +262,7 @@ async def userinfo(ctx, userName: discord.Member = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
-        msg.add_field(name=error_img, value="Incorrect usage. Example: `v!userinfo @Huskie.")
+        msg.add_field(name=error_img, value="Incorrect usage. Example: `v!userinfo @Huskie`")
     else:
         imageurl = userName.avatar_url
         msg.title = ":page_with_curl: USER INFORMATION"
