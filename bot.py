@@ -68,14 +68,6 @@ killResponses = ["%s 'accidentaly' fell into a ditch, rip...",
                "%s's remains can still be seen to this day",
                "%s has ebola, they will be gone soon"]
 
-#RAPE
-@client.command(pass_context = True)
-async def rape(ctx, *, member : discord.Member = None):
-    if member is None:
-        await client.say(ctx.message.author.mention + ", you need to find someone to rape.")
-    else:
-        await client.say(member.mention + " has been raped by " + ctx.message.author.mention + "! :fearful: ")
-
 # }chocolate <user> <number>
 @client.command(pass_context=True)
 async def chocolate(ctx, userName: discord.Member = None, number: int = None):
