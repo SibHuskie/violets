@@ -1545,8 +1545,6 @@ async def topic(ctx):
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    msg.add_field(name=":speech_left: ", value="`{}`".format(random.choice(topics)))
-    await client.say(embed=msg)
     topics = ["IF YOU HAD THE WORLD’S ATTENTION FOR 30 SECONDS, WHAT WOULD YOU SAY?",
               "IF YOU HAD TO WORK BUT DIDN’T NEED THE MONEY, WHAT WOULD YOU CHOOSE TO DO?",
               "WHAT IS IN YOUR FRIDGE RIGHT NOW?",
@@ -1614,4 +1612,6 @@ async def topic(ctx):
               "WHAT IS THE BEST PIECE OF ADVICE THAT YOU'VE RECEIVED?",
               "HOW LONG DOES IT TAKE FOR YOU TO GET READY IN THE MORNING?",
               "WHAT'S THE LONGEST YOU HAVE GONE WITHOUT SLEEP?"]
+    msg.add_field(name=":speech_left: ", value="`{}`".format(random.choice(topics)))
+    await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
