@@ -1612,6 +1612,6 @@ async def topic(ctx):
               "WHAT IS THE BEST PIECE OF ADVICE THAT YOU'VE RECEIVED?",
               "HOW LONG DOES IT TAKE FOR YOU TO GET READY IN THE MORNING?",
               "WHAT'S THE LONGEST YOU HAVE GONE WITHOUT SLEEP?"]
-                  msg.add_field(name=":speech_left: ", value="`{}`".format(random.choice(topics)))
+              msg.add_field(name=":speech_left: ", value="`{}`".format(random.choice(topics)))
     await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
