@@ -1539,13 +1539,13 @@ async def bc(ctx):
         msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
     
-# ~kill <user>
+# ~topic
 @client.command(pass_context=True)
-async def kill(ctx):
+async def topic(ctx):
     msg = discord.Embed(colour=0x871485, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-        msgs = ["IF YOU HAD THE WORLD’S ATTENTION FOR 30 SECONDS, WHAT WOULD YOU SAY?",
+        topics = ["IF YOU HAD THE WORLD’S ATTENTION FOR 30 SECONDS, WHAT WOULD YOU SAY?",
                 "IF YOU HAD TO WORK BUT DIDN’T NEED THE MONEY, WHAT WOULD YOU CHOOSE TO DO?",
                 "WHAT IS IN YOUR FRIDGE RIGHT NOW?",
                 "IF YOU WERE HOME ON A RAINY SUNDAY AFTERNOON, WHAT MOVIE WOULD YOU MOST WANT TO SEE ON TELEVISION?",
@@ -1565,6 +1565,6 @@ async def kill(ctx):
                 "WHAT WAS THE BEST THING BEFORE SLICED BREAD?",
                 "IF YOU COULD WEDGIE ANY HISTORICAL FIGURE, WHO WOULD YOU PICK?",
                 "YOU’VE BEEN GIVEN AN ELEPHANT. YOU CAN’T GET RID OF IT. WHAT WOULD YOU DO WITH IT?"]
-        msg.add_field(name=":speech_left: ", value="{}".format(random.choice(msgs)))
+        msg.add_field(name=":speech_left: ", value="{}".format(random.choice(topics)))
     await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
