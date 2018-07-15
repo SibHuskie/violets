@@ -1595,7 +1595,23 @@ async def topic(ctx):
               "IF YOU HAD UNLIMITED RESOURCES, HOW WOULD YOU LIVE YOUR LIFE?",
               "WHEN YOU’RE 90 YEARS OLD, WHAT WILL MATTER MOST TO YOU?",
               "DO YOU SERVE MONEY OR DOES MONEY SERVE YOU?",
-              "WHAT DO PEOPLE DO TOO MUCH OF TODAY?"]
-    msg.add_field(name=":speech_left: ", value="`{}`".format(random.choice(topics)))
+              "WHAT DO PEOPLE DO TOO MUCH OF TODAY?",
+              "HAVE YOU EVER SMILED AT A STRANGER AND THEN WISHED YOU HADN'T? WHY OR WHY NOT?",
+              "WHAT IS YOUR FAVOURITE SONG OF ALL TIME?",
+              "WHAT QUALITIES DO YOU VALUE MOST IN A FRIEND?",
+              "WHAT IS YOUR FAVOURITE BRAND?",
+              "DESCRIBE YOUR PERFECT MAN / WOMAN",
+              "HAVE YOU EVER BEEN IN LOVE?",
+              "WHAT IS ONE HTING YOU WOULD CHANGE ABOUT YOUR HOME?",
+              "WOULD YOU RATHER AGE FROM THE NECK UP ONLY OR THE NECK DOWN ONLY?",
+              "WHAT WAS THE BIGGEST THING YOU HAVE EVER WON?",
+              "WHAT DO YOU DO TO STAY IN SHAPE?",
+              "WHAT IS SOMETHING THAT YOU'VE NEVER DONE BUT WOULD LIKE TO TRY?",
+              "IF YOU COULD GO BACK IN TIME AND CHANGE ONE THING, WHAT WOULD THAT BE?",
+              "WHAT IS OSMETHING NEW THAT YOU'VE LEARNED IN THE PAST WEEK?",
+              "WHAT IS THE BEST PIECE OF ADVICE THAT YOU'VE RECEIVED?",
+              "HOW LONG DOES IT TAKE FOR YOU TO GET READY IN THE MORNING?",
+              "WHAT'S THE LONGEST YOU HAVE GONE WITHOUT SLEEP?"]
+                  msg.add_field(name=":speech_left: ", value="`{}`".format(random.choice(topics)))
     await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
