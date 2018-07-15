@@ -1565,6 +1565,6 @@ async def topic(ctx):
               "WHAT WAS THE BEST THING BEFORE SLICED BREAD?",
               "IF YOU COULD WEDGIE ANY HISTORICAL FIGURE, WHO WOULD YOU PICK?",
               "YOU’VE BEEN GIVEN AN ELEPHANT. YOU CAN’T GET RID OF IT. WHAT WOULD YOU DO WITH IT?"]
-        msg.add_field(name=":speech_left: ", value="{}".format(random.choice(topics)))
+    msg.add_field(name=":speech_left: ", value="{}".format(random.choice(topics)))
     await client.say(embed=msg)
 client.run(os.environ['BOT_TOKEN'])
