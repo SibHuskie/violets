@@ -14,6 +14,7 @@ client = commands.Bot(command_prefix="v!")
 footer_text = "Violets™"
 error_img = ':warning:'
 default_invite = 'https://discord.gg/GnkADTA'
+banner = 'https://cdn.discordapp.com/attachments/403309394139545600/467636297989750794/ezgif.com-video-to-gif_1.gif'
 
 #Welcome and Leave
 
@@ -641,6 +642,131 @@ async def eightball(ctx, *, args = None):
                  "Yes! I'm sure of it!",
                  "No! I'm sure of it!"]
             msg.add_field(name=":8ball: ", value=":grey_question: `Question:`\n<@{}>: {}\n \n:grey_exclamation: `Answer:`\n**Magic Eight Ball**: {}".format(author.id, args, random.choice(a)))
+    await client.say(embed=msg)
+    
+# v!rate <text>
+@client.command(pass_context=True)
+async def rate(ctx, *, args = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=error_img, value="Nothing to rate given.")
+    else:
+        if len(str(args)) > 1900:
+            msg.add_field(name=error_img, value="The text cannot be longer than 1900 characters.")
+        else:
+            msg.add_field(name=":scales:", value=":arrow_forward: <@{}>\nI'd rate {} a {}/10!".format(author.id, args, random.randint(0, 11)))
+    await client.say(embed=msg)
+    
+# v!urban <text>
+@client.command(pass_context=True)
+async def urban(ctx, *, args = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=error_img, value="Please give something you want to define.")
+    else:
+        if len(str(args)) > 150:
+            msg.add_field(name=error_img, value="The text cannot be longer than 150 characters.")
+        else:
+            try:
+                defs = ud.define('{}'.format(args))
+                msg.add_field(name=":bookmark_tabs: Urban Dictionary", value="<@{}>: What is {}?\n \n{}".format(author.id, args, random.choice(defs)))
+            except:
+                msg.add_field(name=":bookmark_tabs: Urban Dictionary", value="<@{}>: What is {}?\n \nNo definition found.".format(author.id))
+    await client.say(embed=msg)
+    
+#GENERAL
+
+# }invite
+@client.command(pass_context=True)
+async def invite(ctx):
+    msg = discord.Embed(colour=0x870099, url=default_invite, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg.add_field(name=":link: ", value="Here is the default server invite:\n{}".format(default_invite))
+    await client.say(embed=msg)
+    
+# }suggest <suggestion>
+@client.command(pass_context=True)
+async def suggest(ctx, *, args = None):
+    author = ctx.message.author
+    channel = client.get_channel('457604410344865814')
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=error_img, value="Please give a suggestion.\nExample: `v!suggest Create a new role called Huskie's Servant.`.")
+    else:
+        if len(str(args)) > 500:
+            msg.add_field(name=error_img, value="The suggestion cannot be longer than 500 characters.")
+        else:
+            m = discord.Embed(colour=0x04FF00, description= "")
+            m.title = ""
+            m.set_footer(text=footer_text)
+            m.add_field(name=":speech_balloon: ", value="{}".format(args))
+            m.add_field(name="===============", value="Suggested by: `{}` ### `{}`\nIf you like this suggestion, react with :white_check_mark: and if you don't like it, react with :x:.".format(author, author.id))
+            await client.send_message(channel, embed=m)
+            async for message in client.logs_from(channel):
+                if len(message.reactions) == 0:
+                    await client.add_reaction(message, '\u2705')
+                    await client.add_reaction(message, '\u274C')
+                    break
+                else:
+                    print("")
+            msg.add_field(name=":speech_balloon: ", value="Suggestion sent!\nYou can see it in <#457604410344865814>.")
+    await client.say(embed=msg)
+
+# }userinfo <user>
+@client.command(pass_context=True)
+async def userinfo(ctx, userName: discord.Member = None):
+    punish = discord.utils.get(ctx.message.server.roles, id=punished_role)
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if userName == None:
+        msg.add_field(name=error_img, value="Please tag the user you want to get information on.")
+    else:
+        imageurl = userName.avatar_url
+        msg.title = "USER INFO"
+        msg.set_thumbnail(url=imageurl)
+        msg.add_field(name="NAME:", value="`{}`".format(userName), inline=True)
+        msg.add_field(name="ID:", value="`{}`".format(userName.id), inline=True)
+        msg.add_field(name="CREATED AT:", value="`{}`".format(userName.created_at), inline=True)
+        msg.add_field(name="JOINED AT:", value="`{}`".format(userName.joined_at), inline=True)
+        msg.add_field(name="STATUS:", value="`{}`".format(userName.status), inline=True)
+        msg.add_field(name="IS BOT:", value="`{}`".format(userName.bot), inline=True)
+        msg.add_field(name="GAME:", value="{}".format(userName.game), inline=True)
+        msg.add_field(name="NICKNAME:", value="`{}`".format(userName.nick), inline=True)
+        msg.add_field(name="TOP ROLE:", value="`{}`".format(userName.top_role), inline=True)
+        msg.add_field(name="VOICE CHANNEL:", value="`{}`".format(userName.voice_channel), inline=True)
+        if punish in userName.roles:
+            msg.add_field(name="PUNISHED:", value="True", inline=True)
+        else:
+            msg.add_field(name="PUNISHED:", value="False", inline=True)
+    await client.say(embed=msg)
+    
+# }serverinfo
+@client.command(pass_context=True)
+async def serverinfo(ctx):
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = "SERVER INFORMATION"
+    msg.set_footer(text=footer_text)
+    imageurl = ctx.message.server.icon_url
+    msg.set_thumbnail(url=imageurl)
+    msg.add_field(name="MEMBERS", value="`{}`".format(len(ctx.message.server.members)), inline=True)
+    msg.add_field(name="CHANNELS", value="`{}`".format(len(ctx.message.server.channels)), inline=True)
+    msg.add_field(name="EMOJIS", value="`{}`".format(len(ctx.message.server.emojis)), inline=True)
+    msg.add_field(name="ID", value="`{}`".format(ctx.message.server.id), inline=True)
+    msg.add_field(name="REGION", value="`{}`".format(ctx.message.server.region), inline=True)
+    msg.add_field(name="ROLES", value="`{}`".format(len(ctx.message.server.roles)), inline=True)
+    msg.add_field(name="OWNER", value="`{}`".format(ctx.message.server.owner), inline=True)
+    msg.add_field(name="CREATED AT", value="`{}`".format(ctx.message.server.created_at), inline=True)
+    msg.set_image(url="{}".format(banner))
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
