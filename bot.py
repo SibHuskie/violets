@@ -16,6 +16,17 @@ error_img = ':warning:'
 default_invite = 'https://discord.gg/GnkADTA'
 banner = 'https://cdn.discordapp.com/attachments/403309394139545600/467636297989750794/ezgif.com-video-to-gif_1.gif'
 
+#roles
+member_role = '464963766027812880'
+punished_role = '464963800043356160'
+helper_role = '464963841588199440'
+mod_role = '464963897871564800'
+admin_role = '464963985889034250'
+manager_role = '464963985889034250'
+owner_role = '464964048065396746'
+
+
+
 #Welcome and Leave
 
 @client.async_event
