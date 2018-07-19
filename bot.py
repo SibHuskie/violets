@@ -1,14 +1,15 @@
 import discord
+from discord.ext.commands import Bot
 from discord.ext import commands
-import logging
 import asyncio
 import random
-import time
+import pickle
 import os
 import os.path
 import requests
 import json
-import urbandictionary as ud
+import time
+from gtts import gTTS
 
 client = commands.Bot(command_prefix="v!")
 bot_prefix= "v!"
