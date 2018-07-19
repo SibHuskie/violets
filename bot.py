@@ -24,6 +24,7 @@ mod_role = '464963897871564800'
 admin_role = '464963985889034250'
 manager_role = '464963985889034250'
 owner_role = '464964048065396746'
+partner_role = '469369789585031178'
 
 
 
@@ -756,7 +757,7 @@ async def userinfo(ctx, userName: discord.Member = None):
         msg.add_field(name="TOP ROLE:", value="`{}`".format(userName.top_role), inline=True)
         msg.add_field(name="VOICE CHANNEL:", value="`{}`".format(userName.voice_channel), inline=True)
         if punish in userName.roles:
-            msg.add_field(name="PUNISHED:", value="True", inline=True)
+            msg.add_field(name="MUTED:", value="True", inline=True)
         else:
             msg.add_field(name="PUNISHED:", value="False", inline=True)
     await client.say(embed=msg)
@@ -778,6 +779,62 @@ async def serverinfo(ctx):
     msg.add_field(name="OWNER", value="`{}`".format(ctx.message.server.owner), inline=True)
     msg.add_field(name="CREATED AT", value="`{}`".format(ctx.message.server.created_at), inline=True)
     msg.set_image(url="{}".format(banner))
+    await client.say(embed=msg)
+    
+# v!say <text>
+@client.command(pass_context=True)
+async def say(ctx, *, args = None):
+    author = ctx.message.author
+    vip = discord.utils.get(ctx.message.server.roles, id=helper_role)
+    legend = discord.utils.get(ctx.message.server.roles, id=mod_role)
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if vip in author.roles or legend in author.roles:
+        if args == None:
+            msg.add_field(name=error_img, value="Please give a message that you want the bot to say.")
+            await client.say(embed=msg)
+        else:
+            if len(str(args)) > 1990:
+                msg.add_field(name=error_img, value="The message cannot be longer than 1990 characters.")
+                await client.say(embed=msg)
+            else:
+                await client.say("`{}`".format(args))
+                await client.delete_message(ctx.message)
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by Helpers and Moderators!")
+        await client.say(embed=msg)
+        
+# v!p <user>
+@client.command(pass_context=True)
+async def p(ctx, userName: discord.Member = None):
+    author = ctx.message.author
+    helper = discord.utils.get(ctx.message.server.roles, id=helper_role)
+    mod = discord.utils.get(ctx.message.server.roles, id=mod_role)
+    admin = discord.utils.get(ctx.message.server.roles, id=admin_role)
+    manager = discord.utils.get(ctx.message.server.roles, id=manager_role)
+    owner = discord.utils.get(ctx.message.server.roles, id=owner_role)
+    partner = discord.utils.get(ctx.message.server.roles, id=partner_role)
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    chnl = client.get_channel('429874952934785025')
+    l = client.get_channel(logs)
+    if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
+        if userName == None:
+            msg.add_field(name=error_img, value="Please mention the person you want to give/remove the partner role to/from.")
+        else:
+            try:
+                if partner in userName.roles:
+                    await client.remove_roles(userName, partner)
+                    msg.add_field(name=":handshake: ", value="<@{}> removed the partner role from <@{}>.".format(author.id, userName.id))
+                else:
+                    await client.add_roles(userName, partner)
+                    msg.add_field(name=":handshake: ", value="<@{}> gave the partner role to <@{}>.".format(author.id, userName.id))
+            except:
+                msg.add_field(name=error_img, value="There was an error while trying to give/take the partner role to/from that user.")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
