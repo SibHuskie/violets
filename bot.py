@@ -583,5 +583,37 @@ async def ship(ctx, *, args = None):
             else:
                 msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `v!ship Hikari and Yami`")
     await client.say(embed=msg)
+    
+# }rps <rock/paper/scissors>
+@client.command(pass_context=True)
+async def rps(ctx, o = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if o == None:
+        msg.add_field(name=error_img, value="Please choose what you want to use.\nExample: `v!rps rock`.")
+    else:
+        if o == "rock" or o == "paper" or o == "scissors":
+            a = ["rock", "paper", "scissors"]
+            c = random.choice(a)
+            msg.add_field(name=":fist: **__ROCK, PAPER, SCISSORS__** :fist: ", value="**~~__==============================__~~**\n:arrow_forward: <@{}>\n------- `{}`\n:arrow_forward: <@{}>\n------- `{}`".format(author.id, o, client.user.id, c))
+            if o == "rock" and c == "scissors":
+                msg.add_field(name="**~~__==============================__~~**", value=":crown: WINNER: <@{}>\n \n:thumbsdown: LOSER: <@{}>".format(author.id, client.user.id))
+            elif o == "paper" and c == "rock":
+                msg.add_field(name="**~~__==============================__~~**", value=":crown: WINNER: <@{}>\n \n:thumbsdown: LOSER: <@{}>".format(author.id, client.user.id))
+            elif o == "scissors" and c == "paper":
+                msg.add_field(name="**~~__==============================__~~**", value=":crown: WINNER: <@{}>\n \n:thumbsdown: LOSER: <@{}>".format(author.id, client.user.id))
+            elif o == "rock" and c == "paper":
+                msg.add_field(name="**~~__==============================__~~**", value=":crown: WINNER: <@{}>\n \n:thumbsdown: LOSER: <@{}>".format(client.user.id, author.id))
+            elif o == "paper" and c == "scissors":
+                msg.add_field(name="**~~__==============================__~~**", value=":crown: WINNER: <@{}>\n \n:thumbsdown: LOSER: <@{}>".format(client.user.id, author.id))
+            elif o == "scissors" and c == "rock":
+                msg.add_field(name="**~~__==============================__~~**", value=":crown: WINNER: <@{}>\n \n:thumbsdown: LOSER: <@{}>".format(client.user.id, author.id))
+            else:
+                msg.add_field(name="**~~__==============================__~~**", value=":no_entry: It's a tie!")
+        else:
+            msg.add_field(name=error_img, value="Invalid choice.\nChoices: `rock`, `paper`, `scissors`.")
+    await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
