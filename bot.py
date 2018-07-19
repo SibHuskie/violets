@@ -208,5 +208,211 @@ async def hug(ctx, user: discord.Member = None):
         msg.add_field(name=":handshake: Interactions", value="<@{}> got a hug from <@{}>! Nawww.".format(user.id, author.id))
     await client.say(embed=msg)
 
+# v!kiss <user>
+@client.command(pass_context=True)
+async def kiss(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to kiss.")
+    else:
+        msg.set_image(url="{}".format(random.choice(kisslinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> got a kiss from <@{}>! owo what's this?".format(user.id, author.id))
+    await client.say(embed=msg)
+
+# v!cuddle <user>
+@client.command(pass_context=True)
+async def cuddle(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to cuddle.")
+    else:
+        msg.set_image(url="{}".format(random.choice(cuddlelinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> cuddled <@{}>! Aww.".format(author.id, user.id))
+    await client.say(embed=msg)
+
+# v!bite <user>
+@client.command(pass_context=True)
+async def bite(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to bite.")
+    else:
+        msg.set_image(url="{}".format(random.choice(bitelinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> got biten by <@{}>! Ouch.".format(user.id, author.id))
+    await client.say(embed=msg)
+
+# v!bloodsuck <user>
+@client.command(pass_context=True)
+async def bloodsuck(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to suck blood from.")
+    else:
+        msg.set_image(url="{}".format(random.choice(bloodsucklinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> sucked some of <@{}>'s blood! Yummy.".format(author.id, user.id))
+    await client.say(embed=msg)
+
+# v!throw <user>
+@client.command(pass_context=True)
+async def throw(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to throw.")
+    else:
+        msg.set_image(url="{}".format(random.choice(throwlinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> got throw by <@{}>! Weee.".format(user.id, author.id))
+    await client.say(embed=msg)
+
+# v!pat <user>
+@client.command(pass_context=True)
+async def pat(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to pat.")
+    else:
+        msg.set_image(url="{}".format(random.choice(patlinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> got a pat from <@{}>! uwu".format(user.id, author.id))
+    await client.say(embed=msg)
+
+# v!punch <user>
+@client.command(pass_context=True)
+async def punch(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to punch.")
+    else:
+        msg.set_image(url="{}".format(random.choice(punchlinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> got punched by <@{}>! Wow, calm down.".format(user.id, author.id))
+    await client.say(embed=msg)
+
+# v!nom <user>
+@client.command(pass_context=True)
+async def nom(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to nom.")
+    else:
+        msg.set_image(url="{}".format(random.choice(nomlinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> nommed <@{}>! ( ͡° ͜ʖ ͡°)".format(author.id, user.id))
+    await client.say(embed=msg)
+
+# v!highfive <user>
+@client.command(pass_context=True)
+async def highfive(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to highfive.")
+    else:
+        msg.set_image(url="{}".format(random.choice(highfivelinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> highfived <@{}>! Woo.".format(author.id, user.id))
+    await client.say(embed=msg)
+
+# v!poke <user>
+@client.command(pass_context=True)
+async def poke(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to poke.")
+    else:
+        msg.set_image(url="{}".format(random.choice(pokelinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> got poked by <@{}>! Hmm?".format(user.id, author.id))
+    await client.say(embed=msg)
+
+# v!slap <user>
+@client.command(pass_context=True)
+async def slap(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to slap.")
+    else:
+        msg.set_image(url="{}".format(random.choice(slaplinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> got slapped by <@{}>! They probably deserved it.".format(user.id, author.id))
+    await client.say(embed=msg)
+
+# v!stare <user>
+@client.command(pass_context=True)
+async def stare(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to stare at.")
+    else:
+        msg.set_image(url="{}".format(random.choice(starelinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> is staring at <@{}>! Creep.".format(author.id, user.id))
+    await client.say(embed=msg)
+
+# v!facepalm
+@client.command(pass_context=True)
+async def facepalm(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+        msg.set_image(url="{}".format(random.choice(facepalmlinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> facepalmed. <_<".format(author.id))
+    await client.say(embed=msg)
+
+# v!spank <user>
+@client.command(pass_context=True)
+async def spank(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to spank.")
+    else:
+        msg.set_image(url="{}".format(random.choice(spanklinks)))
+        msg.add_field(name=":handshake: Interactions", value="<@{}> got spanked by <@{}>! =3".format(user.id, author.id))
+    await client.say(embed=msg)
+
+# v!lick <user>
+@client.command(pass_context=True)
+async def lick(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to lick.")
+    else:
+        msg.set_image(url="{}".format(random.choice(licklinks)))
+        msg.add_field(name="**<:hide:469353204975534110> EMOTE <:Hehe:469353139636666380>**", value="<@{}> licked <@{}>! Uhm...".format(author.id, user.id))
+    await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
