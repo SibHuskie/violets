@@ -11,6 +11,8 @@ import json
 import urbandictionary as ud
 
 client = commands.Bot(command_prefix="v!")
+bot_prefix= "v!"
+client = commands.Bot(command_prefix=bot_prefix)
 server = discord.Server(id='426680388002250753')
 footer_text = "Violets™"
 error_img = ':warning:'
