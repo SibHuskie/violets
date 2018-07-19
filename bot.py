@@ -383,8 +383,8 @@ async def facepalm(ctx):
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-        msg.set_image(url="{}".format(random.choice(facepalmlinks)))
-        msg.add_field(name=":handshake: Interactions", value="<@{}> facepalmed. <_<".format(author.id))
+    msg.set_image(url="{}".format(random.choice(facepalmlinks)))
+    msg.add_field(name=":handshake: Interactions", value="<@{}> facepalmed. <_<".format(author.id))
     await client.say(embed=msg)
 
 # v!spank <user>
