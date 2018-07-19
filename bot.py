@@ -11,6 +11,7 @@ import json
 import urbandictionary as ud
 
 client = commands.Bot(command_prefix="v!")
+server = discord.Server(id='426680388002250753')
 footer_text = "Violets™"
 error_img = ':warning:'
 default_invite = 'https://discord.gg/GnkADTA'
