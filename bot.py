@@ -584,7 +584,7 @@ async def ship(ctx, *, args = None):
                 msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `v!ship Hikari and Yami`")
     await client.say(embed=msg)
     
-# }rps <rock/paper/scissors>
+# v!rps <rock/paper/scissors>
 @client.command(pass_context=True)
 async def rps(ctx, o = None):
     author = ctx.message.author
@@ -614,6 +614,33 @@ async def rps(ctx, o = None):
                 msg.add_field(name="**~~__==============================__~~**", value=":no_entry: It's a tie!")
         else:
             msg.add_field(name=error_img, value="Invalid choice.\nChoices: `rock`, `paper`, `scissors`.")
+    await client.say(embed=msg)
+    
+# v!eightball <yes or no question>
+@client.command(pass_context=True)
+async def eightball(ctx, *, args = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=error_img, value="Please ask a yes/no question.")
+    else:
+        if len(str(args)) > 1900:
+            msg.add_field(name=error_img, value="The question cannot be longer than 1900 characters.")
+        else:
+            a = ["Hell no!",
+                 "No!",
+                 "Hell yes!",
+                 "Yes!",
+                 "Definitely!",
+                 "Definitely not!",
+                 "Probably!",
+                 "Probably not!",
+                 "Most likely!",
+                 "Yes! I'm sure of it!",
+                 "No! I'm sure of it!"]
+            msg.add_field(name=":8ball: ", value=":grey_question: `Question:`\n<@{}>: {}\n \n:grey_exclamation: `Answer:`\n**Magic Eight Ball**: {}".format(author.id, args, random.choice(a)))
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
