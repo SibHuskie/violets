@@ -414,5 +414,174 @@ async def lick(ctx, user: discord.Member = None):
         msg.set_image(url="{}".format(random.choice(licklinks)))
         msg.add_field(name="**:small_blue_diamond: EMOTE :small_blue_diamond: **", value="<@{}> licked <@{}>! Uhm...".format(author.id, user.id))
     await client.say(embed=msg)
+    
+#FUN
+
+# v!battle <user>
+@client.command(pass_context=True)
+async def battle(ctx, userName: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if userName == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to battle.\nExample: `v!battle @Huskie`.")
+    else:
+        a_attacks = ["<@{}> punches <@{}> :punch: ".format(author.id, userName.id),
+                     "<@{}> kicks <@{}> :boot: ".format(author.id, userName.id),
+                     "<@{}> grabs and throws <@{}> :raised_hands: ".format(author.id, userName.id),
+                     "<@{}> stabs <@{}> :dagger: ".format(author.id, userName.id),
+                     "<@{}> shoots <@{}> :gun: ".format(author.id, userName.id),
+                     "<@{}> cuts <@{}> :knife: ".format(author.id, userName.id),
+                     "<@{}> hits <@{}> with a hammer :hammer: ".format(author.id, userName.id),
+                     "<@{}> uses dark magic on <@{}> :skull_crossbones: ".format(author.id, userName.id),
+                     "<@{}> uses chains to choke <@{}> :chains: ".format(author.id, userName.id),
+                     "<@{}> casts a spell on <@{}> :sparkles: ".format(author.id, userName.id),
+                     "<@{}> pukes on <@{}> :nauseated_face: ".format(author.id, userName.id),
+                     "<@{}> scares <@{}> :ghost: ".format(author.id, userName.id),
+                     "<@{}> summons a demon to attack <@{}> :smiling_imp: ".format(author.id, userName.id),
+                     "<@{}> calls a robot army to attack <@{}> :robot: ".format(author.id, userName.id),
+                     "<@{}> farts at <@{}> :dash: ".format(author.id, userName.id),
+                     "<@{}> creates a tornado behind <@{}> :cloud_tornado: ".format(author.id, userName.id),
+                     "<@{}> summons a meteor and the meteor falls on <@{}> :comet: ".format(author.id, userName.id),
+                     "<@{}> strikes <@{}> with lightning :zap: ".format(author.id, userName.id),
+                     "<@{}> freezes <@{}> :snowflake: ".format(author.id, userName.id),
+                     "<@{}> cripples <@{}> :boom: ".format(author.id, userName.id),
+                     "<@{}> shoots <@{}> with a bow and arrow :gun: ".format(author.id, userName.id),
+                     "<@{}> drives over <@{}> :red_car: ".format(author.id, userName.id),
+                     "<@{}> chops off <@{}>'s leg :crossed_swords: ".format(author.id, userName.id),
+                     "<@{}> drains some of <@{}>'s life :broken_heart: ".format(author.id, userName.id),
+                     "<@{}> steals <@{}>'s soul :black_heart: ".format(author.id, userName.id),
+                     "<@{}> stuns <@{}> :octagonal_sign: ".format(author.id, userName.id),
+                     "<@{}> uses nuclear energy to attack <@{}> :radioactive: ".format(author.id, userName.id),
+                     "<@{}> stabs <@{}> in the eyes and blinds them :eye: ".format(author.id, userName.id),
+                     "<@{}> uses ear-rape to deafen <@{}> :ear: ".format(author.id, userName.id),
+                     "<@{}> uses mind control on <@{}> :alien: ".format(author.id, userName.id),
+                     "<@{}> summons minions to attack <@{}> :busts_in_silhouette: ".format(author.id, userName.id),
+                     "<@{}> traps <@{}> :spider_web: ".format(author.id, userName.id)]
+        
+        u_attacks = ["<@{}> punches <@{}> :punch: ".format(userName.id, author.id),
+                     "<@{}> kicks <@{}> :boot: ".format(userName.id, author.id),
+                     "<@{}> grabs and throws <@{}> :raised_hands: ".format(userName.id, author.id),
+                     "<@{}> stabs <@{}> :dagger: ".format(userName.id, author.id),
+                     "<@{}> shoots <@{}> :gun: ".format(userName.id, author.id),
+                     "<@{}> cuts <@{}> :knife: ".format(userName.id, author.id),
+                     "<@{}> hits <@{}> with a hammer :hammer: ".format(userName.id, author.id),
+                     "<@{}> uses dark magic on <@{}> :skull_crossbones: ".format(userName.id, author.id),
+                     "<@{}> uses chains to choke <@{}> :chains: ".format(userName.id, author.id),
+                     "<@{}> casts a spell on <@{}> :sparkles: ".format(userName.id, author.id),
+                     "<@{}> pukes on <@{}> :nauseated_face: ".format(userName.id, author.id),
+                     "<@{}> scares <@{}> :ghost: ".format(userName.id, author.id),
+                     "<@{}> summons a demon to attack <@{}> :smiling_imp: ".format(userName.id, author.id),
+                     "<@{}> calls a robot army to attack <@{}> :robot: ".format(userName.id, author.id),
+                     "<@{}> farts at <@{}> :dash: ".format(userName.id, author.id),
+                     "<@{}> creates a tornado behind <@{}> :cloud_tornado: ".format(userName.id, author.id),
+                     "<@{}> summons a meteor and the meteor falls on <@{}> :comet: ".format(userName.id, author.id),
+                     "<@{}> strikes <@{}> with lightning :zap: ".format(userName.id, author.id),
+                     "<@{}> freezes <@{}> :snowflake: ".format(userName.id, author.id),
+                     "<@{}> cripples <@{}> :boom: ".format(userName.id, author.id),
+                     "<@{}> shoots <@{}> with a bow and arrow :gun: ".format(userName.id, author.id),
+                     "<@{}> drives over <@{}> :red_car: ".format(userName.id, author.id),
+                     "<@{}> chops off <@{}>'s leg :crossed_swords: ".format(userName.id, author.id),
+                     "<@{}> drains some of <@{}>'s life :broken_heart: ".format(userName.id, author.id),
+                     "<@{}> steals <@{}>'s soul :black_heart: ".format(userName.id, author.id),
+                     "<@{}> stuns <@{}> :octagonal_sign: ".format(userName.id, author.id),
+                     "<@{}> uses nuclear energy to attack <@{}> :radioactive: ".format(userName.id, author.id),
+                     "<@{}> stabs <@{}> in the eyes and blinds them :eye: ".format(userName.id, author.id),
+                     "<@{}> uses ear-rape to deafen <@{}> :ear: ".format(userName.id, author.id),
+                     "<@{}> uses mind control on <@{}> :alien: ".format(userName.id, author.id),
+                     "<@{}> summons minions to attack <@{}> :busts_in_silhouette: ".format(userName.id, author.id),
+                     "<@{}> traps <@{}> :spider_web: ".format(userName.id, author.id)]
+        a_health = []
+        u_health = []
+        r = []
+        for i in range(1000):
+            a_health.append(".")
+            u_health.append(".")
+        msg.add_field(name=":crossed_swords: **__D E A T H   B A T T L E__** :crossed_swords: ", value="***`>>>`*** <@{}> :vs: <@{}> ***`<<<`***\n**~~__==============================__~~**".format(author.id, userName.id))
+        for i in range(1000):
+            if len(a_health) == 0 or len(u_health) == 0:
+                if len(a_health) > len(u_health):
+                    m = ":crown: WINNER: <@{}>\n:heart: `{}` Health".format(author.id, len(a_health))
+                    m += "\n "
+                    m += "\n:thumbsdown: LOSER: <@{}>\n:heart: `{}` Health".format(userName.id, len(u_health))
+                elif len(a_health) < len(u_health):
+                    m = ":crown: WINNER: <@{}>\n:heart: `{}` Health".format(userName.id, len(u_health))
+                    m += "\n "
+                    m += "\n:thumbsdown: LOSER: <@{}>\n:heart: `{}` Health".format(author.id, len(a_health))
+                else:
+                    k = random.randint(0, 100)
+                    if k >= 50:
+                        m = ":crown: RANDOM WINNER: <@{}>\n:heart: `{}` Health".format(author.id, len(a_health))
+                        m += "\n "
+                        m += "\n:thumbsdown: LOSER: <@{}>\n:heart: `{}` Health".format(userName.id, len(u_health))
+                    else:
+                        m = ":crown: RANDOM WINNER: <@{}>\n:heart: `{}` Health".format(userName.id, len(u_health))
+                        m += "\n "
+                        m += "\n:thumbsdown: LOSER: <@{}>\n:heart: `{}` Health".format(author.id, len(a_health))
+                msg.add_field(name="**~~__==============================__~~**", value=m)
+                break
+            else:
+                r.append(".")
+                a_d = random.randint(100, 250)
+                u_d = random.randint(100, 250)
+                m = ":small_red_triangle_down: {}!\n`{}` DMG!".format(random.choice(a_attacks), a_d)
+                m += "\n:small_red_triangle_down: {}!\n`{}` DMG!".format(random.choice(u_attacks), u_d)
+                msg.add_field(name=":arrow_right: ROUND `{}`:".format(len(r)), value=m)
+                for i in range(a_d):
+                    if len(u_health) == 0:
+                        break
+                    else:
+                        u_health.remove(".")
+                for i in range(u_d):
+                    if len(a_health) == 0:
+                        break
+                    else:
+                        a_health.remove(".")
+    await client.say(embed=msg)
+    
+# v!ship <something> and <something else>
+@client.command(pass_context=True)
+async def ship(ctx, *, args = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if args == None:
+        msg.add_field(name=error_img, value="Please give 2 things you want to ship.\nExample: `v!ship Hikari and Yami`.")
+    else:
+        if len(str(args)) > 400:
+            msg.add_field(name=error_img, value="The ship cannot be longer than 400 characters.")
+        else:
+            if "|" in str(args):
+                a = args.split(' and ')
+                if len(a) > 2:
+                    msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `v!ship Hikari and Yami`.")
+                else:
+                    p = random.randint(0, 101)
+                    if p >= 0 and p <= 10:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Shit\n```\n:sob: ".format(a[0], a[1], p)
+                    elif p >= 11 and p <= 20:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Awful\n```\n:cry: ".format(a[0], a[1], p)
+                    elif p >= 21 and p <= 30:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Really Bad\n```\n:frowning2: ".format(a[0], a[1], p)
+                    elif p >= 31 and p <= 40:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Bad\n```\n:slight_frown: ".format(a[0], a[1], p)
+                    elif p >= 41 and p <= 50:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Okay\n```\n:neutral_face: ".format(a[0], a[1], p)
+                    elif p >= 51 and p <= 60:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Good\n```\n:slight_smile: ".format(a[0], a[1], p)
+                    elif p >= 61 and p <= 70:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Very Good\n```\n:smiley: ".format(a[0], a[1], p)
+                    elif p >= 71 and p <= 80:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Fantastic\n```\n:blush: ".format(a[0], a[1], p)
+                    elif p >= 81 and p <= 90:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Amazing\n```\n:heart_eyes: ".format(a[0], a[1], p)
+                    else:
+                        m = ":small_red_triangle_down: **{}**\n:small_red_triangle: **{}**\n```fix\n{}% - Perfect\n```\n:revolving_hearts: ".format(a[0], a[1], p)
+                    msg.add_field(name=":heartpulse: **__S H I P   M A C H I N E__** :heartpulse: ", value=m)
+            else:
+                msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `v!ship Hikari and Yami`")
+    await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
