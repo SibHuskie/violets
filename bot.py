@@ -11,7 +11,7 @@ import json
 import time
 from gtts import gTTS
 
-client = commands.Bot(command_prefix="v!")
+Client = discord.Client()
 bot_prefix= "v!"
 client = commands.Bot(command_prefix=bot_prefix)
 server = discord.Server(id='426680388002250753')
