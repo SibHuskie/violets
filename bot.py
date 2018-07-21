@@ -794,6 +794,7 @@ async def mc(ctx):
     imageurl = ctx.message.server.icon_url
     msg.set_thumbnail(url=imageurl)
     msg.add_field(name="", value="`{}`".format(len(ctx.message.server.members)), inline=True)
+    await client.say(embed=msg)
     
 # v!say <text>
 @client.command(pass_context=True)
