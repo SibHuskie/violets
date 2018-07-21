@@ -785,6 +785,16 @@ async def serverinfo(ctx):
     msg.set_image(url="{}".format(banner))
     await client.say(embed=msg)
     
+# v!mc
+@client.command(pass_context=True)
+async def serverinfo(ctx):
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = "MEMBER COUNT"
+    msg.set_footer(text=footer_text)
+    imageurl = ctx.message.server.icon_url
+    msg.set_thumbnail(url=imageurl)
+    msg.add_field(name="", value="`{}`".format(len(ctx.message.server.members)), inline=True)
+    
 # v!say <text>
 @client.command(pass_context=True)
 async def say(ctx, *, args = None):
