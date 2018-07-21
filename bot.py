@@ -791,9 +791,7 @@ async def mc(ctx):
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = "MEMBER COUNT"
     msg.set_footer(text=footer_text)
-    imageurl = ctx.message.server.icon_url
-    msg.set_thumbnail(url=imageurl)
-    msg.add_field(name="", value="`{}`".format(len(ctx.message.server.members)), inline=True)
+    msg.add_field(name="Members", value="`{}`".format(len(ctx.message.server.members)), inline=True)
     await client.say(embed=msg)
     
 # v!say <text>
