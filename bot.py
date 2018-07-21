@@ -787,7 +787,7 @@ async def serverinfo(ctx):
     
 # v!mc
 @client.command(pass_context=True)
-async def serverinfo(ctx):
+async def mc(ctx):
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = "MEMBER COUNT"
     msg.set_footer(text=footer_text)
