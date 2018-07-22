@@ -48,7 +48,6 @@ async def on_member_join(userName: discord.User):
     await client.send_message(client.get_channel("429874952934785025"), ":large_blue_circle: `{}` joined the server! Now we have {} members.".format(userName, len(server.members)))
     try:
         await client.send_message(userName, "{}".format(m2))
-    except:
         print("Join")
 
 @client.async_event
