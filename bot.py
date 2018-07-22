@@ -811,12 +811,12 @@ async def mc(ctx):
 @client.command(pass_context=True)
 async def say(ctx, *, args = None):
     author = ctx.message.author
-    vip = discord.utils.get(ctx.message.server.roles, id=helper_role)
-    legend = discord.utils.get(ctx.message.server.roles, id=mod_role)
+    helper = discord.utils.get(ctx.message.server.roles, id=helper_role)
+    mod = discord.utils.get(ctx.message.server.roles, id=mod_role)
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    if vip in author.roles or legend in author.roles:
+    if helper in author.roles or mod in author.roles:
         if args == None:
             msg.add_field(name=error_img, value="Please give a message that you want the bot to say.")
             await client.say(embed=msg)
