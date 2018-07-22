@@ -807,7 +807,9 @@ async def mc(ctx):
     msg.set_footer(text=footer_text)
     msg.add_field(name="Members", value="`{}`".format(len(ctx.message.server.members)), inline=True)
     await client.say(embed=msg)
-    
+
+#MODERATOR COMMANDS
+
 # v!bc
 @client.command(pass_context=True)
 async def bc(ctx):
@@ -880,6 +882,43 @@ async def kick(ctx, user: discord.Member = None, *, args = None):
                         await client.send_message(chnl, m)
     else:
         msg.add_field(name=error_img, value="This command can only be used by Moderators, Administrators, Co-Owners and Owners.")
+    await client.say(embed=msg)
+    
+# v!idban <id> <reason>
+@client.command(pass_context=True)
+async def hackban(ctx, target = None, *, args = None):
+    author = ctx.message.author
+    server = ctx.message.server
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if owner in author.roles or manager in author.roles:
+        if target == None or args == None:
+            msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!idban 244042996129988608 Being a human being.`.")
+        else:
+            try:
+                a = await client.get_user_info(target)
+                await client.http.ban(target, server.id, 0)
+                msg.add_field(name=":hammer_pick: ", value="<@{}> ID banned **{}**.\nReason:\n{}".format(author.id, a, args))
+                m = "```diff"
+                m += "\n- ID BAN -"
+                m += "\n+ Author: {} ### {}".format(author, author.id)
+                m += "\n+ Target: {} ### {}".format(a, a.id)
+                m += "\n+ Reason:"
+                m += "\n```"
+                m += "\n{}".format(args)
+                chnl = client.get_channel('470464384725024768')
+                await client.send_message(chnl, m)
+            except:
+                msg.add_field(name=error_img, value="There was an error while trying to ID ban that user.\nEither the user cannot be banned or the ID you specified doesn't exist.")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by Co-Owners and Owners.")
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
