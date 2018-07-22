@@ -858,7 +858,7 @@ async def mute(ctx, userName: discord.Member = None):
                 else:
                     await client.add_roles(userName, punished)
                     msg.add_field(name=":handshake: ", value="<@{}> muted <@{}>.".format(author.id, userName.id))
-            else:
+                else:
                 msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
 ##################################
