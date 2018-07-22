@@ -38,8 +38,6 @@ partner_role = '469369789585031178'
 async def on_ready():
     t1 = time.perf_counter()
     print("============================================================")
-    print("VIOLA")
-    print("============================================================")
     print("Name: {}".format(client.user.name))
     print("ID: {}".format(client.user.id))
     print("============================================================")
