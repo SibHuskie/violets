@@ -811,7 +811,7 @@ async def mc(ctx):
 @client.command(pass_context=True)
 async def say(ctx, *, args = None):
     author = ctx.message.author
-    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod)
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
@@ -835,7 +835,7 @@ async def say(ctx, *, args = None):
 @client.command(pass_context=True)
 async def partner(ctx, userName: discord.Member = None):
     author = ctx.message.author
-    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod)
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
