@@ -1000,5 +1000,50 @@ async def ban(ctx, user: discord.Member = None, *, args = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by Moderators, Administrators, Co-Owners and Owners.")
     await client.say(embed=msg)
+    
+# }purge <number>
+@client.command(pass_context=True)
+async def purge(ctx, number = None):
+    author = ctx.message.author
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
+        if number == None:
+            msg.add_field(name=error_img, value="Please specify the number of messages you want to delete.")
+        else:
+            try:
+                testnumber = int(number)
+                number2 = testnumber * 0
+                await asyncio.sleep(float(number2))
+                try:
+                    deleted = await client.purge_from(ctx.message.channel, limit=testnumber)
+                    if len(deleted) < testnumber:
+                        msg.add_field(name=":wastebasket: ", value="<@{}> tried to delete {} messages.\n{} messages were deleted.".format(author.id, number, len(deleted)))
+                    else:
+                        msg.add_field(name=":wastebasket: ", value="<@{}> deleted {} messages.".format(author.id, len(deleted)))
+                    chnl = client.get_channel('470464384725024768')
+                    m = "```diff"
+                    m += "\n- PURGE -"
+                    m += "\n+ Author: {} ### {}".format(author, author.id)
+                    m += "\n+ In: {} ### {}".format(ctx.message.channel.name, ctx.message.channel.id)
+                    m += "\n+ Number: {}".format(number)
+                    m += "\n+ Deleted: {}".format(len(deleted))
+                    m += "\n```"
+                    await client.send_message(chnl, m)
+                except:
+                    msg.add_field(name=error_img, value="There has been an error while trying to purge messages.")
+            except:
+                msg.add_field(name=error_img, value="*Sigh*, a number is a number, not a letter...")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff.")
+    await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
