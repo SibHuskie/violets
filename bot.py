@@ -955,5 +955,50 @@ async def unban(ctx, userID = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by Moderators, Administrators, Co-Owners and Owners.")
     await client.say(embed=msg)
+    
+# }ban <user> [reason]
+@client.command(pass_context=True)
+async def ban(ctx, user: discord.Member = None, *, args = None):
+    author = ctx.message.author
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles:
+        if user == None:
+            msg.add_field(name=error_img, value="No target given.\nExamples:\n`v!ban @Huskie Barking.`.\n`v!ban @Huskie`.")
+        else:
+            if owner in user.roles or manager in user.roles or admin in user.roles or mod in user.roles or helper in user.roles or x in user.roles:
+                msg.add_field(name=error_img, value="You cannot ban other staff.\nStaff can only be banned manualy.")
+            else:
+                chnl = client.get_channel('470464384725024768')
+                m = "```diff"
+                m += "\n- BAN -"
+                m += "\n+ Author: {} ### {}".format(author, author.id)
+                m += "\n+ Target: {} ### {}".format(user, user.id)
+                if args == None:
+                    m += "\n+ Reason: [No Reason Given]"
+                    m += "\n```"
+                    msg.add_field(name=":hammer: Ban Hammer", value="<@{}> banned **{}**!\nNo reason given.".format(author.id, user))
+                    await client.ban(user)
+                    await client.send_message(chnl, m)
+                else:
+                    if len(str(args)) > 1000:
+                        msg.add_field(name=error_img, value="The reason cannot be longer than 1000 characters.")
+                    else:
+                        m += "\n+ Reason:"
+                        m += "\n```"
+                        m += "\n{}".format(args)
+                        msg.add_field(name=":hammer: Ban Hammer", value="<@{}> banned **{}**!\nReason:\n{}".format(author.id, user, args))
+                        await client.ban(user)
+                        await client.send_message(chnl, m)
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by Moderators, Administrators, Co-Owners and Owners.")
+    await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
