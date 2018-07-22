@@ -860,6 +860,10 @@ async def partner(ctx, userName: discord.Member = None):
                     msg.add_field(name=":handshake: ", value="<@{}> gave the partner role to <@{}>.".format(author.id, userName.id))
             except:
                 msg.add_field(name=error_img, value="There was an error while trying to give/take the partner role to/from that user.")
+                try:
+    raise ValueError
+except ValueError as e:
+    print(e)
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
