@@ -844,7 +844,7 @@ async def partner(ctx, userName: discord.Member = None):
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    chnl = client.get_channel('429874952934785025')
+    chnl = client.get_channel('470464384725024768')
     l = client.get_channel(logs)
     if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
         if userName == None:
