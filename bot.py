@@ -51,7 +51,6 @@ async def on_ready():
     
 @client.async_event
 async def on_member_join(userName: discord.User):
-    print("Join")
     m2 = "Welcome to **Violets**, <@{}>! We hope you enjoy your stay and have fun.".format(userName.id)
     m2 += "\nAll information is in the <#426683264682557440> channel, but feel free to ask the staff about anything you want to know."
     m2 += "\https://gph.is/2lnKhvK"
