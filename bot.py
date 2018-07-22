@@ -34,8 +34,24 @@ partner_role = '469369789585031178'
 
 #Welcome and Leave
 
+@client.event
+async def on_ready():
+    t1 = time.perf_counter()
+    print("============================================================")
+    print("VIOLA")
+    print("============================================================")
+    print("Name: {}".format(client.user.name))
+    print("ID: {}".format(client.user.id))
+    print("============================================================")
+    await client.change_presence(game=discord.Game(name='on Violets™'))
+    await client.wait_until_ready()
+    t2 = time.perf_counter()
+    print("Ping: {}".format(round((t2-t1)*1000)))
+    print("============================================================")
+    
 @client.async_event
 async def on_member_join(userName: discord.User):
+    print("Join")
     m2 = "Welcome to **Violets**, <@{}>! We hope you enjoy your stay and have fun.".format(userName.id)
     m2 += "\nAll information is in the <#426683264682557440> channel, but feel free to ask the staff about anything you want to know."
     m2 += "\https://gph.is/2lnKhvK"
@@ -48,7 +64,6 @@ async def on_member_join(userName: discord.User):
     await client.send_message(client.get_channel("429874952934785025"), ":large_blue_circle: `{}` joined the server! Now we have {} members.".format(userName, len(server.members)))
     try:
         await client.send_message(userName, "{}".format(m2))
-        print("Join")
 
 @client.async_event
 async def on_member_remove(userName: discord.User):
@@ -817,9 +832,9 @@ async def say(ctx, *, args = None):
         msg.add_field(name=error_img, value="This command can only be used by Helpers and Moderators!")
         await client.say(embed=msg)
         
-# v!p <user>
+# v!partner <user>
 @client.command(pass_context=True)
-async def p(ctx, userName: discord.Member = None):
+async def partner(ctx, userName: discord.Member = None):
     author = ctx.message.author
     helper = discord.utils.get(ctx.message.server.roles, id=helper_role)
     mod = discord.utils.get(ctx.message.server.roles, id=mod_role)
