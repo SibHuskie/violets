@@ -808,55 +808,34 @@ async def mc(ctx):
     msg.add_field(name="Members", value="`{}`".format(len(ctx.message.server.members)), inline=True)
     await client.say(embed=msg)
     
-# v!say <text>
+# v!bc
 @client.command(pass_context=True)
-async def say(ctx, *, args = None):
+async def bc(ctx):
     author = ctx.message.author
-    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
-    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    chnl = ctx.message.channel
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    if helper in author.roles or mod in author.roles:
-        if args == None:
-            msg.add_field(name=error_img, value="Please give a message that you want the bot to say.")
-            await client.say(embed=msg)
-        else:
-            if len(str(args)) > 1990:
-                msg.add_field(name=error_img, value="The message cannot be longer than 1990 characters.")
-                await client.say(embed=msg)
-            else:
-                await client.say("`{}`".format(args))
-                await client.delete_message(ctx.message)
-    else:
-        msg.add_field(name=error_img, value="This command can only be used by Helpers and Moderators!")
-        await client.say(embed=msg)
-        
-# ~unmute <user>
-@client.command(pass_context=True)
-async def unmute(ctx, user: discord.Member = None):
-    author = ctx.message.author
-    member = discord.utils.get(ctx.message.server.roles, name ='Members')
-    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
-    msg = discord.Embed(colour=0x84b5ed, description= "")
-    msg.title = ""
-    msg.set_footer(text=footer_text)
-    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
-        if user == None:
-            msg.add_field(name=error_img, value="Please mention someone you want to unmute.\nExample: `v!unmute @Huskie`.")
-        else:
-            if punished in user.roles:
-                await client.remove_roles(user, punished)
-                msg.add_field(name=":o: ", value="<@{}> pardoned <@{}>.".format(author.id, user.id))
+    a = []
+    if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
+        async for i in client.logs_from(chnl):
+            if len(a) < 50:
+                if i.author.bot:
+                    await client.delete_message(i)
+                    a.append("+1")
+                else:
+                    print("")
             else:
-                msg.add_field(name=error_img, value="That user isn't muted.")
+                break
+        msg.add_field(name="**Bot Clear**", value="<@{}> removed the latest messages sent by bots.".format(author.id))
     else:
-        msg.add_field(name=error_img, value="This command can only be used by the staff.")
+        msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
+
 ##################################
 client.run(os.environ['BOT_TOKEN'])
