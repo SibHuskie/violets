@@ -1045,5 +1045,29 @@ async def purge(ctx, number = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
     await client.say(embed=msg)
+    
+# v!say <text>
+@client.command(pass_context=True)
+async def say(ctx, *, args = None):
+    author = ctx.message.author
+    vip = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    legend = discord.utils.get(ctx.message.server.roles, name='Admin')
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if vip in author.roles or legend in author.roles:
+        if args == None:
+            msg.add_field(name=error_img, value="Please give a message that you want the bot to say.")
+            await client.say(embed=msg)
+        else:
+            if len(str(args)) > 1990:
+                msg.add_field(name=error_img, value="The message cannot be longer than 1990 characters.")
+                await client.say(embed=msg)
+            else:
+                await client.say("`{}`".format(args))
+                await client.delete_message(ctx.message)
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by Moderators and Admins!")
+        await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
