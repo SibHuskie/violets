@@ -842,6 +842,7 @@ async def partner(ctx, userName: discord.Member = None):
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     partner = discord.utils.get(ctx.message.server.roles, name='Partner')
+    punished = discord.utils.get(ctx.message.server.roles, name ='Muted')
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
@@ -849,23 +850,16 @@ async def partner(ctx, userName: discord.Member = None):
     l = client.get_channel(logs)
     if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
         if userName == None:
-            msg.add_field(name=error_img, value="Please mention the person you want to give/remove the partner role to/from.")
+            msg.add_field(name=error_img, value="Please mention the person you want to mute.")
         else:
             try:
-                if partner in userName.roles:
-                    await client.remove_roles(userName, partner)
-                    msg.add_field(name=":handshake: ", value="<@{}> removed the partner role from <@{}>.".format(author.id, userName.id))
+                if punished in userName.roles:
+                    msg.add_field(name=":handshake: ", value="<@{}> is already muted.".format(userName.id))
                 else:
-                    await client.add_roles(userName, partner)
-                    msg.add_field(name=":handshake: ", value="<@{}> gave the partner role to <@{}>.".format(author.id, userName.id))
+                    await client.add_roles(userName, punished)
+                    msg.add_field(name=":handshake: ", value="<@{}> muted <@{}>.".format(author.id, userName.id))
             except:
-                msg.add_field(name=error_img, value="There was an error while trying to give/take the partner role to/from that user.")
-                try:
-    raise ValueError
-except ValueError as e:
-    print(e)
-    else:
-        msg.add_field(name=error_img, value="This command can only be used by the staff!")
+                msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
