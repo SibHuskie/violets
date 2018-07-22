@@ -832,34 +832,31 @@ async def say(ctx, *, args = None):
         msg.add_field(name=error_img, value="This command can only be used by Helpers and Moderators!")
         await client.say(embed=msg)
         
-# v!partner <user>
+# ~unmute <user>
 @client.command(pass_context=True)
-async def mute(ctx, userName: discord.Member = None):
+async def unmute(ctx, user: discord.Member = None):
     author = ctx.message.author
+    member = discord.utils.get(ctx.message.server.roles, name ='Members')
+    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
-    partner = discord.utils.get(ctx.message.server.roles, name='Partner')
-    punished = discord.utils.get(ctx.message.server.roles, name ='Muted')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x84b5ed, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    chnl = client.get_channel('470464384725024768')
-    l = client.get_channel(logs)
-    if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
-        if userName == None:
-            msg.add_field(name=error_img, value="Please mention the person you want to mute.")
+    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
+        if user == None:
+            msg.add_field(name=error_img, value="Please mention someone you want to unmute.\nExample: `v!unmute @Huskie`.")
         else:
-            try:
-                if punished in userName.roles:
-                    msg.add_field(name=":handshake: ", value="<@{}> is already muted.".format(userName.id))
-                else:
-                    await client.add_roles(userName, punished)
-                    msg.add_field(name=":handshake: ", value="<@{}> muted <@{}>.".format(author.id, userName.id))
-                else:
-                msg.add_field(name=error_img, value="This command can only be used by the staff!")
+            if punished in user.roles:
+                await client.remove_roles(user, punished)
+                msg.add_field(name=":o: ", value="<@{}> pardoned <@{}>.".format(author.id, user.id))
+            else:
+                msg.add_field(name=error_img, value="That user isn't muted.")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff.")
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
