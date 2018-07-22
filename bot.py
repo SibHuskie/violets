@@ -834,7 +834,7 @@ async def say(ctx, *, args = None):
         
 # v!partner <user>
 @client.command(pass_context=True)
-async def partner(ctx, userName: discord.Member = None):
+async def mute(ctx, userName: discord.Member = None):
     author = ctx.message.author
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
