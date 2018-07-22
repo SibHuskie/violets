@@ -811,8 +811,8 @@ async def mc(ctx):
 @client.command(pass_context=True)
 async def say(ctx, *, args = None):
     author = ctx.message.author
-    helper = discord.utils.get(ctx.message.server.roles, id=helper_role)
-    mod = discord.utils.get(ctx.message.server.roles, id=mod_role)
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod)
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
@@ -835,12 +835,12 @@ async def say(ctx, *, args = None):
 @client.command(pass_context=True)
 async def partner(ctx, userName: discord.Member = None):
     author = ctx.message.author
-    helper = discord.utils.get(ctx.message.server.roles, id=helper_role)
-    mod = discord.utils.get(ctx.message.server.roles, id=mod_role)
-    admin = discord.utils.get(ctx.message.server.roles, id=admin_role)
-    manager = discord.utils.get(ctx.message.server.roles, id=manager_role)
-    owner = discord.utils.get(ctx.message.server.roles, id=owner_role)
-    partner = discord.utils.get(ctx.message.server.roles, id=partner_role)
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod)
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    partner = discord.utils.get(ctx.message.server.roles, name='Partner')
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
