@@ -1064,7 +1064,7 @@ async def say(ctx, *, args = None):
                 msg.add_field(name=error_img, value="The message cannot be longer than 1990 characters.")
                 await client.say(embed=msg)
             else:
-                await client.say("`{}`".format(args))
+                await client.say("{}".format(args))
                 await client.delete_message(ctx.message)
     else:
         msg.add_field(name=error_img, value="This command can only be used by Moderators and Admins!")
