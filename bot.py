@@ -225,6 +225,26 @@ spanklinks = ["https://i.imgur.com/dt1TTQu.gif",
               "https://i.imgur.com/UShywVv.gif",
               "https://i.imgur.com/RE3mnrA.gif"]
 
+# FUN MESSAGES
+@client.event
+async def on_message(msg):
+    p = random.randint(0, 10)
+    o = str(msg.content)
+    if p > 4 and msg.author != client.user:
+        hey = ["hey", "heyy", "hEy", "HeY", "Hey", "heY", "Heyy", "heyY"]
+        if msg.content == "o/":
+            await client.send_message(msg.channel, "\o")
+        elif msg.content == "\o":
+            await client.send_message(msg.channel, "o/")
+        elif msg.content in hey:
+            b = ["heyyy", "HEY! I've been waiting for you for like {} minutes!".format(random.randint(2, 45)), "hi", "sup ma boi", "hey", "hey, how are you?"]
+            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+        else:
+            await client.process_commands(msg)
+    else:
+        await client.process_commands(msg)
+            
+            
 # v!hug <user>
 @client.command(pass_context=True)
 async def hug(ctx, user: discord.Member = None):
