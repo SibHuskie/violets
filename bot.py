@@ -251,7 +251,10 @@ async def on_message(message):
         await client.send_message(message.channel, "Tbh no one knows... she is mysterious and never speaks... lmao jk she's fucking greaaat!")
         
     if message.content.lower().startswith('who is respect'):
-        await client.send_message(message.channel, "Listen to this song... just do it... https://www.youtube.com/watch?v=6EEW-9NDM5k")   
+        await client.send_message(message.channel, "Listen to this song... just do it... https://www.youtube.com/watch?v=6EEW-9NDM5k")
+        
+        if message.content.lower().startswith('who is maly'):
+        await client.send_message(message.channel, "Well... so... um... she's Maly..?") 
     else:
         await client.process_commands(message)
             
