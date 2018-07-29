@@ -227,20 +227,16 @@ spanklinks = ["https://i.imgur.com/dt1TTQu.gif",
 
 # FUN MESSAGES
 @client.event
-async def on_message(msg):
-    p = random.randint(0, 10)
-    o = str(msg.content)
-    if p > 4 and msg.author != client.user:
-        hey = ["hey", "heyy", "hEy", "HeY", "Hey", "heY", "Heyy", "heyY"]
-        if msg.content == "o/":
-            await client.send_message(msg.channel, "\o")
-        elif msg.content == "\o":
-            await client.send_message(msg.channel, "o/")
-        elif msg.content in hey:
-            b = ["heyyy", "HEY! I've been waiting for you for like {} minutes!".format(random.randint(2, 45)), "hi", "sup ma boi", "hey", "hey, how are you?"]
-            await client.send_message(msg.channel, "{}".format(random.choice(b)))
-        else:
-            await client.process_commands(msg)
+async def on_message(message):
+    if message.content.lower().startswith('v!test'):
+        await client.send_message(message.channel, "Testing 1 2 3...")
+
+    if message.content.lower().startswith('v!coin'): #Coinflip 50/50% chance kopf oder zahl
+        choice = random.randint(1,2)
+        if choice == 1:
+            await client.add_reaction(message, '🌑')
+        if choice == 2:
+            await client.add_reaction(message, '🌕')
     else:
         await client.process_commands(msg)
             
