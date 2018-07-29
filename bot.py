@@ -253,7 +253,7 @@ async def on_message(message):
     if message.content.lower().startswith('who is respect'):
         await client.send_message(message.channel, "Listen to this song... just do it... https://www.youtube.com/watch?v=6EEW-9NDM5k")   
     else:
-        await client.process_commands(msg)
+        await client.process_commands(message)
             
             
 # v!hug <user>
