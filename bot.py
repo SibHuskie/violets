@@ -245,7 +245,7 @@ async def on_message(message):
         await client.send_message(message.channel, "A guy that likes to make dupstep noises from his eating hole")
                     
     if message.content.lower().startswith('who is stacey'):
-        await client.send_message(message.channel, "Claimed by Huskie. Dun be mean to Stacey or you get a whack on ya head.")
+        await client.send_message(message.channel, "Claimed by Huskie and Seven. Dun be mean to Stacey or you get a whack on ya head.")
                     
     if message.content.lower().startswith('who is vanessa'):
         await client.send_message(message.channel, "Tbh no one knows... she is mysterious and never speaks... lmao jk she's fucking greaaat!")
