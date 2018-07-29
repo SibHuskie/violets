@@ -266,7 +266,7 @@ async def on_message(message):
     if message.content.lower().startswith('i love you too viola'):
         await client.send_message(message.channel, "Nawww, that's sweet.")
                 
-    if message.content.lower().startswith('i love you viola'):
+    if message.content.lower().startswith('i love viola'):
         await client.send_message(message.channel, "Thanks, at least someone loves me ;(")
                 
     if message.content.lower().startswith('love you viola'):
