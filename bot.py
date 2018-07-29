@@ -48,6 +48,28 @@ async def on_ready():
     print("Ping: {}".format(round((t2-t1)*1000)))
     print("============================================================")
     
+'''
+@client.command(pass_context=True)
+async def rainbow(ctx):
+    color = discord.Color(random.randint(0x000000, 0xFFFFFF))
+    msg = discord.Embed(colour=color, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg.add_field(name=":rainbow: RAINBOWS :rainbow: ", value=":rainbow: R A I N B O W S :rainbow: ")
+    channel = ctx.message.channel
+    b = await client.send_message(channel, embed=msg)
+    g = [":large_blue_circle:", ":red_circle:", ":white_circle:", ":purple_heart:", ":green_heart:", ":yellow_heart:", ":black_circle:"]
+    for i in range(20):
+        color = discord.Color(random.randint(0x000000, 0xFFFFFF))
+        msg2 = discord.Embed(colour=color, description= "")
+        msg2.title = ""
+        msg2.set_footer(text=footer_text)
+        msg2.add_field(name=":rainbow: RAINBOWS :rainbow: ", value=":rainbow: **__R A I N B O W S__** :rainbow: ")
+        msg2.set_image(url="https://i.imgur.com/rItq9Ph.gifv")
+        await client.edit_message(b, embed=msg2)
+        await asyncio.sleep(float(2))
+        '''
+    
 @client.async_event
 async def on_member_join(userName: discord.User):
     m2 = "Welcome to **Violets**, <@{}>! We hope you enjoy your stay and have fun.".format(userName.id)
