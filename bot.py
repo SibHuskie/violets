@@ -262,6 +262,15 @@ async def on_message(message):
         
     if message.content.lower().startswith('i love you'):
         await client.send_message(message.channel, "Mind if I third wheel for a sec..? Just saying, love you too <3")
+        
+    if message.content.lower().startswith('i love you too viola'):
+        await client.send_message(message.channel, "Nawww, that's sweet.")
+                
+    if message.content.lower().startswith('i love you viola'):
+        await client.send_message(message.channel, "Thanks, at least someone loves me ;(")
+                
+    if message.content.lower().startswith('love you viola'):
+        await client.send_message(message.channel, "LOVE YA TOO BABES")
     else:
         await client.process_commands(message)
             
