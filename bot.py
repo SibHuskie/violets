@@ -237,34 +237,18 @@ async def on_message(message):
             await client.add_reaction(message, '🌑')
         if choice == 2:
             await client.add_reaction(message, '🌕')
-            
-    if message.content.lower().startswith(' '):
-        await client.send_message(message.channel, "hello")
-        b = ["hello there ( ͡° ͜ʖ ͡°)", "hi!", "hello", "oh herro"]
-            await client.send_message(msg.channel, "{}".format(random.choice(b)))
-        
                     
-    if message.content.lower().startswith(' '):
-        await client.send_message(message.channel, "hi")
-        elif msg.content in hi:
-            b = ["HII", "HOI!!", "hiiii", "Good day"]
+    if message.content.lower().startswith('who is huskie'):
+        await client.send_message(message.channel, "Cough cough... who do you think he is, it clearly says 'Huskie', is that enough proof to show how awesome he is?? ")
                     
-    if message.content.lower().startswith(' '):
-        await client.send_message(message.channel, "hey")
-        b = ["heyyy", "HEY! I've been waiting for you for like {} minutes!".format(random.randint(2, 45)), "hi", "sup ma boi", "hey", "hey, how are you?"]
-            await client.send_message(msg.channel, "{}".format(random.choice(b)))
+    if message.content.lower().startswith('who is seven'):
+        await client.send_message(message.channel, "A guy that likes to make dupstep noises from his eating hole")
                     
-    if message.content.lower().startswith(' '):
-        await client.send_message(message.channel, " ")
+    if message.content.lower().startswith('who is stacey'):
+        await client.send_message(message.channel, "Claimed by Huskie. Dun be mean to Stacey or you get a whack on ya head.")
                     
-    if message.content.lower().startswith(' '):
-        await client.send_message(message.channel, " ")
-                    
-    if message.content.lower().startswith(' '):
-        await client.send_message(message.channel, " ")
-                    
-    if message.content.lower().startswith(' '):
-        await client.send_message(message.channel, " ")
+    if message.content.lower().startswith('who is vanessa'):
+        await client.send_message(message.channel, "Tbh no one knows... she is mysterious and never speaks... lmao jk she's fucking greaaat!")
     else:
         await client.process_commands(msg)
             
