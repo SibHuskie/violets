@@ -634,7 +634,7 @@ async def ship(ctx, *, args = None):
         if len(str(args)) > 400:
             msg.add_field(name=error_img, value="The ship cannot be longer than 400 characters.")
         else:
-            if "|" in str(args):
+            if " and " in str(args):
                 a = args.split(' and ')
                 if len(a) > 2:
                     msg.add_field(name=error_img, value="The command was used incorrectly.\nExample: `v!ship Hikari and Yami`.")
