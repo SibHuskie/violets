@@ -291,6 +291,9 @@ async def on_message(message):
                 
     if message.content.lower().startswith('love you viola'):
         await client.send_message(message.channel, "LOVE YA TOO BABES")
+        
+    if message.content.lower().startswith('who is kelly'):
+        await client.send_message(message.channel, "*Uhm...*, am I reading this right... a, korean... dick, dildo?")
     else:
         await client.process_commands(message)
             
