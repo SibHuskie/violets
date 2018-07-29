@@ -259,6 +259,9 @@ async def on_message(message):
     if message.content.lower().startswith('whalecum'):
         b = ["Stop saying that shit.", "just why", "(╯°□°）╯︵ ┻━┻", "boi", "fucking pervert"]
         await client.send_message(message.channel, "{}".format(random.choice(b)))
+        
+    if message.content.lower().startswith('i love you'):
+        await client.send_message(message.channel, "Mind if I third wheel for a sec..? Just saying, love you too <3")
     else:
         await client.process_commands(message)
             
