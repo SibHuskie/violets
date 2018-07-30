@@ -10,6 +10,7 @@ import requests
 import json
 import time
 from gtts import gTTS
+import urbandictionary as ud
 
 Client = discord.Client()
 bot_prefix= "v!"
