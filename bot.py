@@ -300,7 +300,7 @@ async def on_message(message):
         await client.send_message(message.channel, "A ghost that lives in shadows... *that's a bit dark*...")
                         
     if message.content.lower().startswith('who is oggy'):
-        await client.send_message(message.channel, "Oggy is a guy who makes weird autistic noices from his mouth,he is a child with bad humor and ofc ugly,he destroyes seven at Tf2 ofc....gg")
+        await client.send_message(message.channel, "Oggy is a guy who makes weird autistic noices from his mouth, he is a child with bad humor and ofc ugly, he destroys seven at TF2 ofc... gg")
     else:
         await client.process_commands(message)
             
