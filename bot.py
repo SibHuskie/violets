@@ -262,7 +262,7 @@ async def on_message(message):
         await client.send_message(message.channel, "Cough cough... who do you think he is, it clearly says 'Huskie', is that enough proof to show how awesome he is?? ")
                     
     if message.content.lower().startswith('who is seven'):
-        await client.send_message(message.channel, "Stacey's one and only. Don't touch him! <:lul:473391423916343296>")
+        await client.send_message(message.channel, "Stacey's one and only. Don't touch him! :stuck_out_tongue:")
                     
     if message.content.lower().startswith('who is stacey'):
         await client.send_message(message.channel, "Claimed by Huskie and Seven. Dun be mean to Stacey or you get a whack on ya head.")
