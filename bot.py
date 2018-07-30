@@ -284,7 +284,16 @@ async def on_message(message):
         await client.send_message(message.channel, "A ghost that lives in shadows... *that's a bit dark*...")
                         
     if message.content.lower().startswith('who is oggy'):
-        await client.send_message(message.channel, "Oggy is a guy who makes weird autistic noices from his mouth, he is a child with bad humor and ofc ugly, he destroys seven at TF2 ofc... gg")
+        await client.send_message(message.channel, "Oggy is a guy who makes weird autistic noices from his mouth, he is a child with bad humor and ofc ugly, he destroys seven at TF2 ofc... gg")      
+                
+    if message.content.lower().startswith('who is yami'):
+        await client.send_message(message.channel, "Hikari's")
+                        
+    if message.content.lower().startswith('who is hikari'):
+        await client.send_message(message.channel, "Yami's")
+                        
+    if message.content.lower().startswith('who is marcy'):
+        await client.send_message(message.channel, "Who knows")
         
     if message.content.lower().startswith('whalecum'):
         b = ["Stop saying that shit.", "just why", "(╯°□°）╯︵ ┻━┻", "boi", "fucking pervert"]
