@@ -275,7 +275,16 @@ async def on_message(message):
         await client.send_message(message.channel, "Listen to this song... just do it... https://www.youtube.com/watch?v=6EEW-9NDM5k")
         
     if message.content.lower().startswith('who is maly'):
-        await client.send_message(message.channel, "Well... so... um... she's Maly..?") 
+        await client.send_message(message.channel, "Well... so... um... she's Maly..?")
+        
+    if message.content.lower().startswith('who is kelly'):
+        await client.send_message(message.channel, "*Uhm...*, am I reading this right... a, korean... dick, dildo?")
+                        
+    if message.content.lower().startswith('who is feez'):
+        await client.send_message(message.channel, "A ghost that lives in shadows... *that's a bit dark*...")
+                        
+    if message.content.lower().startswith('who is oggy'):
+        await client.send_message(message.channel, "Oggy is a guy who makes weird autistic noices from his mouth, he is a child with bad humor and ofc ugly, he destroys seven at TF2 ofc... gg")
         
     if message.content.lower().startswith('whalecum'):
         b = ["Stop saying that shit.", "just why", "(╯°□°）╯︵ ┻━┻", "boi", "fucking pervert"]
@@ -291,16 +300,7 @@ async def on_message(message):
         await client.send_message(message.channel, "Thanks, at least someone loves me ;(")
                 
     if message.content.lower().startswith('love you viola'):
-        await client.send_message(message.channel, "LOVE YA TOO BABES")
-        
-    if message.content.lower().startswith('who is kelly'):
-        await client.send_message(message.channel, "*Uhm...*, am I reading this right... a, korean... dick, dildo?")
-                        
-    if message.content.lower().startswith('who is feez'):
-        await client.send_message(message.channel, "A ghost that lives in shadows... *that's a bit dark*...")
-                        
-    if message.content.lower().startswith('who is oggy'):
-        await client.send_message(message.channel, "Oggy is a guy who makes weird autistic noices from his mouth, he is a child with bad humor and ofc ugly, he destroys seven at TF2 ofc... gg")
+        await client.send_message(message.channel, "LOVE YA TOO BABES")        
     else:
         await client.process_commands(message)
             
