@@ -1242,5 +1242,58 @@ async def say(ctx, *, args = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by Moderators and Admins!")
         await client.say(embed=msg)
+        
+# }warn <user> <reason>
+@client.command(pass_context=True)
+async def warn(ctx, user: discord.Member = None, *, args = None):
+    author = ctx.message.author
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
+        if user == None or args == None:
+            msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!warn @Huskie Ear Rape in Music (aka his singing).`.")
+            await client.say(embed=msg)
+        else:
+            if len(str(args)) > 1000:
+                msg.add_field(name=error_img, value="The reason cannot be longer than 1000 characters.")
+                await client.say(embed=msg)
+            else:
+                msg2 = discord.Embed(colour=0x870099, description= "")
+                msg2.title = ""
+                msg2.set_footer(text=footer_text)
+                msg2.add_field(name=":warning: ", value="Hello, <@{}>.\nYou have been warned by <@{}> ( **{}** ).\nReason:\n{}".format(user.id, author.id, author, args))
+                try:
+                    await client.send_message(user, embed=msg2)
+                    msg.add_field(name=":warning: ", value="<@{}> warned <@{}>.\nReason:\n{}".format(author.id, user.id, args))
+                    await client.say(embed=msg)
+                except:
+                    msg.add_field(name=":warning: ", value="<@{}> warned <@{}>.\nReason:\n{}".format(author.id, user.id, args))
+                    await client.say("<@{}>".format(user.id), embed=msg)
+                chnl = client.get_channel('470464384725024768')
+                chnl2 = client.get_channel('460419330572681229')
+                p = []
+                async for i in client.logs_from(chnl2):
+                    p.append("+1")
+                m2 = "{} | {} ### {} | {} ### {} | {}".format(len(p) + 1, author, author.id, user, user.id, args)
+                await client.send_message(chnl2, m2)
+                m = "```diff"
+                m += "\n- WARN -"
+                m += "\n+ Author: {} ### {}".format(author, author.id)
+                m += "\n+ Target: {} ### {}".format(user, user.id)
+                m += "\n+ Reason:"
+                m += "\n```"
+                m += "\n{}".format(args)
+                await client.send_message(chnl, m)
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff.")
+        await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
