@@ -1295,5 +1295,50 @@ async def warn(ctx, user: discord.Member = None, *, args = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
         await client.say(embed=msg)
+        
+# }check <user>
+@client.command(pass_context=True)
+async def check(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
+        if user == None:
+            msg.add_field(name=error_img, value="Please mention someone you want to run a check on.")
+            await client.say(embed=msg)
+        else:
+            msg2 = discord.Embed(colour=0x870099, description= "")
+            msg2.title = ""
+            msg2.set_footer(text=footer_text)
+            chnl = client.get_channel('470464384725024768')
+            await client.send_typing(ctx.message.channel)
+            m = ""
+            async for i in client.logs_from(chnl):
+                a = str(i.content)
+                if user.id in a:
+                    b = i.content.split(' | ')
+                    m += "\n**__Warn number: {}__**\n`Warned by:` {}\n`Reason:` {}".format(b[0], b[1], b[3])
+                else:
+                    print("")
+            msg2.add_field(name=":warning: ***__Warning list for {} ### {}__***".format(user, user.id), value=m)
+            try:
+                await client.send_message(author, embed=msg2)
+                msg.add_field(name=":mag: Warnings Check", value="<@{}>, please check your DMs!".format(author.id), inline=True)
+                await client.say(embed=msg)
+            except:
+                msg.add_field(name=error_img, value="I cannot send you DMs. Please try again once you let me slide in your DMs.")
+                await client.say(embed=msg)
+                    
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff.")
+        await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
