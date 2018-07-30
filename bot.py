@@ -262,7 +262,7 @@ async def on_message(message):
         await client.send_message(message.channel, "Cough cough... who do you think he is, it clearly says 'Huskie', is that enough proof to show how awesome he is?? ")
                     
     if message.content.lower().startswith('who is seven'):
-        await client.send_message(message.channel, "A guy that likes to make dupstep noises from his eating hole")
+        await client.send_message(message.channel, "Stacey's one and only. Don't touch him! <:lul:473391423916343296>")
                     
     if message.content.lower().startswith('who is stacey'):
         await client.send_message(message.channel, "Claimed by Huskie and Seven. Dun be mean to Stacey or you get a whack on ya head.")
@@ -294,6 +294,12 @@ async def on_message(message):
         
     if message.content.lower().startswith('who is kelly'):
         await client.send_message(message.channel, "*Uhm...*, am I reading this right... a, korean... dick, dildo?")
+                        
+    if message.content.lower().startswith('who is feez'):
+        await client.send_message(message.channel, "A ghost that lives in shadows... *that's a bit dark*...")
+                        
+    if message.content.lower().startswith('who is oggy'):
+        await client.send_message(message.channel, "Oggy is a guy who makes weird autistic noices from his mouth,he is a child with bad humor and ofc ugly,he destroyes seven at Tf2 ofc....gg")
     else:
         await client.process_commands(message)
             
