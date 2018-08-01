@@ -1006,8 +1006,7 @@ async def bc(ctx):
                 else:
                     print("")
             else:
-                break
-        await client.delete_message(ctx.message)
+                await client.delete_message(ctx.message)
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
