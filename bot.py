@@ -988,8 +988,6 @@ async def mc(ctx):
 async def bc(ctx):
     author = ctx.message.author
     chnl = ctx.message.channel
-    msg = discord.Embed(colour=0x870099, description= "")
-    msg.title = ""
     msg.set_footer(text=footer_text)
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
@@ -1022,8 +1020,6 @@ async def kick(ctx, user: discord.Member = None, *, args = None):
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     msg = discord.Embed(colour=0x870099, description= "")
-    msg.title = ""
-    msg.set_footer(text=footer_text)
     if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles:
         if user == None:
             msg.add_field(name=error_img, value="No target given.\nExamples:\n`v!kick @Huskie Being a dog.`.\n`v!kick @Huskie`.")
