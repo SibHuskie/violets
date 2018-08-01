@@ -1007,7 +1007,7 @@ async def bc(ctx):
                     print("")
             else:
                 break
-        msg.add_field(name="**Bot Clear**", value="<@{}> removed the latest messages sent by bots.".format(author.id))
+        await client.delete_message(ctx.message)
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
