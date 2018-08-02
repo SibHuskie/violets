@@ -988,7 +988,7 @@ async def mc(ctx):
 async def bc(ctx):
     author = ctx.message.author
     chnl = ctx.message.channel
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0xe5b2ff, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     x = discord.utils.get(ctx.message.server.roles, name='Viola')
@@ -1198,9 +1198,9 @@ async def purge(ctx, number = None):
                 try:
                     deleted = await client.purge_from(ctx.message.channel, limit=testnumber)
                     if len(deleted) < testnumber:
-                        msg.add_field(name=":wastebasket: ", value="<@{}> tried to delete {} messages.\n{} messages were deleted.".format(author.id, number, len(deleted)))
+                        msg.add_field(name="**Purge**", value="<@{}> tried to delete {} messages.\n{} messages were deleted.".format(author.id, number, len(deleted)))
                     else:
-                        msg.add_field(name=":wastebasket: ", value="<@{}> deleted {} messages.".format(author.id, len(deleted)))
+                        msg.add_field(name="**Purge**", value="<@{}> deleted {} messages.".format(author.id, len(deleted)))
                     chnl = client.get_channel('470464384725024768')
                     m = "```diff"
                     m += "\n- PURGE -"
