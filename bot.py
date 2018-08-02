@@ -988,7 +988,10 @@ async def mc(ctx):
 async def bc(ctx):
     author = ctx.message.author
     chnl = ctx.message.channel
+    msg = discord.Embed(colour=0x870099, description= "")
+    msg.title = ""
     msg.set_footer(text=footer_text)
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
@@ -1004,7 +1007,8 @@ async def bc(ctx):
                 else:
                     print("")
             else:
-                await client.delete_message(ctx.message)
+                break
+        msg.add_field(name="**Bot Clear**", value="<@{}> removed the latest messages sent by bots.".format(author.id))
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
