@@ -1039,7 +1039,7 @@ async def kick(ctx, user: discord.Member = None, *, args = None):
                 if args == None:
                     m += "\n+ Reason: [No Reason Given]"
                     m += "\n```"
-                    msg.add_field(name=":boot: Kicking Boot", value="<@{}> kicked **{}**!\nNo reason given.".format(author.id, user))
+                    msg.add_field(name="**Kick**", value="<@{}> kicked **{}**!\nNo reason given.".format(author.id, user))
                     await client.kick(user)
                     await client.send_message(chnl, m)
                 else:
@@ -1077,7 +1077,7 @@ async def hackban(ctx, target = None, *, args = None):
             try:
                 a = await client.get_user_info(target)
                 await client.http.ban(target, server.id, 0)
-                msg.add_field(name=":hammer_pick: ", value="<@{}> ID banned **{}**.\nReason:\n{}".format(author.id, a, args))
+                msg.add_field(name="**Hack Ban**", value="<@{}> ID banned **{}**.\nReason:\n{}".format(author.id, a, args))
                 m = "```diff"
                 m += "\n- ID BAN -"
                 m += "\n+ Author: {} ### {}".format(author, author.id)
