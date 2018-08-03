@@ -92,6 +92,9 @@ async def on_member_remove(userName: discord.User):
     await client.send_message(client.get_channel("426680388585521163"), "{}".format(random.choice(leaves)))
     print("Leave")
     
+''' COMMANDS FOR EVERYONE '''
+client.remove_command('help')
+    
 #EMOTES
 
 huglinks = ["https://i.imgur.com/yE2RnXK.gif",
