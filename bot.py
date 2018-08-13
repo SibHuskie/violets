@@ -1441,7 +1441,7 @@ async def unmute(ctx, user: discord.Member = None):
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
-    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Ownr')
     punished = discord.utils.get(ctx.message.server.roles, name='Muted')
     msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
