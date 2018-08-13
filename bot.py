@@ -1481,11 +1481,10 @@ async def mute(ctx, user: discord.Member = None):
         if author.top_role == rolename2 or author.top_role < rolename2:
             msg.add_field(name=error_img, value="You cannot add a role that is the same or higher than your top role.")
         else:
-            try:
-                await client.add_roles(user, rolename2)
-                msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}>.".format(author.id, user.id))
-        else:
-            msg.add_field(name=error_img, value="This command can only be used by Staff!")
+            await client.add_roles(user, rolename2)
+            msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}>.".format(author.id, user.id))
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by Staff!")
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
