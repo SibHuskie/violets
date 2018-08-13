@@ -1464,7 +1464,7 @@ async def mute(ctx, user: discord.Member = None):
     
 # v!mute <user>
 @client.command(pass_context=True)
-async def mute(ctx, user: discord.Member = None):
+async def p(ctx, userName: discord.Member = None):
     author = ctx.message.author
     x = discord.utils.get(ctx.message.server.roles, name='Viola')
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
@@ -1473,18 +1473,25 @@ async def mute(ctx, user: discord.Member = None):
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     punished = discord.utils.get(ctx.message.server.roles, name='Muted')
-    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg = discord.Embed(colour=0x210150, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
-    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
-        rolename2 = discord.utils.get(ctx.message.server.roles, name='Muted')
-        if author.top_role == rolename2 or author.top_role < rolename2:
-            msg.add_field(name=error_img, value="You cannot add a role that is the same or higher than your top role.")
+    chnl = client.get_channel('453192314714849290')
+    l = client.get_channel(logs)
+    if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
+        if userName == None:
+            msg.add_field(name="")
         else:
-            await client.add_roles(user, rolename2)
-            msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}>.".format(author.id, user.id))
+            try:
+                if partner in userName.roles:
+                    msg.add_field(name="")
+                else:
+                    await client.add_roles(userName, punished)
+                    msg.add_field(name=":handshake: ", value="<@{}> muted <@{}>.".format(author.id, userName.id))
+            except:
+                msg.add_field(name=error_img, value="There was an error while trying to mute this user.")
     else:
-        msg.add_field(name=error_img, value="This command can only be used by Staff!")
+        msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
