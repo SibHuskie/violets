@@ -1345,7 +1345,7 @@ async def check(ctx, user: discord.Member = None):
         
 # v!mute <user> <time> [reason]
 @client.command(pass_context=True)
-async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
+async def mute(ctx, user: discord.Member = None, time4 = None):
     author = ctx.message.author
     x = discord.utils.get(ctx.message.server.roles, name='Viola')
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
@@ -1358,8 +1358,8 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
-        if user == None or time4 == None:
-            msg.add_field(name=error_img, value="Not all required arguments were given.\nExamples:\n`v!mute @Huskie 15 Spamming.`.\n`v!mute @Huskie 15`.")
+        if user == None:
+            msg.add_field(name=error_img, value="Not all required arguments were given.\nExamples:\n`v!mute @Huskie 15`.\n`v!mute @Huskie`.")
             await client.say(embed=msg)
         else:
             if punished in user.roles:
@@ -1386,14 +1386,13 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                 msg2.set_footer(text=footer_text)
                                 await client.add_roles(user, punished)
                                 if args == None:
-                                    msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}> for {} minute(s).\nNo reason given.".format(author.id, user.id, time4))
+                                    msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}> for {} minute(s).".format(author.id, user.id, time4))
                                     await client.say(embed=msg)
                                     m = "```diff"
                                     m += "\n- PUNISH -"
                                     m += "\n+ Author: {} ### {}".format(author, author.id)
                                     m += "\n+ Target: {} ### {}".format(user, user.id)
                                     m += "\n+ Time: {}".format(time4)
-                                    m += "\n+ Reason: [No Reason Given]"
                                     m += "\n```"
                                     await client.send_message(chnl, m)
                                     await asyncio.sleep(float(time2))
@@ -1404,16 +1403,13 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                     if len(str(args)) > 1000:
                                         msg.add_field(name=error_img, value="The reason cannot be longer than 1000 characters.")
                                     else:
-                                        msg.add_field(name=":no_entry_sign: ", value="<@{}> muted <@{}> for {} minute(s).\nReason:\n{}".format(author.id, user.id, time4, args))
+                                        msg.add_field(name=":no_entry_sign: ", value="<@{}> muted <@{}> for {} minute(s).".format(author.id, user.id, time4, args))
                                         await client.say(embed=msg)
                                         m = "```diff"
                                         m += "\n- MUTE -"
                                         m += "\n+ Author: {} ### {}".format(author, author.id)
                                         m += "\n+ Target: {} ### {}".format(user, user.id)
                                         m += "\n+ Time: {}".format(time4)
-                                        m += "\n+ Reason:"
-                                        m += "\n```"
-                                        m += "\n{}".format(args)
                                         await client.send_message(chnl, m)
                                         await asyncio.sleep(float(time2))
                                         if punished in user.roles:
@@ -1423,10 +1419,10 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                         else:
                                             print("")
                             except:
-                                msg.add_field(name=error_img, value="There has been an error while trying to punish that user.")
+                                msg.add_field(name=error_img, value="There has been an error while trying to mute that user.")
                                 await client.say(embed=msg)
                     except:
-                        msg.add_field(name=error_img, value="The time has to be a number.\nExample: `}punish @Sarah 10` will mute Sarah for 10 minutes.")
+                        msg.add_field(name=error_img, value="The time has to be a number.\nExample: `v!mute @Huskie 10` will mute Huskie for 10 minutes.")
                         await client.say(embed=msg)
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
@@ -1434,14 +1430,14 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
         
 # v!unmute <user>
 @client.command(pass_context=True)
-async def unmute(ctx, user: discord.Member = None):
+async def mute(ctx, user: discord.Member = None):
     author = ctx.message.author
     x = discord.utils.get(ctx.message.server.roles, name='Viola')
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
-    owner = discord.utils.get(ctx.message.server.roles, name='Ownr')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     punished = discord.utils.get(ctx.message.server.roles, name='Muted')
     msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
@@ -1464,6 +1460,36 @@ async def unmute(ctx, user: discord.Member = None):
                 msg.add_field(name=error_img, value="That user isn't muted.")
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
+    await client.say(embed=msg)
+    
+# v!mute <user>
+@client.command(pass_context=True)
+async def mute(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
+        rolename2 = discord.utils.get(ctx.message.server.roles, name='Muted')
+        if author.top_role == rolename2 or author.top_role < rolename2:
+            msg.add_field(name=error_img, value="You cannot add a role that is the same or higher than your top role.")
+        else:
+            try:
+                await client.add_roles(user, rolename2)
+                msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}>.".format(author.id, user.id))
+            except:
+                msg.add_field(name=error_img, value="Either I can't edit that user's role or the role you specified is higher than Manager.")
+        except:
+            msg.add_field(name=error_img, value="The specified role was not found.")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by Staff!")
     await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
