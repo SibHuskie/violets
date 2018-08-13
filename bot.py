@@ -1461,38 +1461,5 @@ async def mute(ctx, user: discord.Member = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
     await client.say(embed=msg)
-    
-# v!mute <user>
-@client.command(pass_context=True)
-async def p(ctx, userName: discord.Member = None):
-    author = ctx.message.author
-    x = discord.utils.get(ctx.message.server.roles, name='Viola')
-    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
-    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
-    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
-    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
-    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
-    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
-    msg = discord.Embed(colour=0x51cbdb, description= "")
-    msg.title = ""
-    msg.set_footer(text=footer_text)
-    chnl = client.get_channel('453192314714849290')
-    l = client.get_channel(logs)
-    if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles:
-        if userName == None:
-            msg.add_field(name=error_img, value="Please mention the person you want to mute.")
-        else:
-            try:
-                if partner in userName.roles:
-                    await client.remove_roles(userName, punished)
-                    msg.add_field(name=":handshake: ", value="<@{}> is already muted.".format(userName.id))
-                else:
-                    await client.add_roles(userName, punished)
-                    msg.add_field(name=":handshake: ", value="<@{}> muted <@{}>.".format(author.id, userName.id))
-            except:
-                msg.add_field(name=error_img, value="Please mention the person you want to mute.")
-    else:
-        msg.add_field(name=error_img, value="This command can only be used by the staff!")
-    await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
