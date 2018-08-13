@@ -953,7 +953,7 @@ async def userinfo(ctx, userName: discord.Member = None):
         if punish in userName.roles:
             msg.add_field(name="MUTED:", value="True", inline=True)
         else:
-            msg.add_field(name="PUNISHED:", value="False", inline=True)
+            msg.add_field(name="MUTED:", value="False", inline=True)
     await client.say(embed=msg)
     
 # }serverinfo
@@ -1176,7 +1176,7 @@ async def ban(ctx, user: discord.Member = None, *, args = None):
         msg.add_field(name=error_img, value="This command can only be used by Moderators, Administrators, Co-Owners and Owners.")
     await client.say(embed=msg)
     
-# }purge <number>
+# v!purge <number>
 @client.command(pass_context=True)
 async def purge(ctx, number = None):
     author = ctx.message.author
@@ -1245,7 +1245,7 @@ async def say(ctx, *, args = None):
         msg.add_field(name=error_img, value="This command can only be used by Moderators and Admins!")
         await client.say(embed=msg)
         
-# }warn <user> <reason>
+# v!warn <user> <reason>
 @client.command(pass_context=True)
 async def warn(ctx, user: discord.Member = None, *, args = None):
     author = ctx.message.author
@@ -1268,7 +1268,7 @@ async def warn(ctx, user: discord.Member = None, *, args = None):
                 msg.add_field(name=error_img, value="The reason cannot be longer than 1000 characters.")
                 await client.say(embed=msg)
             else:
-                msg2 = discord.Embed(colour=0x870099, description= "")
+                msg2 = discord.Embed(colour=0x51cbdb, description= "")
                 msg2.title = ""
                 msg2.set_footer(text=footer_text)
                 msg2.add_field(name=":warning: ", value="Hello, <@{}>.\nYou have been warned by <@{}> ( **{}** ).\nReason:\n{}".format(user.id, author.id, author, args))
@@ -1298,7 +1298,7 @@ async def warn(ctx, user: discord.Member = None, *, args = None):
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
         await client.say(embed=msg)
         
-# }check <user>
+# v!check <user>
 @client.command(pass_context=True)
 async def check(ctx, user: discord.Member = None):
     author = ctx.message.author
@@ -1317,10 +1317,10 @@ async def check(ctx, user: discord.Member = None):
             msg.add_field(name=error_img, value="Please mention someone you want to run a check on.")
             await client.say(embed=msg)
         else:
-            msg2 = discord.Embed(colour=0x870099, description= "")
+            msg2 = discord.Embed(colour=0x51cbdb, description= "")
             msg2.title = ""
             msg2.set_footer(text=footer_text)
-            chnl = client.get_channel('460419330572681229')
+            chnl = client.get_channel('470464384725024768')
             await client.send_typing(ctx.message.channel)
             m = ""
             async for i in client.logs_from(chnl):
@@ -1339,6 +1339,95 @@ async def check(ctx, user: discord.Member = None):
                 msg.add_field(name=error_img, value="I cannot send you DMs. Please try again once you let me slide in your DMs.")
                 await client.say(embed=msg)
                     
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff.")
+        await client.say(embed=msg)
+        
+# v!mute <user> <time> [reason]
+@client.command(pass_context=True)
+async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
+    author = ctx.message.author
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
+        if user == None or time4 == None:
+            msg.add_field(name=error_img, value="Not all required arguments were given.\nExamples:\n`v!mute @Huskie 15 Spamming.`.\n`v!mute @Huskie 15`.")
+            await client.say(embed=msg)
+        else:
+            if punished in user.roles:
+                msg.add_field(name=error_img, value="That user is already muted.")
+                await client.say(embed=msg)
+            else:
+                if owner in user.roles or manager in user.roles or admin in user.roles or mod in user.roles or helper in user.roles or x in user.roles:
+                    msg.add_field(name=error_img, value="Other staff cannot be muted.")
+                    await client.say(embed=msg)
+                else:
+                    try:
+                        time = int(time4)
+                        if time > 600:
+                            msg.add_field(name=error_img, value="The time cannot be longer than 600 minutes (10 hours).")
+                            await client.say(embed=msg)
+                        else:
+                            testtime = time * 0
+                            try:
+                                await asyncio.sleep(float(testtime))
+                                time2 = time * 60
+                                chnl = client.get_channel('470464384725024768')
+                                msg2 = discord.Embed(colour=0x51cbdb, description= "")
+                                msg2.title = ""
+                                msg2.set_footer(text=footer_text)
+                                await client.add_roles(user, punished)
+                                if args == None:
+                                    msg.add_field(name=":no_entry_sign: ", value="<@{}> punished <@{}> for {} minute(s).\nNo reason given.".format(author.id, user.id, time4))
+                                    await client.say(embed=msg)
+                                    m = "```diff"
+                                    m += "\n- PUNISH -"
+                                    m += "\n+ Author: {} ### {}".format(author, author.id)
+                                    m += "\n+ Target: {} ### {}".format(user, user.id)
+                                    m += "\n+ Time: {}".format(time4)
+                                    m += "\n+ Reason: [No Reason Given]"
+                                    m += "\n```"
+                                    await client.send_message(chnl, m)
+                                    await asyncio.sleep(float(time2))
+                                    await client.remove_roles(user, punished)
+                                    msg2.add_field(name=":no_entry_sign: ", value="<@{}> has been automatically pardoned.".format(user.id))
+                                    await client.say(embed=msg2)
+                                else:
+                                    if len(str(args)) > 1000:
+                                        msg.add_field(name=error_img, value="The reason cannot be longer than 1000 characters.")
+                                    else:
+                                        msg.add_field(name=":no_entry_sign: ", value="<@{}> punished <@{}> for {} minute(s).\nReason:\n{}".format(author.id, user.id, time4, args))
+                                        await client.say(embed=msg)
+                                        m = "```diff"
+                                        m += "\n- PUNISH -"
+                                        m += "\n+ Author: {} ### {}".format(author, author.id)
+                                        m += "\n+ Target: {} ### {}".format(user, user.id)
+                                        m += "\n+ Time: {}".format(time4)
+                                        m += "\n+ Reason:"
+                                        m += "\n```"
+                                        m += "\n{}".format(args)
+                                        await client.send_message(chnl, m)
+                                        await asyncio.sleep(float(time2))
+                                        if punished in user.roles:
+                                            await client.remove_roles(user, punished)
+                                            msg2.add_field(name=":no_entry_sign: ", value="<@{}> has been automatically pardoned.".format(user.id))
+                                            await client.say(embed=msg2)
+                                        else:
+                                            print("")
+                            except:
+                                msg.add_field(name=error_img, value="There has been an error while trying to punish that user.")
+                                await client.say(embed=msg)
+                    except:
+                        msg.add_field(name=error_img, value="The time has to be a number.\nExample: `}punish @Sarah 10` will mute Sarah for 10 minutes.")
+                        await client.say(embed=msg)
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
         await client.say(embed=msg)
