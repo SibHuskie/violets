@@ -324,7 +324,7 @@ async def on_message(message):
 @client.command(pass_context=True)
 async def hug(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -338,7 +338,7 @@ async def hug(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def kiss(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -352,7 +352,7 @@ async def kiss(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def cuddle(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -366,7 +366,7 @@ async def cuddle(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def bite(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -380,7 +380,7 @@ async def bite(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def bloodsuck(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -394,7 +394,7 @@ async def bloodsuck(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def throw(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -408,7 +408,7 @@ async def throw(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def pat(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -422,7 +422,7 @@ async def pat(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def punch(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -436,7 +436,7 @@ async def punch(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def nom(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -450,7 +450,7 @@ async def nom(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def highfive(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -464,7 +464,7 @@ async def highfive(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def poke(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -478,7 +478,7 @@ async def poke(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def slap(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -492,7 +492,7 @@ async def slap(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def stare(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -506,7 +506,7 @@ async def stare(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def facepalm(ctx):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     msg.set_image(url="{}".format(random.choice(facepalmlinks)))
@@ -517,7 +517,7 @@ async def facepalm(ctx):
 @client.command(pass_context=True)
 async def spank(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -531,7 +531,7 @@ async def spank(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def lick(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -546,7 +546,7 @@ async def lick(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def kill(ctx, user: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if user == None:
@@ -628,7 +628,7 @@ async def kill(ctx, user: discord.Member = None):
 @client.command(pass_context=True)
 async def battle(ctx, userName: discord.Member = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if userName == None:
@@ -751,7 +751,7 @@ async def battle(ctx, userName: discord.Member = None):
 @client.command(pass_context=True)
 async def ship(ctx, *, args = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
@@ -795,7 +795,7 @@ async def ship(ctx, *, args = None):
 @client.command(pass_context=True)
 async def rps(ctx, o = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if o == None:
@@ -827,7 +827,7 @@ async def rps(ctx, o = None):
 @client.command(pass_context=True)
 async def eightball(ctx, *, args = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
@@ -854,7 +854,7 @@ async def eightball(ctx, *, args = None):
 @client.command(pass_context=True)
 async def rate(ctx, *, args = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
@@ -870,7 +870,7 @@ async def rate(ctx, *, args = None):
 @client.command(pass_context=True)
 async def urban(ctx, *, args = None):
     author = ctx.message.author
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
@@ -891,7 +891,7 @@ async def urban(ctx, *, args = None):
 # }invite
 @client.command(pass_context=True)
 async def invite(ctx):
-    msg = discord.Embed(colour=0x870099, url=default_invite, description= "")
+    msg = discord.Embed(colour=0x51cbdb, url=default_invite, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     msg.add_field(name=":link: ", value="Here is the default server invite:\n{}".format(default_invite))
@@ -902,7 +902,7 @@ async def invite(ctx):
 async def suggest(ctx, *, args = None):
     author = ctx.message.author
     channel = client.get_channel('457604410344865814')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if args == None:
@@ -911,7 +911,7 @@ async def suggest(ctx, *, args = None):
         if len(str(args)) > 500:
             msg.add_field(name=error_img, value="The suggestion cannot be longer than 500 characters.")
         else:
-            m = discord.Embed(colour=0x04FF00, description= "")
+            m = discord.Embed(colour=0x51cbdb, description= "")
             m.title = ""
             m.set_footer(text=footer_text)
             m.add_field(name=":speech_balloon: ", value="{}".format(args))
@@ -959,7 +959,7 @@ async def userinfo(ctx, userName: discord.Member = None):
 # }serverinfo
 @client.command(pass_context=True)
 async def serverinfo(ctx):
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = "SERVER INFORMATION"
     msg.set_footer(text=footer_text)
     imageurl = ctx.message.server.icon_url
@@ -978,7 +978,7 @@ async def serverinfo(ctx):
 # v!mc
 @client.command(pass_context=True)
 async def mc(ctx):
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = "MEMBER COUNT"
     msg.set_footer(text=footer_text)
     msg.add_field(name="Members", value="`{}`".format(len(ctx.message.server.members)), inline=True)
@@ -991,7 +991,7 @@ async def mc(ctx):
 async def bc(ctx):
     author = ctx.message.author
     chnl = ctx.message.channel
-    msg = discord.Embed(colour=0xe5b2ff, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     x = discord.utils.get(ctx.message.server.roles, name='Viola')
@@ -1026,7 +1026,7 @@ async def kick(ctx, user: discord.Member = None, *, args = None):
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles:
         if user == None:
             msg.add_field(name=error_img, value="No target given.\nExamples:\n`v!kick @Huskie Being a dog.`.\n`v!kick @Huskie`.")
@@ -1070,7 +1070,7 @@ async def hackban(ctx, target = None, *, args = None):
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if owner in author.roles or manager in author.roles:
@@ -1106,7 +1106,7 @@ async def unban(ctx, userID = None):
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles:
@@ -1141,7 +1141,7 @@ async def ban(ctx, user: discord.Member = None, *, args = None):
     admin = discord.utils.get(ctx.message.server.roles, name='Admin')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles:
@@ -1187,7 +1187,7 @@ async def purge(ctx, number = None):
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     punished = discord.utils.get(ctx.message.server.roles, name='Muted')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
@@ -1227,7 +1227,7 @@ async def say(ctx, *, args = None):
     author = ctx.message.author
     vip = discord.utils.get(ctx.message.server.roles, name='Moderator')
     legend = discord.utils.get(ctx.message.server.roles, name='Admin')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if vip in author.roles or legend in author.roles:
@@ -1256,7 +1256,7 @@ async def warn(ctx, user: discord.Member = None, *, args = None):
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     punished = discord.utils.get(ctx.message.server.roles, name='Muted')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
@@ -1309,7 +1309,7 @@ async def check(ctx, user: discord.Member = None):
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     punished = discord.utils.get(ctx.message.server.roles, name='Muted')
-    msg = discord.Embed(colour=0x870099, description= "")
+    msg = discord.Embed(colour=0x51cbdb, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
     if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
