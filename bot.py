@@ -1430,7 +1430,7 @@ async def mute(ctx, user: discord.Member = None, time4 = None):
         
 # v!unmute <user>
 @client.command(pass_context=True)
-async def mute(ctx, user: discord.Member = None):
+async def unmute(ctx, user: discord.Member = None):
     author = ctx.message.author
     x = discord.utils.get(ctx.message.server.roles, name='Viola')
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
