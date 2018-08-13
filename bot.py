@@ -1386,7 +1386,7 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                 msg2.set_footer(text=footer_text)
                                 await client.add_roles(user, punished)
                                 if args == None:
-                                    msg.add_field(name=":no_entry_sign: ", value="<@{}> punished <@{}> for {} minute(s).\nNo reason given.".format(author.id, user.id, time4))
+                                    msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}> for {} minute(s).\nNo reason given.".format(author.id, user.id, time4))
                                     await client.say(embed=msg)
                                     m = "```diff"
                                     m += "\n- PUNISH -"
@@ -1398,16 +1398,16 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                     await client.send_message(chnl, m)
                                     await asyncio.sleep(float(time2))
                                     await client.remove_roles(user, punished)
-                                    msg2.add_field(name=":no_entry_sign: ", value="<@{}> has been automatically pardoned.".format(user.id))
+                                    msg2.add_field(name=":speak_no_evil: ", value="<@{}> has been automatically unmuted.".format(user.id))
                                     await client.say(embed=msg2)
                                 else:
                                     if len(str(args)) > 1000:
                                         msg.add_field(name=error_img, value="The reason cannot be longer than 1000 characters.")
                                     else:
-                                        msg.add_field(name=":no_entry_sign: ", value="<@{}> punished <@{}> for {} minute(s).\nReason:\n{}".format(author.id, user.id, time4, args))
+                                        msg.add_field(name=":no_entry_sign: ", value="<@{}> muted <@{}> for {} minute(s).\nReason:\n{}".format(author.id, user.id, time4, args))
                                         await client.say(embed=msg)
                                         m = "```diff"
-                                        m += "\n- PUNISH -"
+                                        m += "\n- MUTE -"
                                         m += "\n+ Author: {} ### {}".format(author, author.id)
                                         m += "\n+ Target: {} ### {}".format(user, user.id)
                                         m += "\n+ Time: {}".format(time4)
@@ -1418,7 +1418,7 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                         await asyncio.sleep(float(time2))
                                         if punished in user.roles:
                                             await client.remove_roles(user, punished)
-                                            msg2.add_field(name=":no_entry_sign: ", value="<@{}> has been automatically pardoned.".format(user.id))
+                                            msg2.add_field(name=":monkey: ", value="<@{}> has been automatically unmuted.".format(user.id))
                                             await client.say(embed=msg2)
                                         else:
                                             print("")
@@ -1431,5 +1431,39 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
         await client.say(embed=msg)
+        
+# v!unmute <user>
+@client.command(pass_context=True)
+async def unmute(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    x = discord.utils.get(ctx.message.server.roles, name='Viola')
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Admin')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    punished = discord.utils.get(ctx.message.server.roles, name='Muted')
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if owner in author.roles or admin in author.roles or manager in author.roles or mod in author.roles or helper in author.roles:
+        if user == None:
+            msg.add_field(name=error_img, value="Please mention someone you want to unmute.\nExample: `v!unmute @Huskie`.")
+        else:
+            if punished in user.roles:
+                await client.remove_roles(user, punished)
+                msg.add_field(name=":monkey_face: ", value="<@{}> unmuted <@{}>.".format(author.id, user.id))
+                chnl = client.get_channel('470464384725024768')
+                m = "```diff"
+                m += "\n- UNMUTE -"
+                m += "\n+ Author: {} ### {}".format(author, author.id)
+                m += "\n+ Target: {} ### {}".format(user, user.id)
+                m += "\n```"
+                await client.send_message(chnl, m)
+            else:
+                msg.add_field(name=error_img, value="That user isn't muted.")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff.")
+    await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
