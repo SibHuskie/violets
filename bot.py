@@ -1484,6 +1484,7 @@ async def p(ctx, userName: discord.Member = None):
         else:
             try:
                 if partner in userName.roles:
+                    await client.remove_roles(userName, punished)
                     msg.add_field(name=":handshake: ", value="<@{}> is already muted.".format(userName.id))
                 else:
                     await client.add_roles(userName, punished)
