@@ -1483,7 +1483,7 @@ async def mute(ctx, user: discord.Member = None):
         else:
             try:
                 await client.add_roles(user, rolename2)
-                    msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}>.".format(author.id, user.id))
+                msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}>.".format(author.id, user.id))
             except:
                 msg.add_field(name=error_img, value="Either I can't edit that user's role or the role you specified is higher than Manager.")
             except:
