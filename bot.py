@@ -930,7 +930,7 @@ async def suggest(ctx, *, args = None):
 # }userinfo <user>
 @client.command(pass_context=True)
 async def userinfo(ctx, userName: discord.Member = None):
-    punish = discord.utils.get(ctx.message.server.roles, id=punished_role)
+    punish = discord.utils.get(ctx.message.server.roles, name='Muted')
     msg = discord.Embed(colour=0x870099, description= "")
     msg.title = ""
     msg.set_footer(text=footer_text)
@@ -994,7 +994,7 @@ async def p(ctx, userName: discord.Member = None):
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
     admin = discord.utils.get(ctx.message.server.roles, name='Administrator')
     manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
-    owner = discord.utils.get(ctx.message.server.roles, id=name='Owner')
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     partner = discord.utils.get(ctx.message.server.roles, name='Partners')
     pmanager = discord.utils.get(ctx.message.server.roles, name='Partnership Manager')
     msg = discord.Embed(colour=0x51cbdb, description= "")
