@@ -1386,7 +1386,7 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                 msg2.set_footer(text=footer_text)
                                 await client.add_roles(user, punished)
                                 if args == None:
-                                    msg.add_field(name=":no_entry_sign: ", value="<@{}> muted <@{}> for {} minute(s).\nNo reason given.".format(author.id, user.id, time4))
+                                    msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}> for {} minute(s).\nNo reason given.".format(author.id, user.id, time4))
                                     await client.say(embed=msg)
                                     m = "```diff"
                                     m += "\n- MUTE -"
@@ -1398,13 +1398,13 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                     await client.send_message(chnl, m)
                                     await asyncio.sleep(float(time2))
                                     await client.remove_roles(user, punished)
-                                    msg2.add_field(name=":no_entry_sign: ", value="<@{}> has been automatically unmuted.".format(user.id))
+                                    msg2.add_field(name=":monkey: ", value="<@{}> has been automatically unmuted.".format(user.id))
                                     await client.say(embed=msg2)
                                 else:
                                     if len(str(args)) > 1000:
                                         msg.add_field(name=error_img, value="The reason cannot be longer than 1000 characters.")
                                     else:
-                                        msg.add_field(name=":no_entry_sign: ", value="<@{}> muted <@{}> for {} minute(s).\nReason:\n{}".format(author.id, user.id, time4, args))
+                                        msg.add_field(name=":speak_no_evil: ", value="<@{}> muted <@{}> for {} minute(s).\nReason:\n{}".format(author.id, user.id, time4, args))
                                         await client.say(embed=msg)
                                         m = "```diff"
                                         m += "\n- MUTE -"
@@ -1418,7 +1418,7 @@ async def mute(ctx, user: discord.Member = None, time4 = None, *, args = None):
                                         await asyncio.sleep(float(time2))
                                         if punished in user.roles:
                                             await client.remove_roles(user, punished)
-                                            msg2.add_field(name=":no_entry_sign: ", value="<@{}> has been automatically unmuted.".format(user.id))
+                                            msg2.add_field(name=":monkey: ", value="<@{}> has been automatically unmuted.".format(user.id))
                                             await client.say(embed=msg2)
                                         else:
                                             print("")
