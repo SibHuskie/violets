@@ -986,6 +986,39 @@ async def mc(ctx):
 
 #MODERATOR COMMANDS
 
+# }p <user>
+@client.command(pass_context=True)
+async def p(ctx, userName: discord.Member = None):
+    author = ctx.message.author
+    helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
+    mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    admin = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    owner = discord.utils.get(ctx.message.server.roles, id=name='Owner')
+    partner = discord.utils.get(ctx.message.server.roles, name='Partners')
+    pmanager = discord.utils.get(ctx.message.server.roles, name='Partnership Manager')
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    chnl = client.get_channel('470464384725024768')
+    l = client.get_channel(logs)
+    if helper in author.roles or mod in author.roles or admin in author.roles or manager in author.roles or owner in author.roles or pmanager in author.roles:
+        if userName == None:
+            msg.add_field(name=error_img, value="Please mention the person you want to give/remove the partner role to/from.")
+        else:
+            try:
+                if partner in userName.roles:
+                    await client.remove_roles(userName, partner)
+                    msg.add_field(name=":handshake: ", value="<@{}> removed the partner role from <@{}>.".format(author.id, userName.id))
+                else:
+                    await client.add_roles(userName, partner)
+                    msg.add_field(name=":handshake: ", value="<@{}> gave the partner role to <@{}>.".format(author.id, userName.id))
+            except:
+                msg.add_field(name=error_img, value="There was an error while trying to give/take the partner role to/from that user.")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by the staff!")
+    await client.say(embed=msg)
+
 # v!bc
 @client.command(pass_context=True)
 async def bc(ctx):
@@ -1498,7 +1531,7 @@ async def take(ctx, user: discord.Member = None, *, args = None):
     
 # }giverole <user> <role>
 @client.command(pass_context=True)
-async def giverole(ctx, user: discord.Member = None, *, args = None):
+async def give(ctx, user: discord.Member = None, *, args = None):
     author = ctx.message.author
     owner = discord.utils.get(ctx.message.server.roles, name='Owner')
     admin = discord.utils.get(ctx.message.server.roles, name='Administrator')
