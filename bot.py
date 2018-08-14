@@ -1465,5 +1465,65 @@ async def unmute(ctx, user: discord.Member = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by the staff.")
     await client.say(embed=msg)
+    
+# }takerole <user> <role>
+@client.command(pass_context=True)
+async def take(ctx, user: discord.Member = None, *, args = None):
+    author = ctx.message.author
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    admin = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if admin in author.roles or manager in author.roles or owner in author.roles:
+        if user == None or args == None:
+            msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!take @Huskie Moderator`.")
+        else:
+            try:
+                rolename2 = discord.utils.get(ctx.message.server.roles, name='{}'.format(args))
+                if author.top_role == rolename2 or author.top_role < rolename2:
+                    msg.add_field(name=error_img, value="You cannot remove a role that is the same or higher than your top role.")
+                else:
+                    try:
+                        await client.remove_roles(user, rolename2)
+                        msg.add_field(name=":outbox_tray: ", value="<@{}> removed `{}` from <@{}>.".format(author.id, args, user.id))
+                    except:
+                        msg.add_field(name=error_img, value="Either I can't edit that user's role or the role you specified is higher than Co-Owner.")
+            except:
+                msg.add_field(name=error_img, value="The specified role was not found. Make sure to check spelling and capitalization.")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by Administrators, Co-Owners and Owners.")
+    await client.say(embed=msg)
+    
+# }giverole <user> <role>
+@client.command(pass_context=True)
+async def giverole(ctx, user: discord.Member = None, *, args = None):
+    author = ctx.message.author
+    owner = discord.utils.get(ctx.message.server.roles, name='Owner')
+    admin = discord.utils.get(ctx.message.server.roles, name='Administrator')
+    manager = discord.utils.get(ctx.message.server.roles, name='Co-Owner')
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if admin in author.roles or manager in author.roles or owner in author.roles:
+        if user == None or args == None:
+            msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!give @Huskie Moderator`.")
+        else:
+            try:
+                rolename2 = discord.utils.get(ctx.message.server.roles, name='{}'.format(args))
+                if author.top_role == rolename2 or author.top_role < rolename2:
+                    msg.add_field(name=error_img, value="You cannot add a role that is the same or higher than your top role.")
+                else:
+                    try:
+                        await client.add_roles(user, rolename2)
+                        msg.add_field(name=":inbox_tray: ", value="<@{}> added `{}` to <@{}>.".format(author.id, args, user.id))
+                    except:
+                        msg.add_field(name=error_img, value="Either I can't edit that user's role or the role you specified is higher than Co-Owner.")
+            except:
+                msg.add_field(name=error_img, value="The specified role was not found.")
+    else:
+        msg.add_field(name=error_img, value="This command can only be used by Administrators, Co-Owners and Owners.")
+    await client.say(embed=msg)
 ##################################
 client.run(os.environ['BOT_TOKEN'])
