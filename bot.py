@@ -988,7 +988,7 @@ async def mc(ctx):
 
 # }p <user>
 @client.command(pass_context=True)
-async def p(ctx, userName: discord.Member = None):
+async def partner(ctx, userName: discord.Member = None):
     author = ctx.message.author
     helper = discord.utils.get(ctx.message.server.roles, name='Jr. Mod')
     mod = discord.utils.get(ctx.message.server.roles, name='Moderator')
