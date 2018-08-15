@@ -297,6 +297,9 @@ async def on_message(message):
                         
     if message.content.lower().startswith('who is marcy'):
         await client.send_message(message.channel, "Who knows")
+        
+    if message.content.lower().startswith('who is kasper'):
+        await client.send_message(message.channel, "Useless admin")
                                 
     if message.content.lower().startswith('who is tredll'):
         await client.send_message(message.channel, "Shut up. Shut the fuck up. Shut up! Shut the fuck up! Shut up! Shut up. This what I do, This what I do! This what I do. Shut the fuck up! Shut up! All you don't nobody goin' nowhere. Nobody goin' nowhere. Don't nobody going nowhere. You wanna stop? YOU WANNA STOP?! Stop. So if I get up somebody gon' hold 'im? Nobody touch me. Nobody touch me. Nobody touch me. You got blood on me, right? Got blood on me, right?! You got blood, use a tissue! You got-...You got blood on me? You got blood on me, right? Come on bro. Get your shit. What's up, bruh? Don't touch me. Don't touch me. You wanna fight, right? Don't touch me. Don't touch me. You wanna fight, right? Tell 'em turn the cameras off. Smack up. Don't say my name out on these cameras!")
@@ -1049,7 +1052,7 @@ async def bc(ctx):
         msg.add_field(name=error_img, value="This command can only be used by the staff!")
     await client.say(embed=msg)
 
-# }kick <user> [reason]
+# v!kick <user> [reason]
 @client.command(pass_context=True)
 async def kick(ctx, user: discord.Member = None, *, args = None):
     author = ctx.message.author
@@ -1108,7 +1111,7 @@ async def hackban(ctx, target = None, *, args = None):
     msg.set_footer(text=footer_text)
     if owner in author.roles or manager in author.roles:
         if target == None or args == None:
-            msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!idban 244042996129988608 Being a human being.`.")
+            msg.add_field(name=error_img, value="Not all arguments were given.\nExample: `v!hackban 244042996129988608 Being a human being.`.")
         else:
             try:
                 a = await client.get_user_info(target)
