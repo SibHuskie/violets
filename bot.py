@@ -299,7 +299,7 @@ async def on_message(message):
         await client.send_message(message.channel, "Yami's")
                         
     if message.content.lower().startswith('who is marcy'):
-        await client.send_message(message.channel, "Who knows")
+        await client.send_message(message.channel, "The useless owner")
         
     if message.content.lower().startswith('who is kasper'):
         await client.send_message(message.channel, "Useless admin")
