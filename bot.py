@@ -280,6 +280,9 @@ async def on_message(message):
     if message.content.lower().startswith('who is maly'):
         await client.send_message(message.channel, "Well... so... um... she's Maly..?")
         
+    if message.content.lower().startswith('who is stefan'):
+        await client.send_message(message.channel, "The most retarded ugly looking ass kid here, but he got memes")
+        
     if message.content.lower().startswith('who is kelly'):
         await client.send_message(message.channel, "*Uhm...*, am I reading this right... a, korean... dick, dildo?")
                         
