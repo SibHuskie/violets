@@ -72,7 +72,7 @@ async def help(ctx):
     m3 += "\n- v!rate <text>"
     m3 += "\n- v!urban <word>"
     m3 += "\n- v!rainbow"
-    m3 += "\n- v!kill <user>
+    m3 += "\n- v!kill <user>"
     m4 = "\n:large_blue_circle: GENERAL :large_blue_circle: "
     m4 += "\n- v!invite"
     m4 += "\n- v!suggest <suggestion>"
