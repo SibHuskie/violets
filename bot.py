@@ -18,7 +18,7 @@ client = commands.Bot(command_prefix=bot_prefix)
 server = discord.Server(id='426680388002250753')
 footer_text = "Violets™"
 error_img = ':warning:'
-default_invite = 'https://discord.gg/GnkADTA'
+default_invite = 'https://discord.gg/Cbzd4fy'
 banner = 'https://cdn.discordapp.com/attachments/403309394139545600/467636297989750794/ezgif.com-video-to-gif_1.gif'
 
 #roles
