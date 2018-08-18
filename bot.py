@@ -91,8 +91,8 @@ async def help(ctx):
     m5 += "\n- v!partner <user>"
     m5 += "\n- v!mute <user> <time> [reason]"
     m5 += "\n- v!unmute <user>"
-    m5 += "\n- v!take <user> <role>
-    m5 += "\n- v!give <user> <role>
+    m5 += "\n- v!take <user> <role>"
+    m5 += "\n- v!give <user> <role>"
     m5 += "\n- v!money <add/del/set> <user> <amount>"
     m5 += "\n- v!reset <perk/money/all> <user>"
     m5 += "\n- v!say <text>"
