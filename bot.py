@@ -32,7 +32,81 @@ owner_role = '464964048065396746'
 partner_role = '469369789585031178'
 logs = '470464384725024768'
 
+client.remove_command('help')
 
+# v!shop
+@client.command(pass_context=True)
+async def help(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x4286f4, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg2 = discord.Embed(colour=0x4286f4, description= "")
+    msg2.title = ""
+    msg2.set_footer(text=footer_text)
+    await client.send_typing(ctx.message.channel)
+    m1 = "__**Commands**__"
+    m1 += "\n`=================================`"
+    m2 = "\n:large_blue_circle: EMOTES :large_blue_circle:"
+    m2 += "\n- v!hug <user>"
+    m2 += "\n- v!pat <user>"
+    m2 += "\n- v!kiss <user>"
+    m2 += "\n- v!nom <user>"
+    m2 += "\n- v!throw <user>"
+    m2 += "\n- v!bite <user>"
+    m2 += "\n- v!bloodsuck <user>"
+    m2 += "\n- v!cuddle <user>"
+    m2 += "\n- v!highfive <user>"
+    m2 += "\n- v!poke <user>"
+    m2 += "\n- v!slap <user>"
+    m2 += "\n- v!punch <user>"
+    m2 += "\n- v!stare <user>"
+    m2 += "\n- v!facepalm"
+    m2 += "\n- v!lick <user>"
+    m2 += "\n- v!spank <user>"
+    m3 = "\n:large_blue_circle: FUN :large_blue_circle:"
+    m3 += "\n- v!battle <user>"
+    m3 += "\n- v!ship <text> and <text>"
+    m3 += "\n- v!rps <rock/paper/scissors>"
+    m3 += "\n- v!eightball <yes or no questions>"
+    m3 += "\n- v!rate <text>"
+    m3 += "\n- v!urban <word>"
+    m3 += "\n- v!rainbow"
+    m3 += "\n- v!kill <user>
+    m4 = "\n:large_blue_circle: GENERAL :large_blue_circle: "
+    m4 += "\n- v!invite"
+    m4 += "\n- v!suggest <suggestion>"
+    m4 += "\n- v!userinfo <user>"
+    m4 += "\n- v!serverinfo"
+    m4 += "\n- v!mc"
+    m5 = "\n:large_blue_circle: STAFF :large_blue_circle:"
+    m5 += "\n- v!bc"
+    m5 += "\n- v!kick <user> [reason]"
+    m5 += "\n- v!hackban <id> <reason>"
+    m5 += "\n- v!unban <user id>"
+    m5 += "\n- v!ban <user> [reason]"
+    m5 += "\n- v!purge <number>"
+    m5 += "\n- v!warn <user> <reason>"
+    m5 += "\n- v!check <user>"
+    m5 += "\n- v!partner <user>"
+    m5 += "\n- v!mute <user> <time> [reason]"
+    m5 += "\n- v!unmute <user>"
+    m5 += "\n- v!take <user> <role>
+    m5 += "\n- v!give <user> <role>
+    m5 += "\n- v!money <add/del/set> <user> <amount>"
+    m5 += "\n- v!reset <perk/money/all> <user>"
+    m5 += "\n- v!say <text>"
+    m5 += "\n- v!perk <add/del> <user> <perk>"
+    msg.add_field(name="`=================================`", value=m2)
+    msg.add_field(name="`=================================`", value=m3)
+    msg.add_field(name="`=================================`", value=m4)
+    msg.add_field(name="`=================================`", value=m5)
+    try:
+        await client.send_message(author, embed=msg)
+        msg2.add_field(name=":diamond_shape_with_a_dot_inside:", value="Check your DMs, <@{}>.".format(author.id))
+    except:
+        msg2.add_field(name=error_img, value="I am unable to DM you, <@{}>.".format(author.id))
+    await client.say(embed=msg2)
 
 #Welcome and Leave
 
