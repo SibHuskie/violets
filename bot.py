@@ -182,7 +182,7 @@ async def on_member_remove(userName: discord.User):
     
 ''' COMMANDS FOR EVERYONE '''
     
-#EMOTES
+#EMOTE
 
 huglinks = ["https://i.imgur.com/yE2RnXK.gif",
             "https://i.imgur.com/R9sYxk8.gif",
