@@ -1359,7 +1359,7 @@ async def check(ctx, user: discord.Member = None):
             msg2 = discord.Embed(colour=0x51cbdb, description= "")
             msg2.title = ""
             msg2.set_footer(text=footer_text)
-            chnl = client.get_channel('470464384725024768')
+            chnl = client.get_channel('480177377343963138')
             await client.send_typing(ctx.message.channel)
             m = ""
             async for i in client.logs_from(chnl):
