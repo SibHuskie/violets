@@ -167,7 +167,6 @@ async def on_member_remove(userName: discord.User):
     print("Leave")
     
 ''' COMMANDS FOR EVERYONE '''
-client.remove_command('help')
     
 #EMOTES
 
