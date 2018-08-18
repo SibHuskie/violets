@@ -1319,7 +1319,7 @@ async def warn(ctx, user: discord.Member = None, *, args = None):
                     msg.add_field(name=":warning: ", value="<@{}> warned <@{}>.\nReason:\n{}".format(author.id, user.id, args))
                     await client.say("<@{}>".format(user.id), embed=msg)
                 chnl = client.get_channel('470464384725024768')
-                chnl2 = client.get_channel('460419330572681229')
+                chnl2 = client.get_channel('480177377343963138')
                 p = []
                 async for i in client.logs_from(chnl2):
                     p.append("+1")
