@@ -989,9 +989,9 @@ async def apply(ctx, option = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if option == None:
-        msg.add_field(name=error_img, value="No option given.\nOptions: `moderator`, `partnership manager`.\n \nExample: `v!apply partnership manager`.")
+        msg.add_field(name=error_img, value="No option given.\nOptions: `moderator`, `pm`.\n \nExample: `v!apply pm`.")
     else:
-        if option == "partnership manager":
+        if option == "pm":
             try:
                 mg = "***__PARTNERSHIP MANAGER APPLICATION TEMPLATE__***"
                 mg += "\n:exclamation: Before applying make sure you met all the requirements."
@@ -1023,7 +1023,7 @@ async def apply(ctx, option = None):
                 msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
         elif option == "moderator":
             try:
-                mg = "***__MODERATOR MANAGER APPLICATION TEMPLATE__***"
+                mg = "***__MODERATOR APPLICATION TEMPLATE__***"
                 mg += "\n:exclamation: Before applying make sure you met all the requirements."
                 mg += "\n`-` You must be 15+"
                 mg += "\n`-` You must be level 15+"
@@ -1052,7 +1052,7 @@ async def apply(ctx, option = None):
             except:
                 msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
         else:
-            msg.add_field(name=error_img, value="Invalid option given.\nOptions: `moderator`, `partnership manager`.\n \nExample: `v!apply moderator`.")
+            msg.add_field(name=error_img, value="Invalid option given.\nOptions: `moderator`, `pm`.\n \nExample: `v!apply moderator`.")
     await client.say(embed=msg)
     
 # }invite
