@@ -981,6 +981,80 @@ async def urban(ctx, *, args = None):
     
 #GENERAL
 
+# }apply <helper/mod/admin/manager/adbot>
+@client.command(pass_context=True)
+async def apply(ctx, option = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if option == None:
+        msg.add_field(name=error_img, value="No option given.\nOptions: `moderator`, `partnership manager`.\n \nExample: `v!apply partnership manager`.")
+    else:
+        if option == "partnership manager":
+            try:
+                mg = "***__PARTNERSHIP MANAGER APPLICATION TEMPLATE__***"
+                mg += "\n:exclamation: Before applying make sure you met all the requirements."
+                mg += "\n`-` You must be 15+"
+                mg += "\n`-` You must be level 15+"
+                mg += "\n```fix"
+                mg += "\n===================================="
+                mg += "\n```"
+                mg += "\n:grey_question: How to apply:"
+                mg += "\n`-` Once you meet the requirements, copy the template below and answer all the questions."
+                mg += "\n`-` When you finish answering the questions, send them to either Huskie or Saw."
+                mg += "\n```fix"
+                mg += "\n===================================="
+                mg += "\n```"
+                mg += "\n`-` What is your discord username? Example: Huskie#9999"
+                mg += "\n`-` How old are you?"
+                mg += "\n`-` For how long have you been in this server?"
+                mg += "\n`-` Why do you want to become a partnership manager?"
+                mg += "\n`-` How many partnerships can you do a day?."
+                mg += "\n`-` How active can you be (example: 1 hour a day, 3 times a week per 2 hours, etc.)?"
+                mg += "\n`-` What would you do if the server is being raided?"
+                mg += "\n`-` What would you do if a staff member is abusing their powers?"
+                mg += "\n`-` What would you do if someone is being rude towards you?"
+                mg += "\n`-` Do you know any of the staff members? If yes, please tag them."
+                mg += "\n`-` Have you been or are you a partnership manager on another server?"
+                await client.send_message(author, mg)
+                msg.add_field(name=":pencil: ", value="The `partnership manager` template has been sent to your DMs!")
+            except:
+                msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
+        elif option == "moderator":
+            try:
+                mg = "***__MODERATOR MANAGER APPLICATION TEMPLATE__***"
+                mg += "\n:exclamation: Before applying make sure you met all the requirements."
+                mg += "\n`-` You must be 15+"
+                mg += "\n`-` You must be level 15+"
+                mg += "\n```fix"
+                mg += "\n===================================="
+                mg += "\n```"
+                mg += "\n:grey_question: How to apply:"
+                mg += "\n`-` Once you meet the requirements, copy the template below and answer all the questions."
+                mg += "\n`-` When you finish answering the questions, send them to either Huskie or Saw."
+                mg += "\n```fix"
+                mg += "\n===================================="
+                mg += "\n```"
+                mg += "\n`-` How old are you?"
+                mg += "\n`-` For how long have you been in this server?"
+                mg += "\n`-` Why do you want to become a moderator?"
+                mg += "\n`-` Rate your knowledge of discord and the Viola Bot (from 1-10 for both)."
+                mg += "\n`-` How active can you be (example: 1 hour a day, 3 times a week per 2 hours, etc)?"
+                mg += "\n`-` What would you do if the server is being raided?"
+                mg += "\n`-` What would you do if a staff member is abusing their powers?"
+                mg += "\n`-` What would you do if someone is being rude towards you?"
+                mg += "\n`-` Do you know any of the staff members? If yes, please tag them."
+                mg += "\n`-` Have you been or are you a staff member on another server? If yes, what role do you have?"
+                mg += "\n`-` Do you know how partnerships work on this server?"
+                await client.send_message(author, mg)
+                msg.add_field(name=":pencil: ", value="The `moderator` template has been sent to your DMs!")
+            except:
+                msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
+        else:
+            msg.add_field(name=error_img, value="Invalid option given.\nOptions: `moderator`, `partnership manager`.\n \nExample: `v!apply moderator`.")
+    await client.say(embed=msg)
+    
 # }invite
 @client.command(pass_context=True)
 async def invite(ctx):
