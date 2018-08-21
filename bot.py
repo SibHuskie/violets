@@ -184,6 +184,8 @@ async def on_member_remove(userName: discord.User):
     
 #EMOTE
 
+mocklinks = ["https://media1.tenor.com/images/e92185e00b00c8b2ef4199164e130d27/tenor.gif?itemid=8665747"]
+
 huglinks = ["https://i.imgur.com/yE2RnXK.gif",
             "https://i.imgur.com/R9sYxk8.gif",
             "https://i.imgur.com/iLBEoKv.gif",
@@ -425,6 +427,20 @@ async def hug(ctx, user: discord.Member = None):
     else:
         msg.set_image(url="{}".format(random.choice(huglinks)))
         msg.add_field(name=":small_blue_diamond: EMOTE :small_blue_diamond:", value="<@{}> got a hug from <@{}>! Nawww.".format(user.id, author.id))
+    await client.say(embed=msg)
+    
+# v!mock <user>
+@client.command(pass_context=True)
+async def mock(ctx, user: discord.Member = None):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    if user == None:
+        msg.add_field(name=error_img, value="Please mention someone you want to mock.")
+    else:
+        msg.set_image(url="{}".format(random.choice(mocklinks)))
+        msg.add_field(name=":small_blue_diamond: EMOTE :small_blue_diamond:", value="<@{}> iS mOcKiNg <@{}>!".format(author.id, user.id))
     await client.say(embed=msg)
 
 # v!kiss <user>
