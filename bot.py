@@ -605,6 +605,16 @@ async def facepalm(ctx):
     msg.set_image(url="{}".format(random.choice(facepalmlinks)))
     msg.add_field(name=":small_blue_diamond: EMOTE :small_blue_diamond:", value="<@{}> facepalmed. <_<".format(author.id))
     await client.say(embed=msg)
+    
+# v!fart
+@client.command(pass_context=True)
+async def fart(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg.add_field(name=":small_blue_diamond: EMOTE :small_blue_diamond:", value="<@{}> farted... can you smell the love? <_<".format(author.id))
+    await client.say(embed=msg)
 
 # v!spank <user>
 @client.command(pass_context=True)
