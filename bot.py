@@ -373,7 +373,7 @@ async def on_message(message):
         await client.send_message(message.channel, "The most retarded ugly looking ass kid here, but he got memes")
         
     if message.content.lower().startswith('who is kelly'):
-        await client.send_message(message.channel, "*Uhm...*, am I reading this right... a, korean... dick, dildo?")
+        await client.send_message(message.channel, "Thicc")
                         
     if message.content.lower().startswith('who is feez'):
         await client.send_message(message.channel, "A ghost that lives in shadows... *that's a bit dark*...")
@@ -392,6 +392,9 @@ async def on_message(message):
         
     if message.content.lower().startswith('who is kasper'):
         await client.send_message(message.channel, "Useless admin")
+        
+    if message.content.lower().startswith('who is worgen'):
+        await client.send_message(message.channel, "The dumb guy with no life 24/7 on discord")
                                 
     if message.content.lower().startswith('who is tredll'):
         await client.send_message(message.channel, "Shut up. Shut the fuck up. Shut up! Shut the fuck up! Shut up! Shut up. This what I do, This what I do! This what I do. Shut the fuck up! Shut up! All you don't nobody goin' nowhere. Nobody goin' nowhere. Don't nobody going nowhere. You wanna stop? YOU WANNA STOP?! Stop. So if I get up somebody gon' hold 'im? Nobody touch me. Nobody touch me. Nobody touch me. You got blood on me, right? Got blood on me, right?! You got blood, use a tissue! You got-...You got blood on me? You got blood on me, right? Come on bro. Get your shit. What's up, bruh? Don't touch me. Don't touch me. You wanna fight, right? Don't touch me. Don't touch me. You wanna fight, right? Tell 'em turn the cameras off. Smack up. Don't say my name out on these cameras!")
