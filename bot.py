@@ -1018,20 +1018,20 @@ async def apply(ctx, option = None):
     msg.title = ""
     msg.set_footer(text=footer_text)
     if option == None:
-        msg.add_field(name=error_img, value="No option given.\nOptions: `moderator`, `pm`.\n \nExample: `v!apply pm`.")
+        msg.add_field(name=error_img, value="No option given.\nOptions: `mod`, `pm`.\n \nExample: `v!apply pm`.")
     else:
         if option == "pm":
             try:
                 mg = "***__PARTNERSHIP MANAGER APPLICATION TEMPLATE__***"
                 mg += "\n:exclamation: Before applying make sure you met all the requirements."
                 mg += "\n`-` You must be 15+"
-                mg += "\n`-` You must be level 15+"
+                mg += "\n`-` You must be level 5+"
                 mg += "\n```fix"
                 mg += "\n===================================="
                 mg += "\n```"
                 mg += "\n:grey_question: How to apply:"
                 mg += "\n`-` Once you meet the requirements, copy the template below and answer all the questions."
-                mg += "\n`-` When you finish answering the questions, send them to either Huskie or Saw."
+                mg += "\n`-` When you finish answering the questions, DM the finished version to Huskie."
                 mg += "\n```fix"
                 mg += "\n===================================="
                 mg += "\n```"
@@ -1047,10 +1047,10 @@ async def apply(ctx, option = None):
                 mg += "\n`-` Do you know any of the staff members? If yes, please tag them."
                 mg += "\n`-` Have you been or are you a partnership manager on another server?"
                 await client.send_message(author, mg)
-                msg.add_field(name=":pencil: ", value="The `partnership manager` template has been sent to your DMs!")
+                msg.add_field(name=":pencil: ", value="The `pm` template has been sent to your DMs!")
             except:
                 msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
-        elif option == "moderator":
+        elif option == "mod":
             try:
                 mg = "***__MODERATOR APPLICATION TEMPLATE__***"
                 mg += "\n:exclamation: Before applying make sure you met all the requirements."
@@ -1061,7 +1061,7 @@ async def apply(ctx, option = None):
                 mg += "\n```"
                 mg += "\n:grey_question: How to apply:"
                 mg += "\n`-` Once you meet the requirements, copy the template below and answer all the questions."
-                mg += "\n`-` When you finish answering the questions, send them to either Huskie or Saw."
+                mg += "\n`-` When you finish answering the questions, DM the finished version to Huskie."
                 mg += "\n```fix"
                 mg += "\n===================================="
                 mg += "\n```"
@@ -1077,11 +1077,11 @@ async def apply(ctx, option = None):
                 mg += "\n`-` Have you been or are you a staff member on another server? If yes, what role do you have?"
                 mg += "\n`-` Do you know how partnerships work on this server?"
                 await client.send_message(author, mg)
-                msg.add_field(name=":pencil: ", value="The `moderator` template has been sent to your DMs!")
+                msg.add_field(name=":pencil: ", value="The `mod` template has been sent to your DMs!")
             except:
                 msg.add_field(name=error_img, value="I was unable to DM you, please try again once you allowed DMs from me.")
         else:
-            msg.add_field(name=error_img, value="Invalid option given.\nOptions: `moderator`, `pm`.\n \nExample: `v!apply moderator`.")
+            msg.add_field(name=error_img, value="Invalid option given.\nOptions: `mod`, `pm`.\n \nExample: `v!apply mod`.")
     await client.say(embed=msg)
     
 # }invite
