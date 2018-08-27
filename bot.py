@@ -1115,8 +1115,8 @@ async def suggest(ctx, *, args = None):
             await client.send_message(channel, embed=m)
             async for message in client.logs_from(channel):
                 if len(message.reactions) == 0:
-                    await client.add_reaction(message, 'ballot_box_with_check:483536868068163584')
-                    await client.add_reaction(message, 'heavy_multiplication_x:483536905166782464')
+                    await client.add_reaction(message, '\u2611')
+                    await client.add_reaction(message, '\u2716')
                     break
                 else:
                     print("")
