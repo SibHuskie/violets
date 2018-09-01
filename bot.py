@@ -445,6 +445,17 @@ async def mock(ctx, user: discord.Member = None):
         msg.set_image(url="{}".format(random.choice(mocklinks)))
         msg.add_field(name=":small_blue_diamond: EMOTE :small_blue_diamond:", value="<@{}> iS mOcKiNg <@{}>!".format(author.id, user.id))
     await client.say(embed=msg)
+    
+# v!cry
+@client.command(pass_context=True)
+async def cry(ctx):
+    author = ctx.message.author
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    msg.title = ""
+    msg.set_footer(text=footer_text)
+    msg.set_image(url="{}".format(random.choice(crylinks)))
+    msg.add_field(name=":small_blue_diamond: EMOTE :small_blue_diamond:", value="<@{}> got a kiss from <@{}>! owo what's this?".format(user.id, author.id))
+    await client.say(embed=msg)
 
 # v!kiss <user>
 @client.command(pass_context=True)
