@@ -363,9 +363,9 @@ async def on_message(message):
     if message.content.lower().startswith('who is vanessa'):
         await client.send_message(message.channel, "Tbh no one knows... she is mysterious and never speaks... lmao jk she's fucking greaaat!")
         
-    if message.content.lower().startswith('who is panda'):
-        await client.send_message(message.channel, "The best fucking animal. Your and everyone's fav animal. pandas are pure. Oh and <@481268235585716235> BOW TO HER OR DIE")
-     
+    if message.content.lower().startswith('The best fucking animal. Your and everyones fav animal. panda (bear)s are pure. NOT RED PANDA. Oh and <@481268235585716235> BOW TO HER OR DIE.'):
+        await client.send_message(message.channel, "
+                                  
     if message.content.lower().startswith('who is respect'):
         await client.send_message(message.channel, "Listen to this song... just do it... https://www.youtube.com/watch?v=6EEW-9NDM5k")
         
