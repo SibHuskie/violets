@@ -352,56 +352,26 @@ async def on_message(message):
             await client.add_reaction(message, '🌕')
                     
     if message.content.lower().startswith('who is huskie'):
-        await client.send_message(message.channel, "Cough cough... who do you think he is, it clearly says 'Huskie', is that enough proof to show how awesome he is?? ")
-                    
-    if message.content.lower().startswith('who is seven'):
-        await client.send_message(message.channel, "Stacey's one and only. Don't touch him! :stuck_out_tongue:")
-                    
-    if message.content.lower().startswith('who is stacey'):
-        await client.send_message(message.channel, "Claimed by Huskie and Seven. Dun be mean to Stacey or you get a whack on ya head.")
-                    
+        await client.send_message(message.channel, "Dog")
+                                                         
     if message.content.lower().startswith('who is vanessa'):
-        await client.send_message(message.channel, "Tbh no one knows... she is mysterious and never speaks... lmao jk she's fucking greaaat!")
+        await client.send_message(message.channel, "Vanessa is a dog lover, she enjoys long walks on the beach as well as spending her days on Discord. SHE IS ALSO TAKEN SO STAY AWAY")
         
     if message.content.lower().startswith('who is panda'):
         await client.send_message(message.channel, "The best fucking animal. Your and everyone's fav animal. panda (bear)s are pure. **NOT RED PANDA**. Oh and <@481268235585716235> BOW TO HER OR DIE.")
-                                  
-    if message.content.lower().startswith('who is respect'):
-        await client.send_message(message.channel, "Listen to this song... just do it... https://www.youtube.com/watch?v=6EEW-9NDM5k")
-        
-    if message.content.lower().startswith('who is maly'):
-        await client.send_message(message.channel, "Well... so... um... she's Maly..?")
-        
-    if message.content.lower().startswith('who is stefan'):
-        await client.send_message(message.channel, "The most retarded ugly looking ass kid here, but he got memes")
-        
-    if message.content.lower().startswith('who is kelly'):
-        await client.send_message(message.channel, "Thicc")
-                        
+                               
     if message.content.lower().startswith('who is feez'):
         await client.send_message(message.channel, "A ghost that lives in shadows... *that's a bit dark*...")
-                        
-    if message.content.lower().startswith('who is oggy'):
-        await client.send_message(message.channel, "Oggy is a guy who makes weird autistic noices from his mouth, he is a child with bad humor and ofc ugly, he destroys seven at TF2 ofc... gg")      
-                
+                                       
     if message.content.lower().startswith('who is yami'):
-        await client.send_message(message.channel, "Hikari's")
-                        
-    if message.content.lower().startswith('who is hikari'):
-        await client.send_message(message.channel, "Yami's")
-                        
-    if message.content.lower().startswith('who is marcy'):
-        await client.send_message(message.channel, "The useless owner")
+        await client.send_message(message.channel, "The best owner, the kind and thoughtful guy that cares about everybody.")
         
     if message.content.lower().startswith('who is kasper'):
-        await client.send_message(message.channel, "Useless admin")
-        
-    if message.content.lower().startswith('who is worgen'):
-        await client.send_message(message.channel, "The dumb guy with no life 24/7 on discord")
-                                
-    if message.content.lower().startswith('who is tredll'):
-        await client.send_message(message.channel, "Shut up. Shut the fuck up. Shut up! Shut the fuck up! Shut up! Shut up. This what I do, This what I do! This what I do. Shut the fuck up! Shut up! All you don't nobody goin' nowhere. Nobody goin' nowhere. Don't nobody going nowhere. You wanna stop? YOU WANNA STOP?! Stop. So if I get up somebody gon' hold 'im? Nobody touch me. Nobody touch me. Nobody touch me. You got blood on me, right? Got blood on me, right?! You got blood, use a tissue! You got-...You got blood on me? You got blood on me, right? Come on bro. Get your shit. What's up, bruh? Don't touch me. Don't touch me. You wanna fight, right? Don't touch me. Don't touch me. You wanna fight, right? Tell 'em turn the cameras off. Smack up. Don't say my name out on these cameras!")
-        
+        await client.send_message(message.channel, "Useful admin")
+      
+    if message.content.lower().startswith('who is rai'):
+        await client.send_message(message.channel, "A kind wonderful person. She awesome.")
+                                      
     if message.content.lower().startswith('whalecum'):
         b = ["Stop saying that shit.", "just why", "(╯°□°）╯︵ ┻━┻", "boi", "fucking pervert"]
         await client.send_message(message.channel, "{}".format(random.choice(b)))       
