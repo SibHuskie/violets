@@ -367,7 +367,7 @@ async def on_message(message):
         await client.send_message(message.channel, "The best owner, the kind and thoughtful guy that cares about everybody.")
         
     if message.content.lower().startswith('who is kasper'):
-        await client.send_message(message.channel, "Useful admin")
+        await client.send_message(message.channel, "Useless admin, can't do anything right. Most retarded thing I've seen, and I've seen a kid in a wheelchair fall down a deck of stairs.")
       
     if message.content.lower().startswith('who is rai'):
         await client.send_message(message.channel, "A kind wonderful person. She awesome.")
