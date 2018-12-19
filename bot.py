@@ -161,11 +161,11 @@ async def rainbow(ctx):
 async def on_member_join(userName: discord.User):
     m2 = "Welcome to **Violets**, <@{}>! We hope you enjoy your stay and have fun.".format(userName.id)
     m2 += "\nAll information is in the <#426683264682557440> channel, but feel free to ask the staff about anything you want to know."
-    m2 += "\https://gph.is/2lnKhvK"
+    m2 += "\https://giphy.com/gifs/1fmwoUOwMh5koSdpVD"
     m = "\n**Welcome to Violets™ <@{}>! :sparkles:".format(userName.id)
     m += "\nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:"
     m += "\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**"
-    m += "\nhttps://gph.is/2lnKhvK"
+    m += "\nhttps://giphy.com/gifs/1fmwoUOwMh5koSdpVD"
     await client.send_message(client.get_channel("426680388585521163"), "{}".format(m))
     server = client.get_server('426680388002250753')
     await client.send_message(client.get_channel("429874952934785025"), ":large_blue_circle: `{}` joined the server! Now we have {} members.".format(userName, len(server.members)))
