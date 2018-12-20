@@ -164,7 +164,7 @@ async def on_member_join(userName: discord.User):
     m2 += "\https://giphy.com/gifs/1fmwoUOwMh5koSdpVD"
     m = "\n**Welcome to Violets™ <@{}>! :sparkles:".format(userName.id)
     m += "\nPlease make sure to read the rules and if you want to partner, contact any of the staff with the role Partnership Manager :smiley:"
-    m += "\nAlso don't forget to get roles and colors in the <#440562714989821982> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**"
+    m += "\nAlso don't forget to get roles and colors in the <#523865910163800099> and the <#427124007377305611> channels :wink: \nEnjoy your stay :sparkling_heart:**"
     m += "\nhttps://giphy.com/gifs/1fmwoUOwMh5koSdpVD"
     await client.send_message(client.get_channel("426680388585521163"), "{}".format(m))
     server = client.get_server('426680388002250753')
