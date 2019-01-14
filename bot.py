@@ -1726,5 +1726,46 @@ async def give(ctx, user: discord.Member = None, *, args = None):
     else:
         msg.add_field(name=error_img, value="This command can only be used by Administrators, Co-Owners and Owners.")
     await client.say(embed=msg)
+    
+# }smsg <server ID> <text>
+@client.command(pass_context=True)
+async def smsg(ctx, target = None, *, args = None):
+    msg = discord.Embed(colour=0x51cbdb, description= "")
+    embed.set_footer(text=footer_text)
+    if len(started) == 0:
+        embed.description = ":arrows_counterclockwise: The bot is restarting. Please try again in a few seconds."
+        await client.say(embed=embed)
+    elif '}' not in str(ctx.message.content):
+        if ctx.message.author.id in mods:
+            if target == None or args == None:
+                embed.description = ":arrows_counterclockwise: Not all arguments were given."
+                await client.say(embed=embed)
+            elif len(str(args)) > 250:
+                embed.description = "The text cannot be longer than 250 characters."
+                await client.say(embed=embed)
+            else:
+                try:
+                    server = client.get_server(target)
+                    try:
+                        embed.description = ":sparkles: **Hello there!**\n**You have just received a new message from one of the bot's staff.**\n\n:thought_balloon:  `Message:` {}\n:bust_in_silhouette: `From:` {} ### {}".format(args, ctx.message.author, ctx.message.author.id)
+                        await client.send_message(server.owner, embed=embed)
+                        embed.description = "Sent message to **{}** ( `{}` )'s owner.".format(server.name, target)
+                        await client.say(embed=embed)
+                        m = splitter
+                        m += "\n **__Server Message__** "
+                        m += "\n`Sent to:` {} ### {}".format(server.name, server.id)
+                        m += "\n`Sent by:` {} ## {}".format(ctx.message.author, ctx.message.author.id)
+                        m += "\n`Message:` {}".format(args)
+                        await client.send_message(client.get_channel(log_chnl), m)
+                    except:
+                        embed.description = "Unable to DM **{}** ( `{}` )'s owner.".format(server.owner, target)
+                        await client.say(embed=embed)
+                except:
+                    embed.description = "Server not found."
+                    await client.say(embed=embed)
+        else:
+            embed.description =  "This command can only be used by the bot's staff."
+            await client.say(embed=embed)
+
 ##################################
 client.run(os.environ['BOT_TOKEN'])
