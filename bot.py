@@ -1735,7 +1735,7 @@ async def smsg(ctx, target = None, *, args = None):
     if len(started) == 0:
         embed.description = ":arrows_counterclockwise: The bot is restarting. Please try again in a few seconds."
         await client.say(embed=embed)
-    elif '}' not in str(ctx.message.content):
+    elif 'v!' not in str(ctx.message.content):
         if ctx.message.author.id in mods:
             if target == None or args == None:
                 embed.description = ":arrows_counterclockwise: Not all arguments were given."
